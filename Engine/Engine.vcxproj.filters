@@ -61,6 +61,9 @@
     <ClInclude Include="Engine.h">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleSceneManager.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleRender.cpp">
@@ -92,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleSceneManager.cpp">
+      <Filter>Core Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

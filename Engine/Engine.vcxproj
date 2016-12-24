@@ -90,6 +90,7 @@
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="Notifiable.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="ModuleSceneManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />
@@ -102,6 +103,7 @@
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
+    <ClCompile Include="ModuleSceneManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
