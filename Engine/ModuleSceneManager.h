@@ -2,6 +2,8 @@
 #define __MODULESCENEMANAGER_H__
 
 #include "Module.h"
+class Scene;
+
 class ModuleSceneManager :
 	public Module
 {
@@ -9,6 +11,7 @@ public:
 	ModuleSceneManager();
 	~ModuleSceneManager();
 
+	void SetScene(Scene* scene);
 
 	update_status PreUpdate() override;
 	update_status Update() override;
@@ -16,7 +19,7 @@ public:
 	bool CleanUp() override;
 
 private:
-	// Scene* _currentScene;
+	Scene* _currentScene = nullptr;
 
 };
 

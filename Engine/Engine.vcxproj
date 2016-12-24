@@ -91,6 +91,7 @@
     <ClInclude Include="Notifiable.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="ModuleSceneManager.h" />
+    <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />
