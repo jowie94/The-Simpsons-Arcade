@@ -2,7 +2,6 @@
 #define __MODULEFADETOBLACK_H__
 
 #include "Module.h"
-#include "Globals.h"
 
 class ModuleFadeToBlack : public Module
 {

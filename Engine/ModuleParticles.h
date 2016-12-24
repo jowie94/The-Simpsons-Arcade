@@ -2,7 +2,6 @@
 #define __MODULEPARTICLES_H__
 
 #include<list>
-#include "Globals.h"
 #include "Module.h"
 #include "Animation.h"
 #include "Point.h"

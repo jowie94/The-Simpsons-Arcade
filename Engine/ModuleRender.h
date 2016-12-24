@@ -2,7 +2,6 @@
 #define __MODULERENDER_H__
 
 #include "Module.h"
-#include "Globals.h"
 
 struct SDL_Texture;
 struct SDL_Renderer;
