@@ -1,12 +1,12 @@
 #ifndef __SCENE_H__
 #define __SCENE_H__
 
-#include "Globals.h"
+#include "Module.h"
 
 class Scene : public Module
 {
 public:
-	Scene() {}
+	Scene(bool active) : Module(active) {}
 	virtual ~Scene() {}
 
 };

@@ -12,6 +12,12 @@ ModuleSceneManager::~ModuleSceneManager()
 {
 }
 
+void ModuleSceneManager::SetInitialScene(Scene* initial)
+{
+	assert(_currentScene == nullptr);
+	_currentScene = initial;
+}
+
 void ModuleSceneManager::SetScene(Scene* scene)
 {
 	assert(scene != nullptr);
@@ -24,6 +30,11 @@ void ModuleSceneManager::SetScene(Scene* scene)
 
 	_currentScene = scene;
 	_currentScene->Enable();
+}
+
+bool ModuleSceneManager::Start()
+{
+	return _currentScene ? (_currentScene->IsEnabled() ? _currentScene->Start() : _currentScene->Enable()) : true;
 }
 
 update_status ModuleSceneManager::PreUpdate()

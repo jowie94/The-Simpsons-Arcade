@@ -11,8 +11,10 @@ public:
 	ModuleSceneManager();
 	~ModuleSceneManager();
 
+	void SetInitialScene(Scene* initial);
 	void SetScene(Scene* scene);
 
+	bool Start() override;
 	update_status PreUpdate() override;
 	update_status Update() override;
 	update_status PostUpdate() override;
