@@ -67,6 +67,7 @@
     <ClInclude Include="Scene.h">
       <Filter>Game Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleRender.cpp">
