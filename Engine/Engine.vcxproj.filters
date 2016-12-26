@@ -70,7 +70,9 @@
     <ClInclude Include="Entity.h">
       <Filter>Game Modules</Filter>
     </ClInclude>
-    <ClInclude Include="BaseFactory.h" />
+    <ClInclude Include="BaseFactory.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleRender.cpp">
