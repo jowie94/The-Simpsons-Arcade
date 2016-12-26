@@ -2,6 +2,8 @@
 #define __MODULESCENEMANAGER_H__
 
 #include "Module.h"
+#include "Entity.h"
+#include "BaseFactory.h"
 class Scene;
 
 class ModuleSceneManager :
@@ -13,6 +15,8 @@ public:
 
 	void SetInitialScene(Scene* initial);
 	void SetScene(Scene* scene);
+	void SetEntityFactory(BaseFactory<Entity>* factory);
+	BaseFactory<Entity>* GetEntityFactory() const;
 
 	bool Start() override;
 	update_status PreUpdate() override;
@@ -22,6 +26,7 @@ public:
 
 private:
 	Scene* _currentScene = nullptr;
+	BaseFactory<Entity>* entity_factory = nullptr;
 
 };
 

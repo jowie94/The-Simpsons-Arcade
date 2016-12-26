@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="FirstScene.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="FirstScene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

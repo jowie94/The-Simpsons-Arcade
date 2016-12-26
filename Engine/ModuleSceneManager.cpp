@@ -32,6 +32,16 @@ void ModuleSceneManager::SetScene(Scene* scene)
 	_currentScene->Enable();
 }
 
+void ModuleSceneManager::SetEntityFactory(BaseFactory<Entity>* factory)
+{
+	entity_factory = factory;
+}
+
+BaseFactory<Entity>* ModuleSceneManager::GetEntityFactory() const
+{
+	return entity_factory;
+}
+
 bool ModuleSceneManager::Start()
 {
 	return _currentScene ? (_currentScene->IsEnabled() ? _currentScene->Start() : _currentScene->Enable()) : true;

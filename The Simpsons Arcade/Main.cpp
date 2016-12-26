@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "FirstScene.h"
+#include "EntityFactory.h"
 
 int main(int argc, char ** argv)
 {
@@ -9,6 +10,7 @@ int main(int argc, char ** argv)
 	Engine* App = new Engine();
 
 	App->scene_manager->SetInitialScene(new FirstScene(false));
+	App->scene_manager->SetEntityFactory(new EntityFactory());
 
 	int main_return = App->Loop();
 
