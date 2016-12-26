@@ -7,9 +7,9 @@ class Entity
 {
 public:
 
-	Entity() : parent(nullptr) {}
+	Entity() : Parent(nullptr) {}
 
-	Entity(Entity* parent) : parent(parent) {}
+	Entity(Entity* parent) : Parent(parent) {}
 
 	virtual ~Entity() {}
 
@@ -22,21 +22,21 @@ public:
 
 	virtual bool Start(bool active)
 	{
-		this->active = active;
+		this->_active = active;
 		return true;
 	}
 
 	bool Enable()
 	{
-		if (!active)
-			return active = Start();
+		if (!_active)
+			return _active = Start();
 		return true;
 	}
 
 	bool Disable()
 	{
-		if (active)
-			return active = !CleanUp();
+		if (_active)
+			return _active = !CleanUp();
 		return false;
 	}
 
@@ -57,9 +57,11 @@ public:
 		return true;
 	}
 
+public:
+	Entity* Parent;
+
 private:
-	bool active = true;
-	Entity* parent;
+	bool _active = true;
 };
 
 #endif // __ENTITY_H__
