@@ -23,22 +23,25 @@ public:
 
 	update_status PreUpdate() override
 	{
-		for (Entity* entity : _entities)
-			entity->PreUpdate();
+		for (std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->PreUpdate();
 		return UPDATE_CONTINUE;
 	}
 
 	update_status Update() override
 	{
-		for (Entity* entity : _entities)
-			entity->Update();
+		for (std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->Update();
 		return UPDATE_CONTINUE;
 	}
 
 	update_status PostUpdate() override
 	{
-		for (Entity* entity : _entities)
-			entity->PostUpdate();
+		for (std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->PostUpdate();
 		return UPDATE_CONTINUE;
 	}
 

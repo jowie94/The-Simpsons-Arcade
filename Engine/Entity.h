@@ -40,6 +40,11 @@ public:
 		return false;
 	}
 
+	bool IsEnabled()
+	{
+		return _active;
+	}
+
 	virtual void PreUpdate() {}
 
 	virtual void Update() {}
