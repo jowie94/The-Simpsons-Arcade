@@ -2,6 +2,7 @@
 #define __ENTITY_H__
 
 #include "ModuleCollision.h"
+#include "Point3.h"
 
 class Entity
 {
@@ -17,12 +18,6 @@ public:
 
 	virtual bool Start()
 	{
-		return true;
-	}
-
-	virtual bool Start(bool active)
-	{
-		this->_active = active;
 		return true;
 	}
 
@@ -57,13 +52,14 @@ public:
 	}
 
 	// Callbacks
-	virtual bool OnCollision(Collider origin, Collider other)
+	virtual bool OnCollision(Collider& origin, Collider& other)
 	{
 		return true;
 	}
 
 public:
 	Entity* Parent;
+	iPoint3 _position;
 
 private:
 	bool _active = true;
