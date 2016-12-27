@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __ENTITYFACTORY_H__
+#define __ENTITYFACTORY_H__
+
 #include "BaseFactory.h"
 #include "Entity.h"
 
@@ -18,3 +20,4 @@ public:
 	Entity* GetObject(int id) const override;
 };
 
+#endif // __ENTITYFACTORY_H__
