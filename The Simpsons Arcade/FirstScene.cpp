@@ -31,8 +31,8 @@ bool FirstScene::Start()
 update_status FirstScene::Update()
 {
 	// Draw everything --------------------------------------
-	App->renderer->Blit(_background, 0, 0, &_walls);
-	App->renderer->Blit(_background, 0, 0, &_floor);
+	App->renderer->BlitBackground(_background, 0, 0, &_walls);
+	App->renderer->BlitBackground(_background, 0, 0, &_floor);
 
 	return Scene::Update();
 }

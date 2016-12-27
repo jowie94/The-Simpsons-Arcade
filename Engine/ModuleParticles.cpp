@@ -76,7 +76,8 @@ update_status ModuleParticles::Update()
 		}
 		else 
 		{
-			App->renderer->Blit(graphics, p->x, p->y, &p->animation.GetCurrentFrame());
+			// TODO: Draw particles with z index
+			App->renderer->BlitBackground(graphics, p->x, p->y, &p->animation.GetCurrentFrame());
 			++it;
 		}
 	}

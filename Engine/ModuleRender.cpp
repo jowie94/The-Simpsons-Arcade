@@ -64,7 +64,37 @@ update_status ModuleRender::Update()
 	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		App->renderer->camera.x -= speed;
 
-	return UPDATE_CONTINUE;
+	bool ret = true;
+
+	while (!_background.empty() && ret)
+	{
+		RenderData* data = _background.front();
+		if (SDL_RenderCopy(renderer, data->texture, data->section, data->rect) != 0)
+		{
+			LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
+			ret = false;
+		}
+
+		RELEASE(data->rect);
+		RELEASE(data);
+		_background.pop();
+	}
+
+	while (!_foreground.empty() && ret)
+	{
+		RenderData* data = _foreground.top().second;
+		if (SDL_RenderCopy(renderer, data->texture, data->section, data->rect) != 0)
+		{
+			LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
+			ret = false;
+		}
+
+		RELEASE(data->rect);
+		RELEASE(data);
+		_foreground.pop();
+	}
+
+	return ret ? UPDATE_CONTINUE : UPDATE_ERROR;
 }
 
 update_status ModuleRender::PostUpdate()
@@ -78,6 +108,22 @@ bool ModuleRender::CleanUp()
 {
 	LOG("Destroying renderer");
 
+	while (!_background.empty())
+	{
+		RenderData* data = _background.front();
+		RELEASE(data->rect);
+		RELEASE(data);
+		_background.pop();
+	}
+
+	while (!_foreground.empty())
+	{
+		RenderData* data = _foreground.top().second;
+		RELEASE(data->rect);
+		RELEASE(data);
+		_foreground.pop();
+	}
+
 	//Destroy window
 	if(renderer != nullptr)
 	{
@@ -88,31 +134,52 @@ bool ModuleRender::CleanUp()
 }
 
 // Blit to screen
-bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed)
+bool ModuleRender::BlitBackground(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed)
 {
 	bool ret = true;
-	SDL_Rect rect;
-	rect.x = (int)(camera.x * speed) + x * SCREEN_SIZE;
-	rect.y = (int)(camera.y * speed) + y * SCREEN_SIZE;
+	SDL_Rect* rect = new SDL_Rect;
+	rect->x = (int)(camera.x * speed) + x * SCREEN_SIZE;
+	rect->y = (int)(camera.y * speed) + y * SCREEN_SIZE;
 
 	if(section != NULL)
 	{
-		rect.w = section->w;
-		rect.h = section->h;
+		rect->w = section->w;
+		rect->h = section->h;
 	}
 	else
 	{
-		SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
+		SDL_QueryTexture(texture, NULL, NULL, &rect->w, &rect->h);
 	}
 
-	rect.w *= SCREEN_SIZE;
-	rect.h *= SCREEN_SIZE;
+	rect->w *= SCREEN_SIZE;
+	rect->h *= SCREEN_SIZE;
 
-	if(SDL_RenderCopy(renderer, texture, section, &rect) != 0)
+	_background.push(new RenderData({ texture, section, rect }));
+
+	return ret;
+}
+
+bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed)
+{
+	bool ret = true;
+	SDL_Rect* rect = new SDL_Rect;
+	rect->x = (int)(camera.x * speed) + x * SCREEN_SIZE;
+	rect->y = (int)(camera.y * speed) + y * SCREEN_SIZE; // TODO: Add z to y
+
+	if (section != NULL)
 	{
-		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
-		ret = false;
+		rect->w = section->w;
+		rect->h = section->h;
 	}
+	else
+	{
+		SDL_QueryTexture(texture, NULL, NULL, &rect->w, &rect->h);
+	}
+
+	rect->w *= SCREEN_SIZE;
+	rect->h *= SCREEN_SIZE;
+
+	_foreground.emplace(z, new RenderData({ texture, section, rect }));
 
 	return ret;
 }
