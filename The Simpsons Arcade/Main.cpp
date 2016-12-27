@@ -10,10 +10,12 @@ int main(int argc, char ** argv)
 	Engine* App = new Engine();
 
 	App->scene_manager->SetInitialScene(new FirstScene(false));
-	App->scene_manager->SetEntityFactory(new EntityFactory());
+	EntityFactory* factory = new EntityFactory();
+	App->scene_manager->SetEntityFactory(factory);
 
 	int main_return = App->Loop();
 
+	RELEASE(factory);
 	RELEASE(App);
 	LOG("Bye :)\n");
 	return main_return;
