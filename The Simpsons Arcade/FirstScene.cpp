@@ -28,28 +28,18 @@ bool FirstScene::Start()
 	return true;
 }
 
-update_status FirstScene::PreUpdate()
-{
-	return UPDATE_CONTINUE;
-}
-
 update_status FirstScene::Update()
 {
 	// Draw everything --------------------------------------
 	App->renderer->Blit(_background, 0, 0, &_walls);
 	App->renderer->Blit(_background, 0, 0, &_floor);
 
-	return UPDATE_CONTINUE;
-}
-
-update_status FirstScene::PostUpdate()
-{
-	return UPDATE_CONTINUE;
+	return Scene::Update();
 }
 
 bool FirstScene::CleanUp()
 {
 	App->textures->Unload(_background);
 
-	return true;
+	return Scene::CleanUp();
 }
