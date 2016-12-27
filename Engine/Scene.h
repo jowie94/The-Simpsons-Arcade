@@ -20,6 +20,21 @@ public:
 		_entities.remove(entity);
 	}
 
+	void AddPlayer(Entity* player)
+	{
+		player->_position.y = 100; // TODO: Calculate correct position
+		AddEntity(player);
+	}
+
+	void RemovePlayer(Entity* player)
+	{
+		RemoveEntity(player);
+	}
+
+	bool Start() override
+	{
+		return StartAllEntities();
+	}
 
 	update_status PreUpdate() override
 	{
@@ -59,6 +74,20 @@ public:
 
 protected:
 	std::list<Entity*> _entities;
+
+private:
+	bool StartAllEntities() const
+	{
+		bool ret = true;
+
+		for (std::list<Entity*>::const_iterator it = _entities.begin(); it != _entities.end() && ret; ++it)
+		{
+			if ((*it)->IsEnabled())
+				(*it)->Start();
+		}
+
+		return ret;
+	}
 
 };
 

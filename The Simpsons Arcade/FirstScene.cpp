@@ -2,6 +2,8 @@
 #include "Engine.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
+#include "EntityFactory.h"
+#include "Player.h"
 
 
 FirstScene::FirstScene(bool active) : Scene(active)
@@ -25,7 +27,10 @@ bool FirstScene::Start()
 	_walls.w =_floor.w = 1663;
 	_walls.h = _floor.h = 255;
 
-	return true;
+	Player* homer = App->scene_manager->GetEntityFactory()->GetObject<Player>(EntityFactory::HOMER);
+	AddPlayer(homer);
+
+	return Scene::Start();
 }
 
 update_status FirstScene::Update()

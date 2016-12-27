@@ -73,6 +73,7 @@
     <ClInclude Include="BaseFactory.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Point3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleRender.cpp">
