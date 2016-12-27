@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="StateMachine">
+      <UniqueIdentifier>{3de2553f-951a-4f52-9019-7ccf574e4f1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StateMachine\HomerFSM">
+      <UniqueIdentifier>{8805c24e-a75e-4acd-8b8c-0527093e3c7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -30,6 +36,9 @@
     <ClCompile Include="Homer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HomerIdle.cpp">
+      <Filter>StateMachine\HomerFSM</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
@@ -43,6 +52,12 @@
     </ClInclude>
     <ClInclude Include="Homer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="HomerIdle.h">
+      <Filter>StateMachine\HomerFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

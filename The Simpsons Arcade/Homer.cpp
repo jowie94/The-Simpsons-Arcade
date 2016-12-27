@@ -1,6 +1,7 @@
 #include "Homer.h"
 #include "Engine.h"
 #include "ModuleTextures.h"
+#include "HomerIdle.h"
 
 
 Homer::Homer()
@@ -26,11 +27,11 @@ bool Homer::Start()
 	idle.frames.push_back({ 42, 6, 34, 64 });
 	idle.frames.push_back({ 88, 6, 34, 64 });
 	idle.frames.push_back({ 139, 6, 34, 64 });
-	idle.speed = 0.1;
+	idle.speed = 0.1f;
 
 	AddAnimation("idle", idle);
 
-	SetAnimation("idle");
+	SwitchState(new HomerFSM::Idle);
 
 	return true;
 }

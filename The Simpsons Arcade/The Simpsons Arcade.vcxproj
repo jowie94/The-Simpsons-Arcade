@@ -22,6 +22,7 @@
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="FirstScene.cpp" />
     <ClCompile Include="Homer.cpp" />
+    <ClCompile Include="HomerIdle.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
@@ -29,7 +30,9 @@
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="FirstScene.h" />
     <ClInclude Include="Homer.h" />
+    <ClInclude Include="HomerIdle.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="State.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E94B55C4-191C-497F-B613-9A1EB69A5A86}</ProjectGuid>

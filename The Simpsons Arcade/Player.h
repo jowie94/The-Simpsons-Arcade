@@ -5,6 +5,7 @@
 #include "Animation.h"
 #include <map>
 
+class State;
 struct SDL_Texture;
 
 class Player :
@@ -25,14 +26,17 @@ public:
 
 	void AddAnimation(const string& name, const Animation& animation);
 	bool SetAnimation(const string& name);
+	void SwitchState(State* newState);
 
 protected:
-	SDL_Texture* graphics;
+	SDL_Texture* graphics = nullptr;
 	Animation _current_animation;
 	// TODO: State machine goes here
 
 private:
 	map<string, Animation> _animations;
+	State* _state = nullptr;
+
 };
 
 #endif // __PLAYER_H__

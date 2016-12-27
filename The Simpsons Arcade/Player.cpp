@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "Engine.h"
 #include "ModuleRender.h"
+#include <cassert>
+#include "State.h"
 
 
 Player::Player()
@@ -18,8 +20,13 @@ void Player::PreUpdate()
 
 void Player::Update()
 {
+	State* newState = _state->Update(*this);
+	
+	if (newState)
+		SwitchState(newState);
+
 	SDL_Rect* rect = &_current_animation.GetCurrentFrame();
-	App->renderer->Blit(graphics, _position.x + (rect->w / 2), _position.y, _position.z, rect);
+	App->renderer->Blit(graphics, _position.x, _position.y, _position.z, rect);
 }
 
 void Player::PostUpdate()
@@ -29,6 +36,8 @@ void Player::PostUpdate()
 bool Player::CleanUp()
 {
 	_animations.clear();
+	RELEASE(_state);
+
 	return true;
 }
 
@@ -39,6 +48,10 @@ bool Player::OnCollision(Collider& origin, Collider& other)
 
 void Player::HandleInput()
 {
+	State* newState = _state->HandleInput(*this);
+	
+	if (newState)
+		SwitchState(newState);
 }
 
 void Player::AddAnimation(const string& name, const Animation& animation)
@@ -58,4 +71,13 @@ bool Player::SetAnimation(const string& name)
 		LOG("Animation %s does not exist!", name);
 
 	return ret;
+}
+
+void Player::SwitchState(State* newState)
+{
+	assert(newState != nullptr);
+
+	RELEASE(_state);
+	_state = newState;
+	_state->Enter(*this);
 }
