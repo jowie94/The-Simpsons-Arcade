@@ -30,14 +30,20 @@ public:
 
 	bool BlitBackground(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed = 1.0f);
 	bool Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f);
+	bool RelativeBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f);
 	bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
 
 public:
 	SDL_Renderer* renderer = nullptr;
 	SDL_Rect camera;
+
+	int RenderingAngle = 0;
 	
+private:
 	std::queue<RenderData*> _background;
 	std::priority_queue<std::pair<int, RenderData*>> _foreground;
+
+	int _background_height = 0;
 };
 
 #endif // __MODULERENDER_H__

@@ -151,6 +151,9 @@ bool ModuleRender::BlitBackground(SDL_Texture* texture, int x, int y, SDL_Rect* 
 		SDL_QueryTexture(texture, NULL, NULL, &rect->w, &rect->h);
 	}
 
+	if (rect->w > _background_height)
+		_background_height = rect->h;
+
 	rect->w *= SCREEN_SIZE;
 	rect->h *= SCREEN_SIZE;
 
@@ -164,6 +167,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* sec
 	bool ret = true;
 	SDL_Rect* rect = new SDL_Rect;
 	rect->x = (int)(camera.x * speed) + x * SCREEN_SIZE;
+	y += sin(RenderingAngle) * z;
 	rect->y = (int)(camera.y * speed) + y * SCREEN_SIZE; // TODO: Add z to y
 
 	if (section != NULL)
@@ -182,6 +186,15 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* sec
 	_foreground.emplace(z, new RenderData({ texture, section, rect }));
 
 	return ret;
+}
+
+bool ModuleRender::RelativeBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed)
+{
+	if (_background_height)
+		y = _background_height - y;
+	z *= -1;
+
+	return Blit(texture, x, y, z, section, speed);
 }
 
 bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
