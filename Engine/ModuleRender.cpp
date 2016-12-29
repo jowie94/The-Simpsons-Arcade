@@ -4,6 +4,9 @@
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
+#include <cmath>
+
+#define DEG2RAD(deg) (deg * M_PI / 180)
 
 ModuleRender::ModuleRender()
 {
@@ -167,7 +170,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* sec
 	bool ret = true;
 	SDL_Rect* rect = new SDL_Rect;
 	rect->x = (int)(camera.x * speed) + x * SCREEN_SIZE;
-	y += sin(RenderingAngle) * z;
+	y += cos(DEG2RAD(RenderingAngle)) * z;
 	rect->y = (int)(camera.y * speed) + y * SCREEN_SIZE; // TODO: Add z to y
 
 	if (section != NULL)
