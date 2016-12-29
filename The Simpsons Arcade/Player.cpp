@@ -3,6 +3,7 @@
 #include "ModuleRender.h"
 #include <cassert>
 #include "State.h"
+#include "ModuleInput.h"
 
 
 Player::Player()
@@ -16,6 +17,10 @@ Player::~Player()
 
 void Player::PreUpdate()
 {
+	State* newState = _state->HandleInput(*this);
+
+	if (newState)
+		SwitchState(newState);
 }
 
 void Player::Update()

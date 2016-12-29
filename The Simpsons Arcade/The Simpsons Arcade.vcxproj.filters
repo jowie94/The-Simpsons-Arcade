@@ -39,6 +39,9 @@
     <ClCompile Include="HomerIdle.cpp">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
+    <ClCompile Include="HomerWalking.cpp">
+      <Filter>StateMachine\HomerFSM</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
@@ -57,6 +60,9 @@
       <Filter>StateMachine</Filter>
     </ClInclude>
     <ClInclude Include="HomerIdle.h">
+      <Filter>StateMachine\HomerFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="HomerWalking.h">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClInclude>
   </ItemGroup>

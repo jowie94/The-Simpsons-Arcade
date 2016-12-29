@@ -23,6 +23,7 @@
     <ClCompile Include="FirstScene.cpp" />
     <ClCompile Include="Homer.cpp" />
     <ClCompile Include="HomerIdle.cpp" />
+    <ClCompile Include="HomerWalking.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
@@ -31,6 +32,7 @@
     <ClInclude Include="FirstScene.h" />
     <ClInclude Include="Homer.h" />
     <ClInclude Include="HomerIdle.h" />
+    <ClInclude Include="HomerWalking.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="State.h" />
   </ItemGroup>
