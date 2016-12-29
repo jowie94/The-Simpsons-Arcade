@@ -125,6 +125,26 @@ update_status ModuleInput::PreUpdate()
 	if(GetWindowEvent(EventWindow::WE_QUIT) == true || GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		return UPDATE_STOP;
 
+	memset(&_axis, 0, sizeof(_axis)); // Clear input vector
+
+	if (keys[SDL_SCANCODE_A])
+	{
+		_axis[0][X] -= 1;
+	}
+	if (keys[SDL_SCANCODE_D])
+	{
+		_axis[0][X] += 1;
+	}
+
+	if (keys[SDL_SCANCODE_W])
+	{
+		_axis[0][Y] += 1;
+	}
+	if (keys[SDL_SCANCODE_S])
+	{
+		_axis[0][Y] -= 1;
+	}
+
 	return UPDATE_CONTINUE;
 }
 
