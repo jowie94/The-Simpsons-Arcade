@@ -31,7 +31,6 @@ public:
 protected:
 	SDL_Texture* graphics = nullptr;
 	Animation _current_animation;
-	// TODO: State machine goes here
 
 private:
 	map<string, Animation> _animations;

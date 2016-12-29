@@ -59,7 +59,7 @@ public:
 
 public:
 	Entity* Parent;
-	iPoint3 _position;
+	iPoint3 Position;
 
 private:
 	bool _active = true;

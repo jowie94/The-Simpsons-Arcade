@@ -22,7 +22,7 @@ public:
 
 	void AddPlayer(Entity* player)
 	{
-		player->_position.y = 100; // TODO: Calculate correct position
+		//player->Position.y = 100; // TODO: Calculate correct position
 		AddEntity(player);
 	}
 

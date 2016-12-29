@@ -26,7 +26,7 @@ void Player::Update()
 		SwitchState(newState);
 
 	SDL_Rect* rect = &_current_animation.GetCurrentFrame();
-	App->renderer->Blit(graphics, _position.x, _position.y, _position.z, rect);
+	App->renderer->RelativeBlit(graphics, Position.x, Position.y + rect->h, Position.z, rect);
 }
 
 void Player::PostUpdate()
