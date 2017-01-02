@@ -6,7 +6,7 @@
 #include "SDL/include/SDL.h"
 #include <cmath>
 
-#define DEG2RAD(deg) (deg * M_PI / 180)
+#define DEG2RAD(deg) (deg * M_PI / 180.0)
 
 ModuleRender::ModuleRender()
 {
