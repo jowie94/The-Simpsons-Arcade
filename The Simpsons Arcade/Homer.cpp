@@ -18,7 +18,7 @@ bool Homer::Start()
 	SDL_Color key = { 89, 253, 66, 0 };
 	graphics = App->textures->Load("Simpsons/homer.png", &key);
 
-	Animation idle;
+	RectAnimation idle;
 	idle.frames.push_back({ 0, 5, 34, 64 });
 	idle.frames.push_back({ 0, 5, 34, 64 });
 	idle.frames.push_back({ 0, 5, 34, 64 });

@@ -5,12 +5,13 @@
 
 using namespace std;
 
+template<typename T>
 class Animation
 {
 public:
 	bool loop = true;
 	float speed = 1.0f;
-	vector<SDL_Rect> frames;
+	vector<T> frames;
 
 private:
 	float current_frame = 0.0f;
@@ -23,7 +24,7 @@ public:
 	Animation(const Animation& anim) : loop(anim.loop), speed(anim.speed), frames(anim.frames)
 	{}
 
-	SDL_Rect& GetCurrentFrame()
+	T& GetCurrentFrame()
 	{
 		float last_frame = (float) frames.size();
 
@@ -47,5 +48,8 @@ public:
 		current_frame = 0.0f;
 	}
 };
+
+typedef Animation<SDL_Rect> RectAnimation;
+//typedef Animation<Sprite> SpriteAnimation;
 
 #endif // __ANIMATION_H__

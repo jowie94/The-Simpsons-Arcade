@@ -13,7 +13,7 @@ struct Particle
 {
 	bool to_delete = false;
 
-	Animation animation;
+	RectAnimation animation;
 	Collider* collider = nullptr;
 	float speed;
 	int life_time;

@@ -59,7 +59,7 @@ void Player::HandleInput()
 		SwitchState(newState);
 }
 
-void Player::AddAnimation(const string& name, const Animation& animation)
+void Player::AddAnimation(const string& name, const RectAnimation& animation)
 {
 	_animations[name] = animation;
 }
