@@ -45,6 +45,9 @@
     <ClCompile Include="HomerAttack.cpp">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
+    <ClCompile Include="HomerJump.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="HomerAttack.h">
       <Filter>StateMachine\HomerFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="HomerJump.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

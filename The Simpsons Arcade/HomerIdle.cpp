@@ -4,6 +4,7 @@
 #include "Engine.h"
 #include "HomerWalking.h"
 #include "HomerAttack.h"
+#include "HomerJump.h"
 
 HomerFSM ::Idle::Idle()
 {
@@ -25,6 +26,8 @@ State* HomerFSM::Idle::HandleInput(Player& player)
 
 	if (App->input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
 		return new Attack;
+	if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
+		return new Jump;
 
 	if (x != 0 || y != 0)
 		return new Walking;

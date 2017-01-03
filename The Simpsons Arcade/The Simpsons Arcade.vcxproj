@@ -24,6 +24,7 @@
     <ClCompile Include="Homer.cpp" />
     <ClCompile Include="HomerAttack.cpp" />
     <ClCompile Include="HomerIdle.cpp" />
+    <ClCompile Include="HomerJump.cpp" />
     <ClCompile Include="HomerWalking.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -34,6 +35,7 @@
     <ClInclude Include="Homer.h" />
     <ClInclude Include="HomerAttack.h" />
     <ClInclude Include="HomerIdle.h" />
+    <ClInclude Include="HomerJump.h" />
     <ClInclude Include="HomerWalking.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="State.h" />

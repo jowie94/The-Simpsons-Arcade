@@ -77,6 +77,18 @@ bool Homer::Start()
 
 	AddAnimation("attack2", attack2);
 
+	SpriteAnimation jump_up;
+	jump_up.frames.push_back({ { 8, 239, 41, 64 }, iPoint(10, 64) });
+	jump_up.speed = 0.1f;
+
+	AddAnimation("jump_up", jump_up);
+
+	SpriteAnimation falling;
+	falling.frames.push_back({ { 60, 237, 44, 66 }, iPoint(16, 65) });
+	falling.speed = 0.1f;
+
+	AddAnimation("falling", falling);
+
 	SwitchState(new HomerFSM::Idle);
 
 	return true;
