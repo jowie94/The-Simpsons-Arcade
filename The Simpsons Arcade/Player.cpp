@@ -30,8 +30,8 @@ void Player::Update()
 	if (newState)
 		SwitchState(newState);
 
-	SDL_Rect* rect = &_current_animation.GetCurrentFrame();
-	App->renderer->RelativeBlit(graphics, Position.x, Position.y + rect->h, Position.z, rect);
+	Sprite* rect = &_current_animation.GetCurrentFrame();
+	App->renderer->RelativeBlit(graphics, Position.x - rect->Pivot.x, Position.y + rect->Pivot.y, Position.z, &rect->Rect);
 }
 
 void Player::PostUpdate()
@@ -59,7 +59,7 @@ void Player::HandleInput()
 		SwitchState(newState);
 }
 
-void Player::AddAnimation(const string& name, const RectAnimation& animation)
+void Player::AddAnimation(const string& name, const SpriteAnimation& animation)
 {
 	_animations[name] = animation;
 }

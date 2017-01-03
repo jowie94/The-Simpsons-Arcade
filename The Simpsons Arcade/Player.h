@@ -24,16 +24,16 @@ public:
 
 	void HandleInput();
 
-	void AddAnimation(const string& name, const RectAnimation& animation);
+	void AddAnimation(const string& name, const SpriteAnimation& animation);
 	bool SetAnimation(const string& name);
 	void SwitchState(State* newState);
 
 protected:
 	SDL_Texture* graphics = nullptr;
-	RectAnimation _current_animation;
+	SpriteAnimation _current_animation;
 
 private:
-	map<string, RectAnimation> _animations;
+	map<string, SpriteAnimation> _animations;
 	State* _state = nullptr;
 
 };
