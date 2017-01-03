@@ -76,6 +76,9 @@
     <ClInclude Include="Point3.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleRender.cpp">

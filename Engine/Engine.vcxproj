@@ -95,6 +95,7 @@
     <ClInclude Include="ModuleSceneManager.h" />
     <ClInclude Include="Point3.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Sprite.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />

@@ -2,6 +2,7 @@
 #define __ANIMATION_H__
 
 #include <vector>
+#include "Sprite.h"
 
 using namespace std;
 
@@ -50,6 +51,6 @@ public:
 };
 
 typedef Animation<SDL_Rect> RectAnimation;
-//typedef Animation<Sprite> SpriteAnimation;
+typedef Animation<Sprite> SpriteAnimation;
 
 #endif // __ANIMATION_H__
