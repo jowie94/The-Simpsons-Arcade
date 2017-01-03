@@ -22,6 +22,7 @@
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="FirstScene.cpp" />
     <ClCompile Include="Homer.cpp" />
+    <ClCompile Include="HomerAttack.cpp" />
     <ClCompile Include="HomerIdle.cpp" />
     <ClCompile Include="HomerWalking.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -31,6 +32,7 @@
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="FirstScene.h" />
     <ClInclude Include="Homer.h" />
+    <ClInclude Include="HomerAttack.h" />
     <ClInclude Include="HomerIdle.h" />
     <ClInclude Include="HomerWalking.h" />
     <ClInclude Include="Player.h" />

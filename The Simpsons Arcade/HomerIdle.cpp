@@ -3,6 +3,7 @@
 #include "ModuleInput.h"
 #include "Engine.h"
 #include "HomerWalking.h"
+#include "HomerAttack.h"
 
 HomerFSM ::Idle::Idle()
 {
@@ -21,6 +22,9 @@ State* HomerFSM::Idle::HandleInput(Player& player)
 {
 	int x = App->input->GetAxis(0, X);
 	int y = App->input->GetAxis(0, Y);
+
+	if (App->input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
+		return new Attack;
 
 	if (x != 0 || y != 0)
 		return new Walking;

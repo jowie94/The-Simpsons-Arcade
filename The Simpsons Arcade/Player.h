@@ -26,6 +26,7 @@ public:
 
 	void AddAnimation(const string& name, const SpriteAnimation& animation);
 	bool SetAnimation(const string& name);
+	SpriteAnimation* CurrentAnimation();
 	void SetDirection(int x);
 	void SwitchState(State* newState);
 

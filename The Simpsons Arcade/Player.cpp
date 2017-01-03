@@ -86,6 +86,11 @@ bool Player::SetAnimation(const string& name)
 	return ret;
 }
 
+SpriteAnimation* Player::CurrentAnimation()
+{
+	return &_current_animation;
+}
+
 void Player::SetDirection(int x)
 {
 	flip = x < 0;

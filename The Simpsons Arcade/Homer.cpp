@@ -59,6 +59,24 @@ bool Homer::Start()
 
 	AddAnimation("walk_up", walking_up);
 
+	SpriteAnimation attack1;
+	attack1.frames.push_back({ { 163, 163, 40, 63 }, iPoint(7, 63) });
+	attack1.frames.push_back({ { 214, 164, 38, 62 }, iPoint(5, 62) });
+	attack1.frames.push_back({ { 262, 164, 42, 62 }, iPoint(7, 62) });
+	attack1.frames.push_back({ { 316, 163, 50, 63 }, iPoint(11, 63) });
+	attack1.frames.push_back({ { 377, 164, 48, 62 }, iPoint(9, 62) });
+	attack1.speed = 0.5f;
+
+	AddAnimation("attack1", attack1);
+
+	SpriteAnimation attack2;
+	attack2.frames.push_back({ { 4, 163, 40, 63 }, iPoint(7, 63) });
+	attack2.frames.push_back({ { 60, 163, 41, 63 }, iPoint(4, 63) });
+	attack2.frames.push_back({ { 112, 164, 41, 62 }, iPoint(9, 62) });
+	attack2.speed = 0.5f;
+
+	AddAnimation("attack2", attack2);
+
 	SwitchState(new HomerFSM::Idle);
 
 	return true;
