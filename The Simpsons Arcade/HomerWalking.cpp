@@ -14,7 +14,7 @@ HomerFSM::Walking::~Walking()
 
 void HomerFSM::Walking::Enter(Player& player)
 {
-	// TODO: Set walking animation
+	player.SetAnimation("walk");
 }
 
 State* HomerFSM::Walking::HandleInput(Player& player)
@@ -24,6 +24,13 @@ State* HomerFSM::Walking::HandleInput(Player& player)
 
 	if (x == 0 && y == 0)
 		return new Idle;
+
+	if (!up && y > 0)
+		player.SetAnimation("walk_up");
+	else if (up && y <= 0)
+		player.SetAnimation("walk");
+
+	up = y > 0;
 
 	return nullptr;
 }
@@ -35,6 +42,8 @@ State* HomerFSM::Walking::Update(Player& player)
 
 	player.Position.x += x;
 	player.Position.z += y;
+
+	player.SetDirection(x);
 
 	return nullptr;
 }

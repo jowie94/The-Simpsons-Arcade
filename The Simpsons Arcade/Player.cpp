@@ -31,7 +31,15 @@ void Player::Update()
 		SwitchState(newState);
 
 	Sprite* rect = &_current_animation.GetCurrentFrame();
-	App->renderer->RelativeBlit(graphics, Position.x - rect->Pivot.x, Position.y + rect->Pivot.y, Position.z, &rect->Rect);
+
+	int positionX = Position.x;
+
+	if (flip)
+		positionX += rect->Pivot.x - rect->Rect.w + center;
+	else
+		positionX -= rect->Pivot.x;
+
+	App->renderer->RelativeBlit(graphics, positionX, Position.y + rect->Pivot.y, Position.z, &rect->Rect, 1.f, flip);
 }
 
 void Player::PostUpdate()
@@ -76,6 +84,11 @@ bool Player::SetAnimation(const string& name)
 		LOG("Animation %s does not exist!", name);
 
 	return ret;
+}
+
+void Player::SetDirection(int x)
+{
+	flip = x < 0;
 }
 
 void Player::SwitchState(State* newState)

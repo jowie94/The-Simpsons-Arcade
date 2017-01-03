@@ -26,11 +26,14 @@ public:
 
 	void AddAnimation(const string& name, const SpriteAnimation& animation);
 	bool SetAnimation(const string& name);
+	void SetDirection(int x);
 	void SwitchState(State* newState);
 
 protected:
 	SDL_Texture* graphics = nullptr;
 	SpriteAnimation _current_animation;
+	bool flip = false;
+	int center = 0;
 
 private:
 	map<string, SpriteAnimation> _animations;

@@ -16,6 +16,9 @@ namespace HomerFSM
 		void Enter(Player& player) override;
 		State* HandleInput(Player& player) override;
 		State* Update(Player& player) override;
+
+	private:
+		bool up = false;
 	};
 
 }

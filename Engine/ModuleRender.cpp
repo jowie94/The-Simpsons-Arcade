@@ -86,7 +86,10 @@ update_status ModuleRender::Update()
 	while (!_foreground.empty() && ret)
 	{
 		RenderData* data = _foreground.top().second;
-		if (SDL_RenderCopy(renderer, data->texture, data->section, data->rect) != 0)
+
+		SDL_RendererFlip flags = data->flip ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
+		SDL_Point center = { 0, 0 };
+		if (SDL_RenderCopyEx(renderer, data->texture, data->section, data->rect, 0, &center, flags) != 0)
 		{
 			LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
 			ret = false;
@@ -160,12 +163,12 @@ bool ModuleRender::BlitBackground(SDL_Texture* texture, int x, int y, SDL_Rect* 
 	rect->w *= SCREEN_SIZE;
 	rect->h *= SCREEN_SIZE;
 
-	_background.push(new RenderData({ texture, section, rect }));
+	_background.push(new RenderData({ false, texture, section, rect }));
 
 	return ret;
 }
 
-bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed)
+bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed, bool flip)
 {
 	bool ret = true;
 	SDL_Rect* rect = new SDL_Rect;
@@ -186,18 +189,18 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* sec
 	rect->w *= SCREEN_SIZE;
 	rect->h *= SCREEN_SIZE;
 
-	_foreground.emplace(z, new RenderData({ texture, section, rect }));
+	_foreground.emplace(z, new RenderData({ flip, texture, section, rect }));
 
 	return ret;
 }
 
-bool ModuleRender::RelativeBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed)
+bool ModuleRender::RelativeBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed, bool flip)
 {
 	if (_background_height)
 		y = _background_height - y;
 	z *= -1;
 
-	return Blit(texture, x, y, z, section, speed);
+	return Blit(texture, x, y, z, section, speed, flip);
 }
 
 bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)

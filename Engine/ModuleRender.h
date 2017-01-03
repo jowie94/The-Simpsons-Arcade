@@ -14,6 +14,7 @@ class ModuleRender : public Module
 public:
 	struct RenderData
 	{
+		bool flip;
 		SDL_Texture* texture;
 		SDL_Rect* section;
 		SDL_Rect* rect;
@@ -29,8 +30,8 @@ public:
 	bool CleanUp();
 
 	bool BlitBackground(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed = 1.0f);
-	bool Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f);
-	bool RelativeBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f);
+	bool Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f, bool flip = false);
+	bool RelativeBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f, bool flip = false);
 	bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
 
 public:
