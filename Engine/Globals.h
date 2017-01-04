@@ -43,9 +43,9 @@ typedef unsigned int uint;
 	 }
 
 // Configuration -----------
-#define SCREEN_SIZE 3
-#define SCREEN_WIDTH 384
-#define SCREEN_HEIGHT 240
+#define SCREEN_SIZE 4
+#define SCREEN_WIDTH 288
+#define SCREEN_HEIGHT 224
 #define FULLSCREEN false
 #define VSYNC true
 #define TITLE "Super Awesome Game"

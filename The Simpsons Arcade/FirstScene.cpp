@@ -8,7 +8,7 @@
 
 FirstScene::FirstScene(bool active) : Scene(active), _background(nullptr)
 {
-	xmin = 0;
+	xmin = 64 / SCREEN_SIZE + 10;
 	xmax = 200;
 	zmin = 10;
 	zmax = 110;
@@ -40,8 +40,8 @@ bool FirstScene::Start()
 update_status FirstScene::Update()
 {
 	// Draw everything --------------------------------------
-	App->renderer->BlitBackground(_background, 0, 0, &_walls);
-	App->renderer->BlitBackground(_background, 0, 0, &_floor);
+	App->renderer->BlitBackground(_background, -64 / SCREEN_SIZE, -64 / SCREEN_SIZE, &_walls);
+	App->renderer->BlitBackground(_background, -64 / SCREEN_SIZE, -64 / SCREEN_SIZE, &_floor);
 
 	return Scene::Update();
 }
