@@ -45,7 +45,7 @@ bool Homer::Start()
 	walking.frames.push_back({ { 428, 7, 33, 63 }, iPoint(1, 63) });
 	walking.frames.push_back({ { 478, 6, 24, 64 }, iPoint(0, 64) });
 	walking.frames.push_back({ { 519, 6, 24, 64 }, iPoint(0, 64) });
-	walking.speed = 0.1f;
+	walking.speed = 0.2f;
 
 	AddAnimation("walk", walking);
 
@@ -58,7 +58,7 @@ bool Homer::Start()
 	walking_up.frames.push_back({ { 221, 84, 27, 62 }, iPoint(0, 62) });
 	walking_up.frames.push_back({ { 266, 83, 27, 63 }, iPoint(0, 63) });
 	walking_up.frames.push_back({ { 307, 82, 29, 63 }, iPoint(1, 61) });
-	walking_up.speed = 0.1f;
+	walking_up.speed = 0.2f;
 
 	AddAnimation("walk_up", walking_up);
 
@@ -68,7 +68,7 @@ bool Homer::Start()
 	attack1.frames.push_back({ { 262, 164, 42, 62 }, iPoint(7, 62) });
 	attack1.frames.push_back({ { 316, 163, 50, 63 }, iPoint(11, 63) });
 	attack1.frames.push_back({ { 377, 164, 48, 62 }, iPoint(9, 62) });
-	attack1.speed = 0.5f;
+	attack1.speed = 0.4f;
 
 	AddAnimation("attack1", attack1);
 
@@ -76,13 +76,13 @@ bool Homer::Start()
 	attack2.frames.push_back({ { 4, 163, 40, 63 }, iPoint(7, 63) });
 	attack2.frames.push_back({ { 60, 163, 41, 63 }, iPoint(4, 63) });
 	attack2.frames.push_back({ { 112, 164, 41, 62 }, iPoint(9, 62) });
-	attack2.speed = 0.5f;
+	attack2.speed = 0.4f;
 
 	AddAnimation("attack2", attack2);
 
 	SpriteAnimation jump_up;
 	jump_up.frames.push_back({ { 8, 239, 41, 64 }, iPoint(10, 64) });
-	jump_up.speed = 0.1f;
+	jump_up.speed = 0.2f;
 	jump_up.loop = false;
 
 	AddAnimation("jump_up", jump_up);
@@ -97,14 +97,14 @@ bool Homer::Start()
 	SpriteAnimation air_attack1;
 	air_attack1.frames.push_back({ { 125, 239, 48, 56 }, iPoint(14, 56) });
 	air_attack1.frames.push_back({ { 191, 238, 48, 57 }, iPoint(9, 57) });
-	air_attack1.speed = 0.1f;
+	air_attack1.speed = 0.2f;
 	air_attack1.loop = false;
 
 	AddAnimation("air_attack1", air_attack1);
 
 	SpriteAnimation air_attack2;
 	air_attack2.frames.push_back({ { 257, 264, 63, 39 }, iPoint(25, 39) });
-	air_attack2.speed = 0.5f;
+	air_attack2.speed = 0.2f;
 	air_attack2.loop = false;
 
 	AddAnimation("air_attack2", air_attack2);
