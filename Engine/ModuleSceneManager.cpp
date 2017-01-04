@@ -32,6 +32,11 @@ void ModuleSceneManager::SetScene(Scene* scene)
 	_currentScene->Enable();
 }
 
+const Scene* ModuleSceneManager::CurrentScene() const
+{
+	return _currentScene;
+}
+
 void ModuleSceneManager::SetEntityFactory(BaseFactory<Entity>* factory)
 {
 	entity_factory = factory;

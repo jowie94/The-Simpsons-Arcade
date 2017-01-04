@@ -7,7 +7,11 @@
 class Scene : public Module
 {
 public:
-	Scene(bool active) : Module(active) {}
+	Scene(bool active) : Module(active)
+	{
+		xmin = xmax = zmin = zmax = 0;
+	}
+
 	virtual ~Scene() {}
 
 	void AddEntity(Entity* entity)
@@ -72,8 +76,16 @@ public:
 		return true;
 	}
 
+	virtual void SceneLimits(std::pair<int, int>& x, std::pair<int, int>& z) const
+	{
+		x = std::make_pair(xmin, xmax);
+		z = std::make_pair(zmin, zmax);
+	}
+
 protected:
 	std::list<Entity*> _entities;
+
+	int xmin, xmax, zmin, zmax;
 
 private:
 	bool StartAllEntities() const

@@ -22,8 +22,6 @@ public:
 	bool CleanUp() override;
 	bool OnCollision(Collider& origin, Collider& other) override;
 
-	void HandleInput();
-
 	void AddAnimation(const string& name, const SpriteAnimation& animation);
 	bool SetAnimation(const string& name);
 	SpriteAnimation* CurrentAnimation();
@@ -43,6 +41,8 @@ protected:
 	int center = 0;
 
 private:
+	void correct_position();
+
 	map<string, SpriteAnimation> _animations;
 	State* _state = nullptr;
 

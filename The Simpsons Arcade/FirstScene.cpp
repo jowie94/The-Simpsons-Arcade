@@ -6,8 +6,12 @@
 #include "Player.h"
 
 
-FirstScene::FirstScene(bool active) : Scene(active)
+FirstScene::FirstScene(bool active) : Scene(active), _background(nullptr)
 {
+	xmin = 0;
+	xmax = 200;
+	zmin = 10;
+	zmax = 110;
 }
 
 
