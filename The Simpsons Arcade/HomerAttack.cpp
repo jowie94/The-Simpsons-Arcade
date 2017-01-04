@@ -18,8 +18,6 @@ void HomerFSM::Attack::Enter(Player& player)
 
 	string attack;
 
-	if (player.Position.y > 0)
-		player.SetAnimation("air_attack1");
 	if (pushes == 2 || x != 0)
 	{
 		if (player.Position.y > 0)
