@@ -43,7 +43,12 @@ void Player::Update()
 	else
 		positionX -= rect->Pivot.x;
 
-	App->renderer->RelativeBlit(graphics, positionX, Position.y + rect->Pivot.y, Position.z, &rect->Rect, 1.f, flip);
+	int positionY = Position.y + rect->Pivot.y;
+
+	if (FeetCollider)
+		FeetCollider->SetPos(positionX, positionY, Position.z);
+
+	App->renderer->RelativeBlit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
 }
 
 void Player::PostUpdate()

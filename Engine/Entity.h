@@ -60,6 +60,7 @@ public:
 public:
 	Entity* Parent;
 	iPoint3 Position;
+	Collider* FeetCollider = nullptr;
 
 private:
 	bool _active = true;
