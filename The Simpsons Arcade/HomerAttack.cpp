@@ -53,7 +53,7 @@ State* HomerFSM::Attack::Update(Player& player)
 		player.Position.x += 8 * (player.LooksRight() ? 1 : -1);
 	}
 
-	if (player.CurrentAnimation()->Finished() && player.Position.y <= 0)
+	if (player.Position.y < 0 || player.CurrentAnimation()->Finished() && player.Position.y == 0)
 	{
 		player.Position.y = 0;
 		return player.Idle;
