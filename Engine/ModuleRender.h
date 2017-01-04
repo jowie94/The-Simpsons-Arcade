@@ -39,7 +39,8 @@ public:
 	bool BlitBackground(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed = 1.0f);
 	bool AbsoluteBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f, bool flip = false);
 	bool Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f, bool flip = false);
-	bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
+	bool AbsoluteDrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
+	bool AbsoluteDrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
 	bool DrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
 
 public:

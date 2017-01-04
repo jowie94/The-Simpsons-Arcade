@@ -46,7 +46,7 @@ void Player::Update()
 	int positionY = Position.y + rect->Pivot.y;
 
 	if (FeetCollider)
-		FeetCollider->SetPos(positionX, positionY, Position.z);
+		FeetCollider->SetPos(positionX, Position.y + FeetCollider->rect.h, Position.z);
 
 	App->renderer->Blit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
 }

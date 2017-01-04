@@ -221,7 +221,7 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* sec
 	return AbsoluteBlit(texture, x, y, z, section, speed, flip);
 }
 
-bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
+bool ModuleRender::AbsoluteDrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
 {
 	bool ret = true;
 
@@ -241,8 +241,19 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	return ret;
 }
 
-bool ModuleRender::DrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
+bool ModuleRender::AbsoluteDrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
 {
 	int y = rect.Position.y + cos(DEG2RAD(RenderingAngle)) * rect.Position.z;
-	return DrawQuad({ rect.Position.x, y, rect.w, rect.h }, r, g, b, a, use_camera);
+	return AbsoluteDrawQuad({ rect.Position.x, y, rect.w, rect.h }, r, g, b, a, use_camera);
 }
+
+bool ModuleRender::DrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
+{
+	iRectangle3 rec = rect;
+	if (_background_height)
+		rec.Position.y = _background_height - rect.Position.y;
+	rec.Position.z *= -1;
+
+	return AbsoluteDrawQuad(rec, r, g, b, a, use_camera);
+}
+
