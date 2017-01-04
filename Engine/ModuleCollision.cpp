@@ -89,7 +89,7 @@ bool ModuleCollision::CleanUp()
 	return true;
 }
 
-Collider* ModuleCollision::AddCollider(const SDL_Rect& rect)
+Collider* ModuleCollision::AddCollider(const iRectangle3& rect)
 {
 	Collider* ret = new Collider(rect);
 
@@ -100,8 +100,8 @@ Collider* ModuleCollision::AddCollider(const SDL_Rect& rect)
 
 // -----------------------------------------------------
 
-bool Collider::CheckCollision(const SDL_Rect& r) const
+bool Collider::CheckCollision(const iRectangle3& r) const
 {
 	// Return true if the argument and the own rectangle are intersecting
-	return !(rect.x > r.x + r.w || r.x > rect.x + rect.w || rect.y > r.y + r.h ||  r.y > rect.y + rect.h);
+	return rect.Overlaps(r);
 }

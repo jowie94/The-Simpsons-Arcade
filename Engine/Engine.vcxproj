@@ -94,6 +94,7 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="ModuleSceneManager.h" />
     <ClInclude Include="Point3.h" />
+    <ClInclude Include="Rectangle3.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
   </ItemGroup>

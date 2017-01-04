@@ -5,6 +5,7 @@
 #include "State.h"
 #include "ModuleInput.h"
 #include "Scene.h"
+#include "ModuleSceneManager.h"
 
 
 Player::Player()

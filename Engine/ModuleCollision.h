@@ -1,9 +1,11 @@
 #ifndef __ModuleCollision_H__
 #define __ModuleCollision_H__
 
-#include<list>
+#include <list>
 #include "Module.h"
 #include "Notifiable.h"
+#include "ModuleRender.h"
+#include "Rectangle3.h"
 
 enum CollisionType
 {
@@ -21,23 +23,24 @@ extern bool ShouldColide[6][6];
 
 struct Collider
 {
-	SDL_Rect rect = { 0,0,0,0 };
+	iRectangle3 rect = iRectangle3(0, 0, 0, 0, 0);
 	bool to_delete = false;
 	CollisionType type = NONE;
 
 	Notifiable* notify_to = NULL;
 
-	Collider(SDL_Rect rectangle) : // expand this call if you need to
+	Collider(iRectangle3 rectangle) : // expand this call if you need to
 		rect(rectangle)
 	{}
 
-	void SetPos(int x, int y)
+	void SetPos(int x, int y, int z)
 	{
-		rect.x = x;
-		rect.y = y;
+		rect.Position.x = x;
+		rect.Position.y = y;
+		rect.Position.z = z;
 	}
 
-	bool CheckCollision(const SDL_Rect& r) const;
+	bool CheckCollision(const iRectangle3& r) const;
 };
 
 class ModuleCollision : public Module
@@ -52,7 +55,7 @@ public:
 
 	bool CleanUp();
 
-	Collider* AddCollider(const SDL_Rect& rect);
+	Collider* AddCollider(const iRectangle3& rect);
 	void DebugDraw();
 
 private:

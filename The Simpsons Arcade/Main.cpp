@@ -2,6 +2,7 @@
 #include "FirstScene.h"
 #include "EntityFactory.h"
 #include "ModuleRender.h"
+#include "ModuleSceneManager.h"
 
 int main(int argc, char ** argv)
 {

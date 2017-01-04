@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "EntityFactory.h"
 #include "Player.h"
+#include "ModuleSceneManager.h"
 
 
 FirstScene::FirstScene(bool active) : Scene(active), _background(nullptr)

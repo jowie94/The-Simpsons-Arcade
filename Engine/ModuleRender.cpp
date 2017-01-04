@@ -4,7 +4,6 @@
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
-#include <cmath>
 
 #define DEG2RAD(deg) (deg * M_PI / 180.0)
 
@@ -226,4 +225,10 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	}
 
 	return ret;
+}
+
+bool ModuleRender::DrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
+{
+	int y = rect.Position.y + cos(DEG2RAD(RenderingAngle)) * rect.Position.z;
+	return DrawQuad({ rect.Position.x, y, rect.w, rect.h }, r, g, b, a, use_camera);
 }

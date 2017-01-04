@@ -129,7 +129,7 @@ bool Particle::Update()
 
 	x += speed;
 	if (collider)
-		collider->rect.x = x;
+		collider->rect.Position.x = x;
 	to_delete = life_time >= 0 && SDL_GetTicks() >= life_time + initial_tick;
 	// Return false if the particle must be destroyed
 
