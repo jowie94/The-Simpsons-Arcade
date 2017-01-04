@@ -85,7 +85,7 @@ bool Player::SetAnimation(const string& name)
 	if (ret)
 		_current_animation = it->second;
 	else
-		LOG("Animation %s does not exist!", name);
+		LOG("Animation %s does not exist!", name.c_str());
 
 	return ret;
 }
@@ -99,6 +99,11 @@ void Player::SetDirection(int x)
 {
 	if (x)
 		flip = x < 0;
+}
+
+bool Player::LooksRight() const
+{
+	return !flip;
 }
 
 void Player::SwitchState(State* newState)

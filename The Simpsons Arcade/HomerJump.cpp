@@ -21,6 +21,8 @@ void HomerFSM::Jump::Enter(Player& player)
 
 State* HomerFSM::Jump::HandleInput(Player& player)
 {
+	if (App->input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
+		return player.Attack;
 	return nullptr;
 }
 

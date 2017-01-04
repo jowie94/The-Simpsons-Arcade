@@ -16,10 +16,27 @@ void HomerFSM::Attack::Enter(Player& player)
 {
 	int x = App->input->GetAxis(0, X);
 
+	string attack;
+
+	if (player.Position.y > 0)
+		player.SetAnimation("air_attack1");
 	if (pushes == 2 || x != 0)
-		player.SetAnimation("attack2");
+	{
+		if (player.Position.y > 0)
+			attack = "air_attack1";
+		else
+			attack = "attack2";
+	}
 	else
-		player.SetAnimation("attack1");
+	{
+		if (player.Position.y > 0)
+			attack = "air_attack2";
+		else
+			attack = "attack1";
+	}
+
+	player.SetAnimation(attack);
+
 	pushes = (++pushes) % 3;
 }
 
@@ -30,8 +47,17 @@ State* HomerFSM::Attack::HandleInput(Player& player)
 
 State* HomerFSM::Attack::Update(Player& player)
 {
-	if (player.CurrentAnimation()->Finished())
+	if (player.Position.y != 0)
+	{
+		player.Position.y -= 6;
+		player.Position.x += 8 * (player.LooksRight() ? 1 : -1);
+	}
+
+	if (player.CurrentAnimation()->Finished() && player.Position.y <= 0)
+	{
+		player.Position.y = 0;
 		return player.Idle;
+	}
 	
 	return nullptr;
 }

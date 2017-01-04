@@ -83,14 +83,31 @@ bool Homer::Start()
 	SpriteAnimation jump_up;
 	jump_up.frames.push_back({ { 8, 239, 41, 64 }, iPoint(10, 64) });
 	jump_up.speed = 0.1f;
+	jump_up.loop = false;
 
 	AddAnimation("jump_up", jump_up);
 
 	SpriteAnimation falling;
 	falling.frames.push_back({ { 60, 237, 44, 66 }, iPoint(16, 65) });
+	falling.loop = false;
 	falling.speed = 0.1f;
 
 	AddAnimation("falling", falling);
+
+	SpriteAnimation air_attack1;
+	air_attack1.frames.push_back({ { 125, 239, 48, 56 }, iPoint(14, 56) });
+	air_attack1.frames.push_back({ { 191, 238, 48, 57 }, iPoint(9, 57) });
+	air_attack1.speed = 0.1f;
+	air_attack1.loop = false;
+
+	AddAnimation("air_attack1", air_attack1);
+
+	SpriteAnimation air_attack2;
+	air_attack2.frames.push_back({ { 257, 264, 63, 39 }, iPoint(25, 39) });
+	air_attack2.speed = 0.5f;
+	air_attack2.loop = false;
+
+	AddAnimation("air_attack2", air_attack2);
 
 	Idle = new HomerFSM::Idle;
 	Walking = new HomerFSM::Walking;

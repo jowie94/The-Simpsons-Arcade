@@ -28,6 +28,7 @@ public:
 	bool SetAnimation(const string& name);
 	SpriteAnimation* CurrentAnimation();
 	void SetDirection(int x);
+	bool LooksRight() const;
 	void SwitchState(State* newState);
 
 	State* Idle = nullptr;
