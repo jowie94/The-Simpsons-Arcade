@@ -97,7 +97,8 @@ SpriteAnimation* Player::CurrentAnimation()
 
 void Player::SetDirection(int x)
 {
-	flip = x < 0;
+	if (x)
+		flip = x < 0;
 }
 
 void Player::SwitchState(State* newState)
