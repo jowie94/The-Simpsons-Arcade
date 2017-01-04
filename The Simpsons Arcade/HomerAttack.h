@@ -17,7 +17,7 @@ namespace HomerFSM
 		State* Update(Player& player) override;
 
 	private:
-		static int pushes;
+		int pushes = 0;
 	};
 }
 

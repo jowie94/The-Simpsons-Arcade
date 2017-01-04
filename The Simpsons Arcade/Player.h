@@ -30,6 +30,11 @@ public:
 	void SetDirection(int x);
 	void SwitchState(State* newState);
 
+	State* Idle = nullptr;
+	State* Walking = nullptr;
+	State* Jump = nullptr;
+	State* Attack = nullptr;
+
 protected:
 	SDL_Texture* graphics = nullptr;
 	SpriteAnimation _current_animation;

@@ -1,6 +1,5 @@
 #include "HomerJump.h"
 #include "Player.h"
-#include "HomerIdle.h"
 #include "Engine.h"
 #include "ModuleInput.h"
 
@@ -16,6 +15,8 @@ HomerFSM::Jump::~Jump()
 void HomerFSM::Jump::Enter(Player& player)
 {
 	player.SetAnimation("jump_up");
+	ascending = true;
+	speed = 4.f;
 }
 
 State* HomerFSM::Jump::HandleInput(Player& player)
@@ -45,7 +46,7 @@ State* HomerFSM::Jump::Update(Player& player)
 	if (player.Position.y <= 0)
 	{
 		player.Position.y = 0;
-		return new Idle;
+		return player.Idle;
 	}
 
 	return nullptr;

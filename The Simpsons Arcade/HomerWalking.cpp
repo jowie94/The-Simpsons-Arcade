@@ -1,10 +1,7 @@
 #include "HomerWalking.h"
 #include "Engine.h"
 #include "ModuleInput.h"
-#include "HomerIdle.h"
-#include "HomerAttack.h"
 #include "Player.h"
-#include "HomerJump.h"
 
 HomerFSM::Walking::Walking()
 {
@@ -25,12 +22,12 @@ State* HomerFSM::Walking::HandleInput(Player& player)
 	int y = App->input->GetAxis(0, Y);
 
 	if (App->input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
-		return new Attack;
+		return player.Attack;
 	if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
-		return new Jump;
+		return player.Jump;
 
 	if (x == 0 && y == 0)
-		return new Idle;
+		return player.Idle;
 
 	if (!up && y > 0)
 		player.SetAnimation("walk_up");

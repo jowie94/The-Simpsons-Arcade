@@ -49,7 +49,11 @@ void Player::PostUpdate()
 bool Player::CleanUp()
 {
 	_animations.clear();
-	RELEASE(_state);
+	//RELEASE(_state);
+	RELEASE(Idle);
+	RELEASE(Walking);
+	RELEASE(Jump);
+	RELEASE(Attack);
 
 	return true;
 }
@@ -100,7 +104,6 @@ void Player::SwitchState(State* newState)
 {
 	assert(newState != nullptr);
 
-	RELEASE(_state);
 	_state = newState;
 	_state->Enter(*this);
 }

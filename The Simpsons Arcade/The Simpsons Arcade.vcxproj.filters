@@ -46,7 +46,7 @@
       <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
     <ClCompile Include="HomerJump.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +75,7 @@
       <Filter>StateMachine\HomerFSM</Filter>
     </ClInclude>
     <ClInclude Include="HomerJump.h">
-      <Filter>Header Files</Filter>
+      <Filter>StateMachine\HomerFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

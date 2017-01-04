@@ -2,6 +2,9 @@
 #include "Engine.h"
 #include "ModuleTextures.h"
 #include "HomerIdle.h"
+#include "HomerWalking.h"
+#include "HomerJump.h"
+#include "HomerAttack.h"
 
 
 Homer::Homer()
@@ -89,7 +92,12 @@ bool Homer::Start()
 
 	AddAnimation("falling", falling);
 
-	SwitchState(new HomerFSM::Idle);
+	Idle = new HomerFSM::Idle;
+	Walking = new HomerFSM::Walking;
+	Jump = new HomerFSM::Jump;
+	Attack = new HomerFSM::Attack;
+
+	SwitchState(Idle);
 
 	return true;
 }
