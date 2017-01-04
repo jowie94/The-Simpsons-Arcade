@@ -21,6 +21,12 @@ public:
 		SDL_Rect* rect;
 	};
 
+	struct QuadData
+	{
+		SDL_Rect* rect;
+		SDL_Color* color;
+	};
+
 	ModuleRender();
 	~ModuleRender();
 
@@ -31,8 +37,8 @@ public:
 	bool CleanUp();
 
 	bool BlitBackground(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed = 1.0f);
+	bool AbsoluteBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f, bool flip = false);
 	bool Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f, bool flip = false);
-	bool RelativeBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed = 1.0f, bool flip = false);
 	bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
 	bool DrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
 
@@ -45,6 +51,7 @@ public:
 private:
 	std::queue<RenderData*> _background;
 	std::priority_queue<std::pair<int, RenderData*>> _foreground;
+	std::queue<QuadData*> _quads;
 
 	int _background_height = 0;
 };

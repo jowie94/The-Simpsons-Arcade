@@ -48,7 +48,7 @@ void Player::Update()
 	if (FeetCollider)
 		FeetCollider->SetPos(positionX, positionY, Position.z);
 
-	App->renderer->RelativeBlit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
+	App->renderer->Blit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
 }
 
 void Player::PostUpdate()

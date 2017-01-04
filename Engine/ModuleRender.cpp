@@ -99,6 +99,25 @@ update_status ModuleRender::Update()
 		_foreground.pop();
 	}
 
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+
+	while (!_quads.empty() && ret)
+	{
+		QuadData* data = _quads.front();
+		SDL_SetRenderDrawColor(renderer, data->color->r, data->color->g, data->color->b, data->color->a);
+
+		if (SDL_RenderFillRect(renderer, data->rect) != 0)
+		{
+			LOG("Cannot draw quad to screen. SDL_RenderFillRect error: %s", SDL_GetError());
+			ret = false;
+		}
+
+		RELEASE(data->rect);
+		RELEASE(data->color);
+		RELEASE(data);
+		_quads.pop();
+	}
+
 	return ret ? UPDATE_CONTINUE : UPDATE_ERROR;
 }
 
@@ -167,7 +186,7 @@ bool ModuleRender::BlitBackground(SDL_Texture* texture, int x, int y, SDL_Rect* 
 	return ret;
 }
 
-bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed, bool flip)
+bool ModuleRender::AbsoluteBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed, bool flip)
 {
 	bool ret = true;
 	SDL_Rect* rect = new SDL_Rect;
@@ -193,36 +212,31 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* sec
 	return ret;
 }
 
-bool ModuleRender::RelativeBlit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed, bool flip)
+bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, int z, SDL_Rect* section, float speed, bool flip)
 {
 	if (_background_height)
 		y = _background_height - y;
 	z *= -1;
 
-	return Blit(texture, x, y, z, section, speed, flip);
+	return AbsoluteBlit(texture, x, y, z, section, speed, flip);
 }
 
 bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
 {
 	bool ret = true;
 
-	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-	SDL_SetRenderDrawColor(renderer, r, g, b, a);
-
-	SDL_Rect rec(rect);
+	SDL_Color* color = new SDL_Color({ r,g,b,a });
+	
+	SDL_Rect* rec = new SDL_Rect(rect);
 	if (use_camera)
 	{
-		rec.x = (int)(camera.x + rect.x * SCREEN_SIZE);
-		rec.y = (int)(camera.y + rect.y * SCREEN_SIZE);
-		rec.w *= SCREEN_SIZE;
-		rec.h *= SCREEN_SIZE;
+		rec->x = (int)(camera.x + rect.x * SCREEN_SIZE);
+		rec->y = (int)(camera.y + rect.y * SCREEN_SIZE);
+		rec->w *= SCREEN_SIZE;
+		rec->h *= SCREEN_SIZE;
 	}
 
-	if (SDL_RenderFillRect(renderer, &rec) != 0)
-	{
-		LOG("Cannot draw quad to screen. SDL_RenderFillRect error: %s", SDL_GetError());
-		ret = false;
-	}
+	_quads.emplace(new QuadData({ rec, color }));
 
 	return ret;
 }
