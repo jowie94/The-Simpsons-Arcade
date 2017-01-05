@@ -33,6 +33,7 @@ void HomerFSM::Attack::Enter(Player& player)
 			attack = "attack1";
 	}
 
+	player.BeginAttack();
 	player.SetAnimation(attack);
 
 	pushes = (++pushes) % 3;
@@ -54,6 +55,7 @@ State* HomerFSM::Attack::Update(Player& player)
 	if (player.Position.y < 0 || player.CurrentAnimation()->Finished() && player.Position.y == 0)
 	{
 		player.Position.y = 0;
+		player.FinishAttack();
 		return player.Idle;
 	}
 	

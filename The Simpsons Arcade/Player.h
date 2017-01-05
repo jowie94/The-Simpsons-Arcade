@@ -28,6 +28,8 @@ public:
 	void SetDirection(int x);
 	bool LooksRight() const;
 	void SwitchState(State* newState);
+	void BeginAttack();
+	void FinishAttack();
 
 	State* Idle = nullptr;
 	State* Walking = nullptr;
@@ -45,7 +47,7 @@ private:
 
 	map<string, SpriteAnimation> _animations;
 	State* _state = nullptr;
-
+	Collider* _attack_collider = nullptr;
 };
 
 #endif // __PLAYER_H__

@@ -10,10 +10,10 @@
 enum CollisionType
 {
 	PLAYER,
-	LASER,
+	PLAYER_ATTACK,
 	WALL,
 	ENEMY,
-	ENEMY_LASER,
+	ENEMY_ATTACK,
 	NONE
 };
 

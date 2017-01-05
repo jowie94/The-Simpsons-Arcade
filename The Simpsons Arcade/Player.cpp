@@ -46,7 +46,10 @@ void Player::Update()
 	int positionY = Position.y + rect->Pivot.y;
 
 	if (FeetCollider)
-		FeetCollider->SetPos(positionX, Position.y + FeetCollider->rect.h, Position.z);
+		FeetCollider->SetPos(Position.x, Position.y + FeetCollider->rect.h, Position.z);
+
+	if (_attack_collider) // TODO: Correct collider position
+		_attack_collider->SetPos(positionX, Position.y + FeetCollider->rect.h, Position.z);
 
 	App->renderer->Blit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
 }
@@ -113,6 +116,22 @@ void Player::SwitchState(State* newState)
 
 	_state = newState;
 	_state->Enter(*this);
+}
+
+void Player::BeginAttack()
+{
+	assert(_attack_collider == nullptr);
+
+	_attack_collider = App->collision->AddCollider(FeetCollider->rect);
+	_attack_collider->type = PLAYER_ATTACK;
+}
+
+void Player::FinishAttack()
+{
+	assert(_attack_collider != nullptr);
+
+	_attack_collider->to_delete = true;
+	_attack_collider = nullptr;
 }
 
 void Player::correct_position()
