@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="FirstScene.cpp" />
+    <ClCompile Include="GenericAttack.cpp" />
+    <ClCompile Include="GenericIdle.cpp" />
+    <ClCompile Include="GenericJump.cpp" />
+    <ClCompile Include="GenericWalking.cpp" />
     <ClCompile Include="Homer.cpp" />
     <ClCompile Include="HomerAttack.cpp" />
     <ClCompile Include="HomerIdle.cpp" />
@@ -33,6 +37,10 @@
   <ItemGroup>
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="FirstScene.h" />
+    <ClInclude Include="GenericAttack.h" />
+    <ClInclude Include="GenericIdle.h" />
+    <ClInclude Include="GenericJump.h" />
+    <ClInclude Include="GenericWalking.h" />
     <ClInclude Include="Homer.h" />
     <ClInclude Include="HomerAttack.h" />
     <ClInclude Include="HomerIdle.h" />

@@ -1,21 +1,19 @@
 #ifndef __HOMER_WALKING_H__
 #define __HOMER_WALKING_H__
 
-#include "State.h"
+#include "GenericWalking.h"
 
 namespace HomerFSM 
 {
 
 	class Walking :
-		public State
+		public GenericFSM::Walking
 	{
 	public:
 		Walking();
 		~Walking();
 
-		void Enter(NPC& player, const Input& input) override;
 		State* HandleInput(NPC& player, const Input& input) override;
-		State* Update(NPC& player, const Input& input) override;
 
 	private:
 		bool up = false;

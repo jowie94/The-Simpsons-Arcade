@@ -19,6 +19,9 @@
     <Filter Include="StateMachine\HomerFSM">
       <UniqueIdentifier>{8805c24e-a75e-4acd-8b8c-0527093e3c7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StateMachine\GenericFSM">
+      <UniqueIdentifier>{796a406e-cb97-48d2-887e-e60f81212ac4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -50,6 +53,18 @@
     </ClCompile>
     <ClCompile Include="NPC.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericWalking.cpp">
+      <Filter>StateMachine\GenericFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericIdle.cpp">
+      <Filter>StateMachine\GenericFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericJump.cpp">
+      <Filter>StateMachine\GenericFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericAttack.cpp">
+      <Filter>StateMachine\GenericFSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +100,18 @@
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericWalking.h">
+      <Filter>StateMachine\GenericFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericIdle.h">
+      <Filter>StateMachine\GenericFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericJump.h">
+      <Filter>StateMachine\GenericFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericAttack.h">
+      <Filter>StateMachine\GenericFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
