@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __NPC_H__
+#define __NPC_H__
+
 #include "Entity.h"
 #include "Animation.h"
 #include <map>
@@ -51,3 +53,4 @@ private:
 	Input _last_input;
 };
 
+#endif // __NPC_H__
