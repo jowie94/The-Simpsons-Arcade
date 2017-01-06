@@ -22,6 +22,15 @@
     <Filter Include="StateMachine\GenericFSM">
       <UniqueIdentifier>{796a406e-cb97-48d2-887e-e60f81212ac4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NPC">
+      <UniqueIdentifier>{ff12473a-18bd-43a8-b807-44da7168885e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPC\Player">
+      <UniqueIdentifier>{beed71cc-d6b0-4c7d-93bb-89b3db3233b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPC\Player\Homer">
+      <UniqueIdentifier>{2f796ae9-6076-4212-9ebb-b97de776502d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -31,12 +40,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EntityFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Homer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="HomerIdle.cpp">
@@ -51,9 +54,6 @@
     <ClCompile Include="HomerJump.cpp">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
-    <ClCompile Include="NPC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GenericWalking.cpp">
       <Filter>StateMachine\GenericFSM</Filter>
     </ClCompile>
@@ -66,18 +66,21 @@
     <ClCompile Include="GenericAttack.cpp">
       <Filter>StateMachine\GenericFSM</Filter>
     </ClCompile>
+    <ClCompile Include="Homer.cpp">
+      <Filter>NPC\Player\Homer</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>NPC\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC.cpp">
+      <Filter>NPC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EntityFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Homer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
@@ -95,9 +98,6 @@
     <ClInclude Include="HomerJump.h">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClInclude>
-    <ClInclude Include="NPC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -112,6 +112,15 @@
     </ClInclude>
     <ClInclude Include="GenericAttack.h">
       <Filter>StateMachine\GenericFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Homer.h">
+      <Filter>NPC\Player\Homer</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>NPC\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC.h">
+      <Filter>NPC</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
