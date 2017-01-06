@@ -17,9 +17,9 @@ void GenericFSM::Walking::Enter(NPC& player, const Input& input)
 
 State* GenericFSM::Walking::HandleInput(NPC& player, const Input& input)
 {
-	if (input.attack)
+	if (input.attack == KEY_DOWN)
 		return player.Attack;
-	if (input.jump)
+	if (input.jump == KEY_DOWN)
 		return player.Jump;
 
 	if (input.x == 0 && input.y == 0)
