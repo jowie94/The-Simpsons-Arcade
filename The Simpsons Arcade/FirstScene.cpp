@@ -36,7 +36,7 @@ bool FirstScene::Start()
 	AddPlayer(homer);
 
 	NPC* royd1 = App->scene_manager->GetEntityFactory()->GetObject<NPC>(EntityFactory::ROYD);
-	AddEntity(royd1);
+	AddEnemy(royd1);
 	royd1->Position = iPoint3(100, 0, 60);
 
 	return Scene::Start();

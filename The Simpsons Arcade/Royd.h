@@ -1,9 +1,10 @@
 #ifndef __ROYD_H__
 #define __ROYD_H__
 
-#include "NPC.h"
+#include "Enemy.h"
+
 class Royd :
-	public NPC
+	public Enemy
 {
 public:
 	Royd();

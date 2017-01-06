@@ -12,6 +12,8 @@ namespace EnemyFSM
 	public:
 		Idle();
 		~Idle();
+
+		State* HandleInput(NPC& player, const Input& input) override;
 	};
 
 }

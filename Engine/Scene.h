@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Entity.h"
+#include <memory>
 
 class Scene : public Module
 {
@@ -27,12 +28,27 @@ public:
 	void AddPlayer(Entity* player)
 	{
 		//player->Position.y = 100; // TODO: Calculate correct position
-		AddEntity(player);
+		_players.push_back(player);
 	}
 
 	void RemovePlayer(Entity* player)
 	{
-		RemoveEntity(player);
+		_players.remove(player);
+	}
+
+	void PlayerList(std::list<Entity*>& players) const
+	{
+		players = _players;
+	}
+
+	void AddEnemy(Entity* enemy)
+	{
+		_enemies.push_back(enemy);
+	}
+
+	void RemoveEnemy(Entity* enemy)
+	{
+		_enemies.remove(enemy);
 	}
 
 	bool Start() override
@@ -42,36 +58,77 @@ public:
 
 	update_status PreUpdate() override
 	{
-		for (std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); ++it)
+		for (auto it = _entities.begin(); it != _entities.end(); ++it)
 			if ((*it)->IsEnabled())
 				(*it)->PreUpdate();
+
+		for (auto it = _players.begin(); it != _players.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->PreUpdate();
+
+		for (auto it = _enemies.begin(); it != _enemies.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->PreUpdate();
+
 		return UPDATE_CONTINUE;
 	}
 
 	update_status Update() override
 	{
-		for (std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); ++it)
+		for (auto it = _entities.begin(); it != _entities.end(); ++it)
 			if ((*it)->IsEnabled())
 				(*it)->Update();
+
+		for (auto it = _players.begin(); it != _players.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->Update();
+
+		for (auto it = _enemies.begin(); it != _enemies.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->Update();
+
 		return UPDATE_CONTINUE;
 	}
 
 	update_status PostUpdate() override
 	{
-		for (std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); ++it)
+		for (auto it = _entities.begin(); it != _entities.end(); ++it)
 			if ((*it)->IsEnabled())
 				(*it)->PostUpdate();
+
+		for (auto it = _players.begin(); it != _players.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->PostUpdate();
+
+		for (auto it = _enemies.begin(); it != _enemies.end(); ++it)
+			if ((*it)->IsEnabled())
+				(*it)->PostUpdate();
+
 		return UPDATE_CONTINUE;
 	}
 
 	bool CleanUp() override
 	{
-		for (std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); ++it)
+		for (auto it = _entities.begin(); it != _entities.end(); ++it)
 		{
 			(*it)->CleanUp();
 			RELEASE((*it));
 		}
 		_entities.clear();
+
+		for (auto it = _players.begin(); it != _players.end(); ++it)
+		{
+			(*it)->CleanUp();
+			RELEASE((*it));
+		}
+		_players.clear();
+
+		for (auto it = _enemies.begin(); it != _enemies.end(); ++it)
+		{
+			(*it)->CleanUp();
+			RELEASE((*it));
+		}
+		_players.clear();
 
 		return true;
 	}
@@ -84,6 +141,8 @@ public:
 
 protected:
 	std::list<Entity*> _entities;
+	std::list<Entity*> _players;
+	std::list<Entity*> _enemies;
 
 	int xmin, xmax, zmin, zmax;
 
@@ -92,10 +151,22 @@ private:
 	{
 		bool ret = true;
 
-		for (std::list<Entity*>::const_iterator it = _entities.begin(); it != _entities.end() && ret; ++it)
+		for (auto it = _entities.cbegin(); it != _entities.cend() && ret; ++it)
 		{
 			if ((*it)->IsEnabled())
-				(*it)->Start();
+				ret = (*it)->Start();
+		}
+
+		for (auto it = _players.cbegin(); it != _players.cend() && ret; ++it)
+		{
+			if ((*it)->IsEnabled())
+				ret = (*it)->Start();
+		}
+
+		for (auto it = _enemies.cbegin(); it != _enemies.cend() && ret; ++it)
+		{
+			if ((*it)->IsEnabled())
+				ret = (*it)->Start();
 		}
 
 		return ret;

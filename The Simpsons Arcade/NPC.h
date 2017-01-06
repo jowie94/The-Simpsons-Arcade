@@ -13,7 +13,7 @@ class NPC :
 {
 public:
 	NPC();
-	~NPC();
+	virtual ~NPC();
 
 	bool Start() override = 0;
 	void PreUpdate() override;

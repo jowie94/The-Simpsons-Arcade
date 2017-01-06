@@ -90,6 +90,12 @@
     <ClCompile Include="EnemyIdle.cpp">
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyWalking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
@@ -142,6 +148,12 @@
     </ClInclude>
     <ClInclude Include="EnemyIdle.h">
       <Filter>StateMachine\EnemyFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyWalking.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
