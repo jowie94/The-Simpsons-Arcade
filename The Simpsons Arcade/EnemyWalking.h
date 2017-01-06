@@ -2,6 +2,7 @@
 #define __ENEMY_WALKING_H__
 
 #include "GenericWalking.h"
+#include "Point3.h"
 
 namespace EnemyFSM {
 
@@ -13,6 +14,9 @@ namespace EnemyFSM {
 		~Walking();
 
 		State* Update(NPC& player, const Input& input) override;
+
+	private:
+		iPoint3::Side _last_side;
 	};
 
 }

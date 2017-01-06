@@ -5,6 +5,14 @@ template<class TYPE>
 class Point3
 {
 public:
+	enum Side
+	{
+		CONTAINED = 0,
+		LEFT = 1,
+		RIGHT = 2,
+		UP = 4,
+		DOWN = 8,
+	};
 
 	TYPE x, y, z;
 
@@ -93,6 +101,22 @@ public:
 		TYPE fz = z - v.z;
 
 		return sqrt((fx*fx) + (fy*fy) + (fz*fz));
+	}
+
+	Side SidePlaced(const Point3<TYPE>& other) const
+	{
+		int side = CONTAINED;
+
+		if (x > other.x)
+			side |= LEFT;
+		if (other.x > x)
+			side |= RIGHT;
+		if (z >= other.z)
+			side |= DOWN;
+		if (other.z >= z)
+			side |= UP;
+
+		return Side(side);
 	}
 
 };

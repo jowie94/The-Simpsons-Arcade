@@ -1,6 +1,7 @@
 #include "Royd.h"
 #include "ModuleTextures.h"
 #include "EnemyIdle.h"
+#include "EnemyWalking.h"
 
 Royd::Royd()
 {
@@ -22,6 +23,7 @@ bool Royd::Start()
 	AddAnimation("idle", idle);
 
 	Idle = new EnemyFSM::Idle;
+	Walking = new EnemyFSM::Walking;
 
 	SwitchState(Idle);
 
