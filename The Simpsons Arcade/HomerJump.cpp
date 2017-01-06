@@ -1,7 +1,5 @@
 #include "HomerJump.h"
 #include "Player.h"
-#include "Engine.h"
-#include "ModuleInput.h"
 
 HomerFSM::Jump::Jump() : ascending(true), speed(4.f)
 {
@@ -12,25 +10,25 @@ HomerFSM::Jump::~Jump()
 {
 }
 
-void HomerFSM::Jump::Enter(NPC& player)
+void HomerFSM::Jump::Enter(NPC& player, const Input& input)
 {
 	player.SetAnimation("jump_up");
 	ascending = true;
 	speed = 4.f;
 }
 
-State* HomerFSM::Jump::HandleInput(NPC& player)
+State* HomerFSM::Jump::HandleInput(NPC& player, const Input& input)
 {
-	if (App->input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
+	if (input.attack)
 		return player.Attack;
 	return nullptr;
 }
 
-State* HomerFSM::Jump::Update(NPC& player)
+State* HomerFSM::Jump::Update(NPC& player, const Input& input)
 {
 	if (ascending)
 	{
-		ascending = ascending && player.Position.y < 110 && App->input->GetKey(SDL_SCANCODE_X);
+		ascending = ascending && player.Position.y < 110 && input.jump;
 
 		if (!ascending)
 		{
@@ -43,7 +41,7 @@ State* HomerFSM::Jump::Update(NPC& player)
 
 	player.Position.y += int(speed);
 
-	Walking::Update(player);
+	Walking::Update(player, input);
 
 	if (player.Position.y <= 0)
 	{

@@ -1,7 +1,5 @@
 #include "HomerAttack.h"
 #include "Player.h"
-#include "Engine.h"
-#include "ModuleInput.h"
 
 HomerFSM::Attack::Attack()
 {
@@ -12,9 +10,9 @@ HomerFSM::Attack::~Attack()
 {
 }
 
-void HomerFSM::Attack::Enter(NPC& player)
+void HomerFSM::Attack::Enter(NPC& player, const Input& input)
 {
-	int x = App->input->GetAxis(0, X);
+	int x = input.x;
 
 	string attack;
 
@@ -39,12 +37,12 @@ void HomerFSM::Attack::Enter(NPC& player)
 	pushes = (++pushes) % 3;
 }
 
-State* HomerFSM::Attack::HandleInput(NPC& player)
+State* HomerFSM::Attack::HandleInput(NPC& player, const Input& input)
 {
 	return nullptr;
 }
 
-State* HomerFSM::Attack::Update(NPC& player)
+State* HomerFSM::Attack::Update(NPC& player, const Input& input)
 {
 	if (player.Position.y != 0)
 	{

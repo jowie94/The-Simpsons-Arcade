@@ -33,3 +33,12 @@ void Player::correct_position()
 	else if (Position.z > z.second)
 		Position.z = z.second;
 }
+
+void Player::prepare_input(Input& input)
+{
+	input.x = App->input->GetAxis(player_number, X);
+	input.y = App->input->GetAxis(player_number, Y);
+
+	input.attack = App->input->GetKey(SDL_SCANCODE_Z);
+	input.jump = App->input->GetKey(SDL_SCANCODE_X);
+}

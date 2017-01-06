@@ -1,6 +1,4 @@
 #include "HomerWalking.h"
-#include "Engine.h"
-#include "ModuleInput.h"
 #include "Player.h"
 
 HomerFSM::Walking::Walking()
@@ -11,19 +9,19 @@ HomerFSM::Walking::~Walking()
 {
 }
 
-void HomerFSM::Walking::Enter(NPC& player)
+void HomerFSM::Walking::Enter(NPC& player, const Input& input)
 {
 	player.SetAnimation("walk");
 }
 
-State* HomerFSM::Walking::HandleInput(NPC& player)
+State* HomerFSM::Walking::HandleInput(NPC& player, const Input& input)
 {
-	int x = App->input->GetAxis(0, X);
-	int y = App->input->GetAxis(0, Y);
+	int x = input.x;
+	int y = input.y;
 
-	if (App->input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
+	if (input.attack)
 		return player.Attack;
-	if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
+	if (input.jump)
 		return player.Jump;
 
 	if (x == 0 && y == 0)
@@ -39,10 +37,10 @@ State* HomerFSM::Walking::HandleInput(NPC& player)
 	return nullptr;
 }
 
-State* HomerFSM::Walking::Update(NPC& player)
+State* HomerFSM::Walking::Update(NPC& player, const Input& input)
 {
-	int x = App->input->GetAxis(0, X);
-	int y = App->input->GetAxis(0, Y);
+	int x = input.x;
+	int y = input.y;
 
 	player.Position.x += x * 2;
 	player.Position.z += y * 2;

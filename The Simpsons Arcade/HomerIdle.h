@@ -13,9 +13,9 @@ namespace HomerFSM
 		Idle();
 		~Idle();
 
-		void Enter(NPC& player) override;
-		State* HandleInput(NPC& player) override;
-		State* Update(NPC& player) override;
+		void Enter(NPC& player, const Input& input) override;
+		State* HandleInput(NPC& player, const Input& input) override;
+		State* Update(NPC& player, const Input& input) override;
 	};
 
 }

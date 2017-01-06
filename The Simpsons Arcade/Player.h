@@ -18,6 +18,9 @@ public:
 
 protected:
 	void correct_position() override;
+	void prepare_input(Input& input) override;
+
+	int player_number = 0;
 };
 
 #endif // __PLAYER_H__

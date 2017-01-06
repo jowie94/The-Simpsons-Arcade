@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Animation.h"
 #include <map>
+#include "Input.h"
 
 class State;
 
@@ -41,9 +42,12 @@ protected:
 	virtual void correct_position();
 	int center = 0;
 
+	virtual void prepare_input(Input& input) = 0;
+
 private:
 	map<string, SpriteAnimation> _animations;
 	State* _state = nullptr;
 	Collider* _attack_collider = nullptr;
+	Input _last_input;
 };
 

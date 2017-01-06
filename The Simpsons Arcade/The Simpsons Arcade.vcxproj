@@ -38,6 +38,7 @@
     <ClInclude Include="HomerIdle.h" />
     <ClInclude Include="HomerJump.h" />
     <ClInclude Include="HomerWalking.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="State.h" />

@@ -14,7 +14,8 @@ NPC::~NPC()
 
 void NPC::PreUpdate()
 {
-	State* newState = _state->HandleInput(*this);
+	prepare_input(_last_input);
+	State* newState = _state->HandleInput(*this, _last_input);
 
 	if (newState)
 		SwitchState(newState);
@@ -22,7 +23,7 @@ void NPC::PreUpdate()
 
 void NPC::Update()
 {
-	State* newState = _state->Update(*this);
+	State* newState = _state->Update(*this, _last_input);
 
 	if (newState)
 		SwitchState(newState);
@@ -110,7 +111,7 @@ void NPC::SwitchState(State* newState)
 	assert(newState != nullptr);
 
 	_state = newState;
-	_state->Enter(*this);
+	_state->Enter(*this, _last_input);
 }
 
 void NPC::BeginAttack()
