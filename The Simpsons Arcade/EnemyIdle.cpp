@@ -16,5 +16,5 @@ State* EnemyFSM::Idle::HandleInput(NPC& player, const Input& input)
 	if (enemy->Target)
 		return player.Walking;
 
-	return nullptr;
+	return GenericFSM::Idle::HandleInput(player, input);
 }
