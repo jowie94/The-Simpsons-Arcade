@@ -11,12 +11,12 @@ HomerFSM::Walking::~Walking()
 {
 }
 
-void HomerFSM::Walking::Enter(Player& player)
+void HomerFSM::Walking::Enter(NPC& player)
 {
 	player.SetAnimation("walk");
 }
 
-State* HomerFSM::Walking::HandleInput(Player& player)
+State* HomerFSM::Walking::HandleInput(NPC& player)
 {
 	int x = App->input->GetAxis(0, X);
 	int y = App->input->GetAxis(0, Y);
@@ -39,7 +39,7 @@ State* HomerFSM::Walking::HandleInput(Player& player)
 	return nullptr;
 }
 
-State* HomerFSM::Walking::Update(Player& player)
+State* HomerFSM::Walking::Update(NPC& player)
 {
 	int x = App->input->GetAxis(0, X);
 	int y = App->input->GetAxis(0, Y);

@@ -1,7 +1,7 @@
 #ifndef __STATE_H__
 #define __STATE_H__
 
-class Player;
+class NPC;
 
 class State
 {
@@ -13,9 +13,9 @@ public:
 	virtual ~State()
 	{}
 
-	virtual void Enter(Player& player) = 0;
-	virtual State* HandleInput(Player& player) = 0;
-	virtual State* Update(Player& player) = 0;
+	virtual void Enter(NPC& player) = 0;
+	virtual State* HandleInput(NPC& player) = 0;
+	virtual State* Update(NPC& player) = 0;
 };
 
 #endif // __STATE_H__

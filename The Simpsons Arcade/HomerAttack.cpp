@@ -12,7 +12,7 @@ HomerFSM::Attack::~Attack()
 {
 }
 
-void HomerFSM::Attack::Enter(Player& player)
+void HomerFSM::Attack::Enter(NPC& player)
 {
 	int x = App->input->GetAxis(0, X);
 
@@ -39,12 +39,12 @@ void HomerFSM::Attack::Enter(Player& player)
 	pushes = (++pushes) % 3;
 }
 
-State* HomerFSM::Attack::HandleInput(Player& player)
+State* HomerFSM::Attack::HandleInput(NPC& player)
 {
 	return nullptr;
 }
 
-State* HomerFSM::Attack::Update(Player& player)
+State* HomerFSM::Attack::Update(NPC& player)
 {
 	if (player.Position.y != 0)
 	{

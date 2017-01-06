@@ -12,21 +12,21 @@ HomerFSM::Jump::~Jump()
 {
 }
 
-void HomerFSM::Jump::Enter(Player& player)
+void HomerFSM::Jump::Enter(NPC& player)
 {
 	player.SetAnimation("jump_up");
 	ascending = true;
 	speed = 4.f;
 }
 
-State* HomerFSM::Jump::HandleInput(Player& player)
+State* HomerFSM::Jump::HandleInput(NPC& player)
 {
 	if (App->input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
 		return player.Attack;
 	return nullptr;
 }
 
-State* HomerFSM::Jump::Update(Player& player)
+State* HomerFSM::Jump::Update(NPC& player)
 {
 	if (ascending)
 	{

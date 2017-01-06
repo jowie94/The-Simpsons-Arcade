@@ -11,12 +11,12 @@ HomerFSM::Idle::~Idle()
 {
 }
 
-void HomerFSM::Idle::Enter(Player& player)
+void HomerFSM::Idle::Enter(NPC& player)
 {
 	player.SetAnimation("idle");
 }
 
-State* HomerFSM::Idle::HandleInput(Player& player)
+State* HomerFSM::Idle::HandleInput(NPC& player)
 {
 	int x = App->input->GetAxis(0, X);
 	int y = App->input->GetAxis(0, Y);
@@ -32,7 +32,7 @@ State* HomerFSM::Idle::HandleInput(Player& player)
 	return nullptr;
 }
 
-State* HomerFSM::Idle::Update(Player& player)
+State* HomerFSM::Idle::Update(NPC& player)
 {
 	return nullptr;
 }

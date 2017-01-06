@@ -12,9 +12,9 @@ namespace HomerFSM {
 		Jump();
 		~Jump();
 
-		void Enter(Player& player) override;
-		State* HandleInput(Player& player) override;
-		State* Update(Player& player) override;
+		void Enter(NPC& player) override;
+		State* HandleInput(NPC& player) override;
+		State* Update(NPC& player) override;
 
 	private:
 		bool ascending;
