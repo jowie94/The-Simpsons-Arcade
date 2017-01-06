@@ -31,6 +31,15 @@
     <Filter Include="NPC\Player\Homer">
       <UniqueIdentifier>{2f796ae9-6076-4212-9ebb-b97de776502d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NPC\Enemy">
+      <UniqueIdentifier>{204881fb-2571-44de-b434-f0262f4d9584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPC\Enemy\Royd">
+      <UniqueIdentifier>{8b04d820-2388-48ab-994f-63ba03b7a27e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StateMachine\EnemyFSM">
+      <UniqueIdentifier>{ca5f01ce-1884-45f7-b216-5b534251d59b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -74,6 +83,12 @@
     </ClCompile>
     <ClCompile Include="NPC.cpp">
       <Filter>NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="Royd.cpp">
+      <Filter>NPC\Enemy\Royd</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyIdle.cpp">
+      <Filter>StateMachine\EnemyFSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="NPC.h">
       <Filter>NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="Royd.h">
+      <Filter>NPC\Enemy\Royd</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyIdle.h">
+      <Filter>StateMachine\EnemyFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

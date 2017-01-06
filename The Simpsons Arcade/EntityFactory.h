@@ -11,6 +11,7 @@ public:
 	enum Entities
 	{
 		HOMER = 0,
+		ROYD,
 		UNKNOWN
 	};
 

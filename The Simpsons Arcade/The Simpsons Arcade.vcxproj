@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EnemyIdle.cpp" />
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="FirstScene.cpp" />
     <ClCompile Include="GenericAttack.cpp" />
@@ -33,8 +34,10 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Royd.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EnemyIdle.h" />
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="FirstScene.h" />
     <ClInclude Include="GenericAttack.h" />
@@ -49,6 +52,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Royd.h" />
     <ClInclude Include="State.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

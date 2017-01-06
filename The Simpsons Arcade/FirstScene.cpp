@@ -35,6 +35,10 @@ bool FirstScene::Start()
 	Player* homer = App->scene_manager->GetEntityFactory()->GetObject<Player>(EntityFactory::HOMER);
 	AddPlayer(homer);
 
+	NPC* royd1 = App->scene_manager->GetEntityFactory()->GetObject<NPC>(EntityFactory::ROYD);
+	AddEntity(royd1);
+	royd1->Position = iPoint3(100, 0, 60);
+
 	return Scene::Start();
 }
 
