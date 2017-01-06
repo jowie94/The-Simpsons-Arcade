@@ -5,6 +5,7 @@
 #include <queue>
 #include <ios>
 #include "Rectangle3.h"
+#include <functional>
 
 struct SDL_Texture;
 struct SDL_Renderer;
@@ -51,7 +52,8 @@ public:
 	
 private:
 	std::queue<RenderData*> _background;
-	std::priority_queue<std::pair<int, RenderData*>> _foreground;
+	typedef std::pair<int, RenderData*> PIRD;
+	std::priority_queue<PIRD, std::vector<PIRD>, std::greater<PIRD>> _foreground;
 	std::queue<QuadData*> _quads;
 
 	int _background_height = 0;
