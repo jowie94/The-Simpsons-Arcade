@@ -14,6 +14,8 @@ public:
 	void PreUpdate() override;
 	void PostUpdate() override;
 
+	bool OnCollision(Collider& origin, Collider& other) override;
+
 protected:
 	void prepare_input(Input& input) override;
 

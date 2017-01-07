@@ -66,7 +66,7 @@ bool Royd::Start()
 
 	SwitchState(Idle);
 
-	FeetCollider = App->collision->AddCollider(iRectangle3(0, 0, 0, 20, 10));
+	FeetCollider = App->collision->AddCollider(iRectangle3(0, 0, 0, 20, 10), this);
 	FeetCollider->type = ENEMY;
 
 	return graphics != nullptr;
@@ -93,6 +93,12 @@ void Royd::PostUpdate()
 {
 	Enemy::PostUpdate();
 	_prepared_input = { KEY_IDLE, KEY_IDLE, 0, 0 };
+}
+
+bool Royd::OnCollision(Collider& origin, Collider& other)
+{
+	LOG("Collisiont!");
+	return true;
 }
 
 void Royd::prepare_input(Input& input)

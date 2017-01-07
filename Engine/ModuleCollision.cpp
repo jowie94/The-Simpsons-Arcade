@@ -3,6 +3,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
+#include "Entity.h"
 
 using namespace std;
 
@@ -51,15 +52,14 @@ update_status ModuleCollision::Update()
 			Collider* other = *it2;
 			if (ShouldColide[col->type][other->type] && col->CheckCollision(other->rect))
 			{
-				if (col->notify_to)
-					col->notify_to->Notify(col, other);
-				if (other->notify_to)
-					other->notify_to->Notify(other, col);
+				if (col->attached)
+					col->attached->OnCollision(*col, *other);
+				if (other->attached)
+					other->attached->OnCollision(*other, *col);
 			}
 		}
 	}
 	// After making it work, review that you are doing the minumum checks possible
-
 
 	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
@@ -89,9 +89,10 @@ bool ModuleCollision::CleanUp()
 	return true;
 }
 
-Collider* ModuleCollision::AddCollider(const iRectangle3& rect)
+Collider* ModuleCollision::AddCollider(const iRectangle3& rect, Entity* attached)
 {
 	Collider* ret = new Collider(rect);
+	ret->attached = attached;
 
 	colliders.push_back(ret);
 

@@ -21,13 +21,15 @@ extern bool ShouldColide[6][6];
 // Example: lasers should not collide with lasers but should collider with walls
 // enemy shots will collide with other enemies ? and against walls ?
 
+class Entity;
+
 struct Collider
 {
 	iRectangle3 rect = iRectangle3(0, 0, 0, 0, 0);
 	bool to_delete = false;
 	CollisionType type = NONE;
 
-	Notifiable* notify_to = NULL;
+	Entity* attached = nullptr;
 
 	Collider(iRectangle3 rectangle) : // expand this call if you need to
 		rect(rectangle)
@@ -55,7 +57,7 @@ public:
 
 	bool CleanUp();
 
-	Collider* AddCollider(const iRectangle3& rect);
+	Collider* AddCollider(const iRectangle3& rect, Entity* attached);
 	void DebugDraw();
 
 private:

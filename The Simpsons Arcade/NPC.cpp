@@ -118,7 +118,7 @@ void NPC::BeginAttack()
 {
 	assert(_attack_collider == nullptr);
 
-	_attack_collider = App->collision->AddCollider(FeetCollider->rect);
+	_attack_collider = App->collision->AddCollider(FeetCollider->rect, this);
 	_attack_collider->type = PLAYER_ATTACK;
 }
 

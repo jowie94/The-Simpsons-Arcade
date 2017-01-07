@@ -127,7 +127,7 @@ bool Homer::Start()
 
 	SwitchState(Idle);
 
-	FeetCollider = App->collision->AddCollider(iRectangle3(0, 0, 0, 20, 10));
+	FeetCollider = App->collision->AddCollider(iRectangle3(0, 0, 0, 30, 10), this);
 	FeetCollider->type = PLAYER;
 
 	return true;
