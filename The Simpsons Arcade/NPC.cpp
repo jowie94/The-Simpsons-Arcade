@@ -33,16 +33,21 @@ void NPC::Update()
 	Sprite* rect = &_current_animation.GetCurrentFrame();
 
 	int positionX = Position.x;
+	int colliderX = Position.x;
 
 	if (flip)
+	{
 		positionX += rect->Pivot.x - rect->Rect.w + center;
+		colliderX = positionX;
+		
+	}
 	else
 		positionX -= rect->Pivot.x;
 
 	int positionY = Position.y + rect->Pivot.y;
 
 	if (FeetCollider)
-		FeetCollider->SetPos(Position.x, Position.y + FeetCollider->rect.h, Position.z);
+		FeetCollider->SetPos(colliderX, Position.y + FeetCollider->rect.h, Position.z);
 
 	if (_attack_collider) // TODO: Correct collider position
 		_attack_collider->SetPos(positionX, Position.y + FeetCollider->rect.h, Position.z);
