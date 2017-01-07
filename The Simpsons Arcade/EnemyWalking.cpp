@@ -37,5 +37,5 @@ State* EnemyFSM::Walking::Update(NPC& player, const Input& input)
 		_last_side = side;
 	}
 
-	return nullptr;
+	return GenericFSM::Walking::Update(player, input);
 }

@@ -11,8 +11,13 @@ public:
 	~Royd();
 
 	bool Start() override;
+	void Update() override;
+
 protected:
 	void prepare_input(Input& input) override;
+
+private:
+	Input _prepared_input = { KEY_IDLE, KEY_IDLE,0,0 };
 };
 
 #endif // __ROYD_H__

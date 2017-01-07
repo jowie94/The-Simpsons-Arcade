@@ -46,6 +46,28 @@ public:
 		return(r);
 	}
 
+	Point3 operator / (const Point3 &v) const 
+	{
+		Point3 r;
+
+		r.x = x / v.x;
+		r.y = y / v.y;
+		r.z = z / v.z;
+
+		return(r);
+	}
+
+	Point3 operator / (TYPE num) const 
+	{
+		Point3 r;
+		
+		r.x = x / num;
+		r.y = y / num;
+		r.z = z / num;
+
+		return r;
+	}
+
 	const Point3& operator -=(const Point3 &v)
 	{
 		x -= v.x;
@@ -80,6 +102,11 @@ public:
 		return (x == 0 && y == 0 && z == 0);
 	}
 
+	double Magnitude()
+	{
+		return sqrt(x*x + y*y + z*z);
+	}
+
 	Point3& SetToZero()
 	{
 		x = y = z = 0;
@@ -104,7 +131,7 @@ public:
 		return sqrt((fx*fx) + (fy*fy) + (fz*fz));
 	}
 
-	Side SidePlaced(const Point3<TYPE>& other) const
+	Side SidePlaced(const Point3& other) const
 	{
 		int side = CONTAINED;
 
