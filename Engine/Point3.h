@@ -12,6 +12,7 @@ public:
 		RIGHT = 2,
 		UP = 4,
 		DOWN = 8,
+		SAME_Z = 12
 	};
 
 	TYPE x, y, z;
