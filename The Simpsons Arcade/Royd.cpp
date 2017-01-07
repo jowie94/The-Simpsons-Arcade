@@ -48,6 +48,19 @@ bool Royd::Start()
 
 	AddAnimation("walk_up", walk_up);
 
+	SpriteAnimation walk_down;
+	walk_down.frames.push_back({ { 16, 192, 29, 64 }, iPoint(8, 64) });
+	walk_down.frames.push_back({ { 64, 193, 25, 63 }, iPoint(4, 63) });
+	walk_down.frames.push_back({ { 112, 194, 23, 62 }, iPoint(2, 61) });
+	walk_down.frames.push_back({ { 160, 193, 24, 63 }, iPoint(3, 63) });
+	walk_down.frames.push_back({ { 208, 192, 23, 64 }, iPoint(2, 64) });
+	walk_down.frames.push_back({ { 256, 193, 25, 63 }, iPoint(6, 63) });
+	walk_down.frames.push_back({ { 304, 194, 30, 62 }, iPoint(7, 62) });
+	walk_down.frames.push_back({ { 352, 193, 39, 63 }, iPoint(11, 63) });
+	walk_down.speed = 0.2f;
+
+	AddAnimation("walk_down", walk_down);
+
 	Idle = new EnemyFSM::Idle;
 	Walking = new EnemyFSM::Walking;
 
