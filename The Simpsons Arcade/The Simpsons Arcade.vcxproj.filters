@@ -90,11 +90,11 @@
     <ClCompile Include="EnemyIdle.cpp">
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyWalking.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>StateMachine\EnemyFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>NPC\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,11 +149,11 @@
     <ClInclude Include="EnemyIdle.h">
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyWalking.h">
-      <Filter>Header Files</Filter>
+      <Filter>StateMachine\EnemyFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>NPC\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
