@@ -39,6 +39,17 @@ public:
 		return frames[(int)current_frame];
 	}
 
+	float GetCurrentFrameNumber() const
+	{
+		return current_frame;
+	}
+
+	void SetFrame(float frame)
+	{
+		if (int(frame) < frames.size())
+			current_frame = frame;
+	}
+
 	bool Finished() const
 	{
 		return loops > 0;

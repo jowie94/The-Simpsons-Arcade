@@ -24,12 +24,14 @@ State* EnemyFSM::Walking::Update(NPC& player, const Input& input)
 		player.SetDirection(side & iPoint3::LEFT ? -1 : 1);
 
 		if (side >> 2 != _last_side >> 2) {
-			if ((side & iPoint3::SAME_Z) == iPoint3::SAME_Z) // TOOD: Fix this state!
+			float frame = player.CurrentAnimation()->GetCurrentFrameNumber();
+			if ((side & iPoint3::SAME_Z) == iPoint3::SAME_Z)
 				player.SetAnimation("walk");
 			else if (side & iPoint3::UP)
 				player.SetAnimation("walk_up");
 			else if (side & iPoint3::DOWN)
 				player.SetAnimation("walk_down");
+			player.CurrentAnimation()->SetFrame(frame);
 		}
 
 		_last_side = side;
