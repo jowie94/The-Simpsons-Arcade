@@ -11,7 +11,8 @@ public:
 	~Royd();
 
 	bool Start() override;
-	void Update() override;
+	void PreUpdate() override;
+	void PostUpdate() override;
 
 protected:
 	void prepare_input(Input& input) override;

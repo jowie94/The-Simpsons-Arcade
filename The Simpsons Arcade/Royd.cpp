@@ -72,18 +72,27 @@ bool Royd::Start()
 	return graphics != nullptr;
 }
 
-void Royd::Update()
+void Royd::PreUpdate()
 {
 	if (Target)
 	{
 		iPoint3 vec = Target->Position - Position;
 		fPoint3 direction(vec.x, vec.y, vec.z);
-		direction = direction / direction.Magnitude();
-		_prepared_input.x = direction.x;
-		_prepared_input.y = direction.z;
+		float distance = direction.Magnitude();
+		direction = direction / distance;
+		if (abs(vec.x) > 40)
+			_prepared_input.x = direction.x < 0 ? floor(direction.x) : ceil(direction.x);
+		if (abs(vec.z) > 5)
+			_prepared_input.y = direction.z < 0 ? floor(direction.z) : ceil(direction.z);
 	}
 
-	Enemy::Update();
+	Enemy::PreUpdate();
+}
+
+void Royd::PostUpdate()
+{
+	Enemy::PostUpdate();
+	_prepared_input = { KEY_IDLE, KEY_IDLE, 0, 0 };
 }
 
 void Royd::prepare_input(Input& input)
