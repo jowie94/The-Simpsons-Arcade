@@ -64,11 +64,14 @@ bool Homer::Start()
 	AddAnimation("walk_up", walking_up);
 
 	SpriteAnimation attack1;
-	attack1.frames.push_back({ { 163, 163, 40, 63 }, iPoint(7, 63) });
-	attack1.frames.push_back({ { 214, 164, 38, 62 }, iPoint(5, 62) });
-	attack1.frames.push_back({ { 262, 164, 42, 62 }, iPoint(7, 62) });
-	attack1.frames.push_back({ { 316, 163, 50, 63 }, iPoint(11, 63) });
-	attack1.frames.push_back({ { 377, 164, 48, 62 }, iPoint(9, 62) });
+	attack1.frames.push_back({ { 163, 163, 40, 63 }, iPoint(4, 63) });
+	attack1.frames.push_back({ { 214, 164, 38, 62 }, iPoint(0, 62) });
+	attack1.frames.push_back({ { 262, 164, 42, 62 }, iPoint(0, 62) });
+	attack1.frames.push_back({ { 316, 163, 50, 63 }, iPoint(0, 63) });
+	attack1.frames.push_back({ { 377, 164, 48, 62 }, iPoint(0, 62) });
+	attack1.frames.push_back({ { 436, 163, 38, 63 }, iPoint(2, 63) });
+	attack1.frames.push_back({ { 487, 163, 36, 63 }, iPoint(0, 63) });
+	attack1.frames.push_back({ { 534, 164, 47, 62 }, iPoint(0, 62) });
 	attack1.speed = 0.4f;
 
 	AddAnimation("attack1", attack1);
@@ -77,9 +80,16 @@ bool Homer::Start()
 	attack2.frames.push_back({ { 4, 163, 40, 63 }, iPoint(7, 63) });
 	attack2.frames.push_back({ { 60, 163, 41, 63 }, iPoint(4, 63) });
 	attack2.frames.push_back({ { 112, 164, 41, 62 }, iPoint(9, 62) });
-	attack2.speed = 0.4f;
+	attack2.speed = 0.2f;
 
 	AddAnimation("attack2", attack2);
+
+	SpriteAnimation attack3 = attack2;
+	attack3.frames.push_back({ { 591, 164, 56, 67 }, iPoint(0, 66) });
+	attack3.frames.push_back({ { 660, 152, 35, 74 }, iPoint(0, 74) });
+	attack2.speed = 0.4f;
+
+	AddAnimation("attack3", attack3);
 
 	SpriteAnimation jump_up;
 	jump_up.frames.push_back({ { 8, 239, 41, 64 }, iPoint(10, 64) });
