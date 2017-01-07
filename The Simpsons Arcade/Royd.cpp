@@ -97,7 +97,10 @@ void Royd::PostUpdate()
 
 bool Royd::OnCollision(Collider& origin, Collider& other)
 {
-	LOG("Collisiont!");
+	LOG("Collision!");
+
+	if (other.type == PLAYER_ATTACK)
+		LOG("Player attack");
 	return true;
 }
 

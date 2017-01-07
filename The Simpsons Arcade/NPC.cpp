@@ -34,6 +34,7 @@ void NPC::Update()
 
 	int positionX = Position.x;
 	int colliderX = Position.x;
+	int attackX = Position.x;
 
 	if (flip)
 	{
@@ -42,7 +43,11 @@ void NPC::Update()
 		
 	}
 	else
+	{
 		positionX -= rect->Pivot.x;
+		if (_attack_collider)
+			attackX += (rect->Rect.w - _attack_collider->rect.w);
+	}
 
 	int positionY = Position.y + rect->Pivot.y;
 
@@ -50,7 +55,7 @@ void NPC::Update()
 		FeetCollider->SetPos(colliderX, Position.y + FeetCollider->rect.h, Position.z);
 
 	if (_attack_collider) // TODO: Correct collider position
-		_attack_collider->SetPos(positionX, Position.y + FeetCollider->rect.h, Position.z);
+		_attack_collider->SetPos(attackX, Position.y + FeetCollider->rect.h, Position.z);
 
 	App->renderer->Blit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
 }

@@ -73,7 +73,12 @@ update_status ModuleCollision::Update()
 void ModuleCollision::DebugDraw()
 {
 	for (list<Collider*>::iterator it = colliders.begin(); it != colliders.end(); ++it)
-		App->renderer->DrawQuad((*it)->rect, 255, 0, 0, 80);
+	{
+		SDL_Color color = { 255, 0, 0, 0 };
+		if ((*it)->type == PLAYER_ATTACK)
+			color.g = 255;
+		App->renderer->DrawQuad((*it)->rect, color.r, color.g, color.b, 80);
+	}
 }
 
 // Called before quitting
