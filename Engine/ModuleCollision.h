@@ -11,9 +11,9 @@ enum CollisionType
 {
 	PLAYER,
 	PLAYER_ATTACK,
-	WALL,
 	ENEMY,
 	ENEMY_ATTACK,
+	WALL,
 	NONE
 };
 
