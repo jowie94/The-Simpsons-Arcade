@@ -17,6 +17,15 @@ Player::~Player()
 {
 }
 
+bool Player::OnCollision(Collider& origin, Collider& other)
+{
+	if (other.type == ENEMY)
+	{
+		NPC* enemy = static_cast<NPC*>(other.attached);
+		enemy->ReceiveAttack(calculate_damage());
+	}
+}
+
 void Player::correct_position()
 {
 	pair<int, int> x, z;
@@ -41,4 +50,14 @@ void Player::prepare_input(Input& input)
 
 	input.attack = App->input->GetKey(SDL_SCANCODE_Z);
 	input.jump = App->input->GetKey(SDL_SCANCODE_X);
+}
+
+int Player::calculate_damage()
+{
+	int r = rand() % 2 + 1;
+
+	if (r == 2)
+		r = rand() % 2 + 1;
+
+	return r;
 }

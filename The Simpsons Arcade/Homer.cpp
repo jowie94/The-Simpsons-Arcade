@@ -22,6 +22,7 @@ bool Homer::Start()
 	graphics = App->textures->Load("Simpsons/homer.png", &key);
 	center = 12; // Homer's center
 	player_number = 0; // TODO: Change this number for the correct one
+	life = 10;
 
 	SpriteAnimation idle;
 	idle.frames.push_back({ { 6, 5, 25, 64 }, iPoint(0, 64) });

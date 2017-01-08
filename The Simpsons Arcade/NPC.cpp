@@ -140,6 +140,22 @@ void NPC::FinishAttack()
 	_attack_collider = nullptr;
 }
 
+void NPC::ReceiveAttack(int damage)
+{
+	if (!IsDamaged)
+	{
+		life -= damage;
+
+		if (Damaged)
+			SwitchState(Damaged);
+	}
+}
+
+bool NPC::IsAlive() const
+{
+	return life > 0;
+}
+
 void NPC::correct_position()
 {
 }

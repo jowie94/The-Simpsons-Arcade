@@ -30,12 +30,18 @@ public:
 	void SwitchState(State* newState);
 	void BeginAttack();
 	void FinishAttack();
+	void ReceiveAttack(int damage);
+	bool IsAlive() const;
 
 public:
 	State* Idle = nullptr;
 	State* Walking = nullptr;
 	State* Jump = nullptr;
 	State* Attack = nullptr;
+	State* Damaged = nullptr;
+	State* Dead = nullptr;
+
+	bool IsDamaged;
 
 protected:
 	SDL_Texture* graphics = nullptr;
@@ -43,6 +49,7 @@ protected:
 	bool flip = false;
 	virtual void correct_position();
 	int center = 0;
+	int life = 0;
 
 	virtual void prepare_input(Input& input) = 0;
 

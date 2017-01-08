@@ -16,6 +16,7 @@ bool Royd::Start()
 	SDL_Color key = { 89, 253, 66, 0 };
 	graphics = App->textures->Load("Simpsons/royd.png", &key);
 	center = 12; // Royd's center
+	life = 2;
 
 	SpriteAnimation idle;
 	idle.frames.push_back({ { 16, 272, 33, 64 }, iPoint(4, 64) });
