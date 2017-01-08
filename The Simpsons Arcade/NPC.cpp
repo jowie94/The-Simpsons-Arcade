@@ -142,9 +142,10 @@ void NPC::FinishAttack()
 
 void NPC::ReceiveAttack(int damage)
 {
-	if (!IsDamaged)
+	if (Damage == NONE)
 	{
 		life -= damage;
+		Damage = damage == 1 ? SLIGHT : STRONG;
 
 		if (Damaged)
 			SwitchState(Damaged);

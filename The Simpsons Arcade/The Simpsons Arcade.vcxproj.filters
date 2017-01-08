@@ -96,6 +96,9 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>NPC\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="GenericDamaged.cpp">
+      <Filter>StateMachine\GenericFSM</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>NPC\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericDamaged.h">
+      <Filter>StateMachine\GenericFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

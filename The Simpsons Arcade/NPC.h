@@ -12,6 +12,13 @@ class NPC :
 	public Entity
 {
 public:
+	enum DamageType
+	{
+		NONE,
+		SLIGHT,
+		STRONG
+	};
+
 	NPC();
 	virtual ~NPC();
 
@@ -41,7 +48,7 @@ public:
 	State* Damaged = nullptr;
 	State* Dead = nullptr;
 
-	bool IsDamaged;
+	DamageType Damage;
 
 protected:
 	SDL_Texture* graphics = nullptr;
