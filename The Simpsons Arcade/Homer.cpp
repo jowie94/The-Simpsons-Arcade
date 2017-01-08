@@ -23,6 +23,7 @@ bool Homer::Start()
 	center = 12; // Homer's center
 	player_number = 0; // TODO: Change this number for the correct one
 	life = 10;
+	Speed = 2;
 
 	SpriteAnimation idle;
 	idle.frames.push_back({ { 6, 5, 25, 64 }, iPoint(0, 64) });

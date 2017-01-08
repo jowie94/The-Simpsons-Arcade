@@ -49,6 +49,7 @@ public:
 	State* Dead = nullptr;
 
 	DamageType Damage;
+	int Speed = 1;
 
 protected:
 	SDL_Texture* graphics = nullptr;

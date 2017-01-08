@@ -19,11 +19,14 @@ Player::~Player()
 
 bool Player::OnCollision(Collider& origin, Collider& other)
 {
-	if (other.type == ENEMY)
+	if (origin.type == PLAYER_ATTACK && other.type == ENEMY)
 	{
 		NPC* enemy = static_cast<NPC*>(other.attached);
 		enemy->ReceiveAttack(calculate_damage());
+		return false;
 	}
+
+	return true;
 }
 
 void Player::correct_position()

@@ -33,8 +33,8 @@ State* GenericFSM::Walking::Update(NPC& player, const Input& input)
 	int x = input.x;
 	int y = input.y;
 
-	player.Position.x += x * 2;
-	player.Position.z += y * 2;
+	player.Position.x += x * player.Speed;
+	player.Position.z += y * player.Speed;
 
 	player.SetDirection(x);
 
