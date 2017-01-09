@@ -30,7 +30,7 @@ public:
 
 	bool Overlaps(const Rectangle3<T>& other) const
 	{
-		return (Position.z - other.Position.z < 10) 
+		return (abs(Position.z - other.Position.z) < 10) 
 				&& !(Position.x > other.Position.x + other.w 
 					 || other.Position.x > Position.x + w
 					 || Position.y > other.Position.y + other.h
