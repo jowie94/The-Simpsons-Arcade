@@ -40,13 +40,14 @@ void NPC::Update()
 	{
 		positionX += rect->Pivot.x - rect->Rect.w + center;
 		colliderX = positionX;
-		
+		if (attack_collider)
+			attackX = positionX;
 	}
 	else
 	{
 		positionX -= rect->Pivot.x;
 		if (attack_collider)
-			attackX += (rect->Rect.w - attack_collider->rect.w);
+			attackX += rect->Rect.w - attack_collider->rect.w;
 	}
 
 	int positionY = Position.y + rect->Pivot.y;
