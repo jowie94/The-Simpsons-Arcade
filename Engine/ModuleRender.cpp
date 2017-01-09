@@ -153,6 +153,7 @@ bool ModuleRender::CleanUp()
 		QuadData* data = _quads.front();
 		RELEASE(data->rect);
 		RELEASE(data->color);
+		RELEASE(data);
 		_quads.pop();
 	}
 
