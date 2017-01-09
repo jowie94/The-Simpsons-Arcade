@@ -120,7 +120,7 @@ bool Royd::Start()
 	get_up.frames.push_back({ { 528, 727, 50, 57 }, iPoint(1, 57) });
 	get_up.frames.push_back({ { 592, 727, 49, 57 }, iPoint(1, 57) });
 	get_up.frames.push_back({ { 656, 727, 50, 57 }, iPoint(1, 57) });
-	get_up.speed = 0.01f;
+	get_up.speed = 0.08f;
 
 	AddAnimation("get_up", get_up);
 
