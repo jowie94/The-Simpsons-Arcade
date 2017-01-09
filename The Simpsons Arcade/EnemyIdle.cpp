@@ -13,7 +13,8 @@ EnemyFSM::Idle::~Idle()
 State* EnemyFSM::Idle::HandleInput(NPC& player, const Input& input)
 {
 	Enemy* enemy = static_cast<Enemy*>(&player);
-	if (enemy->Target)
+	NPC* target = static_cast<NPC*>(enemy->Target);
+	if (enemy->Target && target->IsAlive())
 		return player.Walking;
 
 	return GenericFSM::Idle::HandleInput(player, input);
