@@ -58,6 +58,3 @@ State* GenericFSM::Attack::Update(NPC& player, const Input& input)
 
 	return nullptr;
 }
-
-
-

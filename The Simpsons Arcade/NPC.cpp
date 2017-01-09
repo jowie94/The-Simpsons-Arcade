@@ -130,6 +130,7 @@ void NPC::BeginAttack()
 {
 	assert(_attack_collider == nullptr);
 
+	Damage = INVINCIBLE;
 	_attack_collider = App->collision->AddCollider(FeetCollider->rect, this);
 	_attack_collider->type = PLAYER_ATTACK;
 }
@@ -138,13 +139,14 @@ void NPC::FinishAttack()
 {
 	assert(_attack_collider != nullptr);
 
+	Damage = NONE;
 	_attack_collider->to_delete = true;
 	_attack_collider = nullptr;
 }
 
 void NPC::ReceiveAttack(int damage)
 {
-	if (Damage == NONE)
+	if (Damage == NONE && Damage != INVINCIBLE)
 	{
 		life -= damage;
 		Damage = damage == 1 && (rand() % 3 <= 2) ? SLIGHT : STRONG;

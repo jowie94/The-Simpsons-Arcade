@@ -16,7 +16,8 @@ public:
 	{
 		NONE,
 		SLIGHT,
-		STRONG
+		STRONG,
+		INVINCIBLE
 	};
 
 	NPC();
