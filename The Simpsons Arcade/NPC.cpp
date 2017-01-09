@@ -72,6 +72,8 @@ bool NPC::CleanUp()
 	RELEASE(Walking);
 	RELEASE(Jump);
 	RELEASE(Attack);
+	RELEASE(Damaged);
+	RELEASE(Dead);
 
 	return true;
 }
