@@ -148,6 +148,14 @@ bool ModuleRender::CleanUp()
 		_foreground.pop();
 	}
 
+	while (!_quads.empty())
+	{
+		QuadData* data = _quads.front();
+		RELEASE(data->rect);
+		RELEASE(data->color);
+		_quads.pop();
+	}
+
 	//Destroy window
 	if(renderer != nullptr)
 	{
