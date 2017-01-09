@@ -3,6 +3,7 @@
 #include "EnemyIdle.h"
 #include "EnemyWalking.h"
 #include "GenericDamaged.h"
+#include "EnemyDead.h"
 
 Royd::Royd()
 {
@@ -124,9 +125,28 @@ bool Royd::Start()
 
 	AddAnimation("get_up", get_up);
 
+	SpriteAnimation dead;
+	dead.frames.push_back({ { 416, 416, 67, 48 }, iPoint(42, 41) });
+	dead.frames.push_back({ { 416, 416, 0, 0 }, iPoint(42, 41) });
+	dead.frames.push_back({ { 416, 416, 67, 48 }, iPoint(42, 41) });
+	dead.frames.push_back({ { 416, 416, 0, 0 }, iPoint(42, 41) });
+	dead.frames.push_back({ { 496, 413, 67, 51 }, iPoint(42, 44) });
+	dead.frames.push_back({ { 496, 413, 0, 0 }, iPoint(42, 44) });
+	dead.frames.push_back({ { 496, 413, 67, 51 }, iPoint(42, 44) });
+	dead.frames.push_back({ { 496, 413, 0, 0 }, iPoint(42, 44) });
+	dead.frames.push_back({ { 576, 435, 67, 29 }, iPoint(42, 22) });
+	dead.frames.push_back({ { 576, 435, 0, 0 }, iPoint(42, 44) });
+	dead.frames.push_back({ { 576, 435, 67, 29 }, iPoint(42, 22) });
+	dead.frames.push_back({ { 576, 435, 0, 0 }, iPoint(42, 44) });
+	dead.loop = false;
+	dead.speed = 0.1f;
+
+	AddAnimation("dead", dead);
+
 	Idle = new EnemyFSM::Idle;
 	Walking = new EnemyFSM::Walking;
 	Damaged = new GenericFSM::Damaged;
+	Dead = new EnemyFSM::Dead;
 
 	SwitchState(Idle);
 

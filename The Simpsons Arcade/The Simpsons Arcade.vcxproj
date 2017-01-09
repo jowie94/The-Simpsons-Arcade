@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyDead.cpp" />
     <ClCompile Include="EnemyIdle.cpp" />
     <ClCompile Include="EnemyWalking.cpp" />
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="FirstScene.cpp" />
     <ClCompile Include="GenericAttack.cpp" />
     <ClCompile Include="GenericDamaged.cpp" />
+    <ClCompile Include="GenericDead.cpp" />
     <ClCompile Include="GenericIdle.cpp" />
     <ClCompile Include="GenericJump.cpp" />
     <ClCompile Include="GenericWalking.cpp" />
@@ -41,12 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyDead.h" />
     <ClInclude Include="EnemyIdle.h" />
     <ClInclude Include="EnemyWalking.h" />
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="FirstScene.h" />
     <ClInclude Include="GenericAttack.h" />
     <ClInclude Include="GenericDamaged.h" />
+    <ClInclude Include="GenericDead.h" />
     <ClInclude Include="GenericIdle.h" />
     <ClInclude Include="GenericJump.h" />
     <ClInclude Include="GenericWalking.h" />
