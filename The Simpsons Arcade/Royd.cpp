@@ -4,6 +4,7 @@
 #include "EnemyWalking.h"
 #include "GenericDamaged.h"
 #include "EnemyDead.h"
+#include "EnemyAttack.h"
 
 Royd::Royd()
 {
@@ -63,6 +64,27 @@ bool Royd::Start()
 	walk_down.speed = 0.2f;
 
 	AddAnimation("walk_down", walk_down);
+
+	SpriteAnimation attack1;
+	attack1.frames.push_back({ { 112, 338, 28, 62 }, iPoint(1, 62) });
+	attack1.frames.push_back({ { 160, 340, 32, 60 }, iPoint(4, 60) });
+	attack1.frames.push_back({ { 208, 340, 39, 60 }, iPoint(2, 60) });
+	attack1.frames.push_back({ { 256, 344, 50, 56 }, iPoint(8, 56) });
+	attack1.frames.push_back({ { 320, 340, 39, 60 }, iPoint(2, 60) });
+	attack1.loop = false;
+	attack1.speed = 0.2f;
+
+	AddAnimation("attack1", attack1);
+
+	SpriteAnimation attack2;
+	attack2.frames.push_back({ { 384, 338, 56, 62 }, iPoint(15, 62) });
+	attack2.frames.push_back({ { 448, 338, 39, 62 }, iPoint(6, 62) });
+	attack2.frames.push_back({ { 496, 341, 43, 59 }, iPoint(6, 59) });
+	attack2.frames.push_back({ { 544, 338, 43, 62 }, iPoint(6, 62) });
+	attack2.loop = false;
+	attack2.speed = 0.2f;
+
+	AddAnimation("attack2", attack2);
 
 	SpriteAnimation damaged_slight_0;
 	damaged_slight_0.frames.push_back({ { 16, 562, 29, 62 }, iPoint(0, 62) });
@@ -145,6 +167,7 @@ bool Royd::Start()
 
 	Idle = new EnemyFSM::Idle;
 	Walking = new EnemyFSM::Walking;
+	Attack = new EnemyFSM::Attack;
 	Damaged = new GenericFSM::Damaged;
 	Dead = new EnemyFSM::Dead;
 
@@ -164,10 +187,27 @@ void Royd::PreUpdate()
 		fPoint3 direction(vec.x, vec.y, vec.z);
 		float distance = direction.Magnitude();
 		direction = direction / distance;
-		if (abs(vec.x) > 40)
+		if (abs(vec.x) > 40 || !_touching_player)
 			_prepared_input.x = direction.x < 0 ? floor(direction.x) : ceil(direction.x);
 		if (abs(vec.z) > 5)
 			_prepared_input.y = direction.z < 0 ? floor(direction.z) : ceil(direction.z);
+
+		if (_touching_player && !_attacking)
+		{
+			_prepared_input.attack = KEY_DOWN;
+			_touching_player = false;
+			_attacking = true;
+		}
+		else if (_attacking )
+		{
+			if (abs(vec.x) < 50)
+				_prepared_input.x = (direction.x < 0 ? floor(direction.x) : ceil(direction.x)) * -1;
+			else
+			{
+				_touching_player = false;
+				_attacking = false;
+			}
+		}
 	}
 
 	Enemy::PreUpdate();
@@ -181,8 +221,18 @@ void Royd::PostUpdate()
 
 bool Royd::OnCollision(Collider& origin, Collider& other)
 {
-	if (other.type == PLAYER_ATTACK)
-		LOG("Player attack");
+	if (other.type == PLAYER)
+	{
+		if (origin.type == ENEMY_ATTACK)
+		{
+			NPC* player = static_cast<NPC*>(other.attached);
+			player->ReceiveAttack(damage);
+			return false;
+		}
+		_touching_player = true;
+		Target = other.attached;
+	}
+
 	return true;
 }
 

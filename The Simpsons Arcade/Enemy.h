@@ -14,6 +14,8 @@ public:
 
 public:
 	Entity* Target = nullptr;
+protected:
+	int damage = 1;
 };
 
 #endif // __ENEMY_H__

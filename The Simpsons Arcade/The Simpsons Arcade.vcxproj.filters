@@ -105,6 +105,9 @@
     <ClCompile Include="EnemyDead.cpp">
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyAttack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="EnemyDead.h">
       <Filter>StateMachine\EnemyFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAttack.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

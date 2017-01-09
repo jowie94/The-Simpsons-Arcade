@@ -21,6 +21,8 @@ protected:
 
 private:
 	Input _prepared_input = { KEY_IDLE, KEY_IDLE,0,0 };
+	bool _touching_player = false;
+	bool _attacking = false;
 };
 
 #endif // __ROYD_H__
