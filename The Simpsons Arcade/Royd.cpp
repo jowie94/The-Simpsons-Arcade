@@ -113,10 +113,10 @@ bool Royd::Start()
 	get_up.frames.push_back({ { 80, 730, 56, 54 }, iPoint(24, 44) });
 	get_up.frames.push_back({ { 144, 730, 56, 54 }, iPoint(24, 44) });
 	get_up.frames.push_back({ { 208, 730, 56, 54 }, iPoint(24, 44) });
-	get_up.frames.push_back({ { 272, 739, 55, 45 }, iPoint(10, 44) });
-	get_up.frames.push_back({ { 336, 740, 54, 44 }, iPoint(10, 43) });
-	get_up.frames.push_back({ { 400, 739, 55, 45 }, iPoint(10, 44) });
-	get_up.frames.push_back({ { 464, 740, 54, 44 }, iPoint(10, 43) });
+	get_up.frames.push_back({ { 272, 739, 55, 45 }, iPoint(10, 45) });
+	get_up.frames.push_back({ { 336, 740, 54, 44 }, iPoint(10, 45) });
+	get_up.frames.push_back({ { 400, 739, 55, 45 }, iPoint(10, 45) });
+	get_up.frames.push_back({ { 464, 740, 54, 44 }, iPoint(10, 45) });
 	get_up.frames.push_back({ { 528, 727, 50, 57 }, iPoint(1, 57) });
 	get_up.frames.push_back({ { 592, 727, 49, 57 }, iPoint(1, 57) });
 	get_up.frames.push_back({ { 656, 727, 50, 57 }, iPoint(1, 57) });
