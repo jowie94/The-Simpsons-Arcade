@@ -126,18 +126,18 @@ bool Homer::Start()
 	SpriteAnimation damaged_0;
 	damaged_0.frames.push_back({ { 15, 2207, 34, 63 }, iPoint(6, 63) });
 	damaged_0.frames.push_back({ { 64, 2207, 31, 63 }, iPoint(3, 63) });
-	damaged_0.speed = 0.2f;
+	damaged_0.speed = 0.1f;
 	damaged_0.loop = false;
 
 	AddAnimation("damaged_0", damaged_0);
 
 	SpriteAnimation damaged_1;
 	damaged_0.frames.push_back({ { 61, 2296, 39, 56 }, iPoint(-3, 56) });
-	damaged_1.frames.push_back({ { 106, 2237, 60, 34 }, iPoint(38, 55) });
-	damaged_1.frames.push_back({ { 179, 2237, 62, 30 }, iPoint(38, 38) });
-	damaged_1.frames.push_back({ { 258, 2221, 43, 40 }, iPoint(26, 40) });
+	damaged_1.frames.push_back({ { 106, 2237, 60, 34 }, iPoint(38, 44) });
+	damaged_1.frames.push_back({ { 179, 2237, 62, 30 }, iPoint(38, 28) });
+	damaged_1.frames.push_back({ { 258, 2221, 40, 43 }, iPoint(29, 43) });
 	damaged_1.frames.push_back({ { 311, 2208, 29, 55 }, iPoint(-9, 55) });
-	damaged_1.speed = 0.2f;
+	damaged_1.speed = 0.1f;
 	damaged_1.loop = false;
 
 	AddAnimation("damaged_1", damaged_1);
