@@ -9,31 +9,6 @@ GenericFSM::Damaged::~Damaged()
 {
 }
 
-void GenericFSM::Damaged::Enter(NPC& player, const Input& input)
-{
-	int anim = rand() % 2;
-	string animation;
-
-	if (player.Damage == NPC::SLIGHT && player.IsAlive())
-	{
-		if (anim == 0)
-			animation = "damaged_slight_0";
-		else
-			animation = "damaged_slight_1";
-	}
-	else
-	{
-		if (anim == 0)
-			animation = "damaged_strong_0";
-		else
-			animation = "damaged_strong_1";
-	}
-
-	get_up = false;
-
-	player.SetAnimation(animation);
-}
-
 State* GenericFSM::Damaged::HandleInput(NPC& player, const Input& input)
 {
 	return nullptr;

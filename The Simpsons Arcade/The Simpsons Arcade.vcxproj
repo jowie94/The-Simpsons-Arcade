@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyAttack.cpp" />
+    <ClCompile Include="EnemyDamaged.cpp" />
     <ClCompile Include="EnemyDead.cpp" />
     <ClCompile Include="EnemyIdle.cpp" />
     <ClCompile Include="EnemyWalking.cpp" />
@@ -34,6 +35,7 @@
     <ClCompile Include="GenericWalking.cpp" />
     <ClCompile Include="Homer.cpp" />
     <ClCompile Include="HomerAttack.cpp" />
+    <ClCompile Include="HomerDamaged.cpp" />
     <ClCompile Include="HomerIdle.cpp" />
     <ClCompile Include="HomerJump.cpp" />
     <ClCompile Include="HomerWalking.cpp" />
@@ -45,6 +47,7 @@
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyAttack.h" />
+    <ClInclude Include="EnemyDamaged.h" />
     <ClInclude Include="EnemyDead.h" />
     <ClInclude Include="EnemyIdle.h" />
     <ClInclude Include="EnemyWalking.h" />
@@ -58,6 +61,7 @@
     <ClInclude Include="GenericWalking.h" />
     <ClInclude Include="Homer.h" />
     <ClInclude Include="HomerAttack.h" />
+    <ClInclude Include="HomerDamaged.h" />
     <ClInclude Include="HomerIdle.h" />
     <ClInclude Include="HomerJump.h" />
     <ClInclude Include="HomerWalking.h" />

@@ -2,7 +2,7 @@
 #include "ModuleTextures.h"
 #include "EnemyIdle.h"
 #include "EnemyWalking.h"
-#include "GenericDamaged.h"
+#include "EnemyDamaged.h"
 #include "EnemyDead.h"
 #include "EnemyAttack.h"
 
@@ -168,7 +168,7 @@ bool Royd::Start()
 	Idle = new EnemyFSM::Idle;
 	Walking = new EnemyFSM::Walking;
 	Attack = new EnemyFSM::Attack;
-	Damaged = new GenericFSM::Damaged;
+	Damaged = new EnemyFSM::Damaged;
 	Dead = new EnemyFSM::Dead;
 
 	SwitchState(Idle);

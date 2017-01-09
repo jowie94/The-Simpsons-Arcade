@@ -12,11 +12,10 @@ namespace GenericFSM {
 		Damaged();
 		~Damaged();
 
-		void Enter(NPC& player, const Input& input) override;
 		State* HandleInput(NPC& player, const Input& input) override;
 		State* Update(NPC& player, const Input& input) override;
 
-	private:
+	protected:
 		bool get_up = false;
 	};
 

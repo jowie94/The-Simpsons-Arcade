@@ -12,7 +12,7 @@ public:
 
 	void Update() override;
 
-public:
+	void BeginAttack() override;
 	Entity* Target = nullptr;
 protected:
 	int damage = 1;

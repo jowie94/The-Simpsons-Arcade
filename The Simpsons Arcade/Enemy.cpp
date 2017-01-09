@@ -22,3 +22,10 @@ void Enemy::Update()
 
 	NPC::Update();
 }
+
+void Enemy::BeginAttack()
+{
+	NPC::BeginAttack();
+
+	attack_collider->type = ENEMY_ATTACK;
+}

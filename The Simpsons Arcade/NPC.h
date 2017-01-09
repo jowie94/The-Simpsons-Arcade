@@ -36,8 +36,8 @@ public:
 	void SetDirection(int x);
 	bool LooksRight() const;
 	void SwitchState(State* newState);
-	void BeginAttack();
-	void FinishAttack();
+	virtual void BeginAttack();
+	virtual void FinishAttack();
 	void ReceiveAttack(int damage);
 	bool IsAlive() const;
 
@@ -54,18 +54,18 @@ public:
 
 protected:
 	SDL_Texture* graphics = nullptr;
-	SpriteAnimation _current_animation;
+	SpriteAnimation current_animation;
 	bool flip = false;
 	virtual void correct_position();
 	int center = 0;
 	int life = 0;
+	Collider* attack_collider = nullptr;
 
 	virtual void prepare_input(Input& input) = 0;
 
 private:
 	map<string, SpriteAnimation> _animations;
 	State* _state = nullptr;
-	Collider* _attack_collider = nullptr;
 	Input _last_input;
 };
 

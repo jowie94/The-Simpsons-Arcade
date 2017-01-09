@@ -30,7 +30,7 @@ void NPC::Update()
 
 	correct_position();
 
-	Sprite* rect = &_current_animation.GetCurrentFrame();
+	Sprite* rect = &current_animation.GetCurrentFrame();
 
 	int positionX = Position.x;
 	int colliderX = Position.x;
@@ -45,8 +45,8 @@ void NPC::Update()
 	else
 	{
 		positionX -= rect->Pivot.x;
-		if (_attack_collider)
-			attackX += (rect->Rect.w - _attack_collider->rect.w);
+		if (attack_collider)
+			attackX += (rect->Rect.w - attack_collider->rect.w);
 	}
 
 	int positionY = Position.y + rect->Pivot.y;
@@ -54,8 +54,8 @@ void NPC::Update()
 	if (FeetCollider)
 		FeetCollider->SetPos(colliderX, Position.y + FeetCollider->rect.h, Position.z);
 
-	if (_attack_collider) // TODO: Correct collider position
-		_attack_collider->SetPos(attackX, Position.y + FeetCollider->rect.h, Position.z);
+	if (attack_collider) // TODO: Correct collider position
+		attack_collider->SetPos(attackX, Position.y + FeetCollider->rect.h, Position.z);
 
 	App->renderer->Blit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
 }
@@ -95,7 +95,7 @@ bool NPC::SetAnimation(const string& name)
 	bool ret = it != _animations.end();
 
 	if (ret)
-		_current_animation = it->second;
+		current_animation = it->second;
 	else
 		LOG("Animation %s does not exist!", name.c_str());
 
@@ -104,7 +104,7 @@ bool NPC::SetAnimation(const string& name)
 
 SpriteAnimation* NPC::CurrentAnimation()
 {
-	return &_current_animation;
+	return &current_animation;
 }
 
 void NPC::SetDirection(int x)
@@ -128,20 +128,20 @@ void NPC::SwitchState(State* newState)
 
 void NPC::BeginAttack()
 {
-	assert(_attack_collider == nullptr);
+	assert(attack_collider == nullptr);
 
 	Damage = INVINCIBLE;
-	_attack_collider = App->collision->AddCollider(FeetCollider->rect, this);
-	_attack_collider->type = PLAYER_ATTACK;
+	attack_collider = App->collision->AddCollider(FeetCollider->rect, this);
+	attack_collider->type = PLAYER_ATTACK;
 }
 
 void NPC::FinishAttack()
 {
-	assert(_attack_collider != nullptr);
+	assert(attack_collider != nullptr);
 
 	Damage = NONE;
-	_attack_collider->to_delete = true;
-	_attack_collider = nullptr;
+	attack_collider->to_delete = true;
+	attack_collider = nullptr;
 }
 
 void NPC::ReceiveAttack(int damage)
