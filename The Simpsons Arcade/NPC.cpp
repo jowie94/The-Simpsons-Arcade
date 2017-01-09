@@ -76,6 +76,11 @@ bool NPC::CleanUp()
 	RELEASE(Damaged);
 	RELEASE(Dead);
 
+	if (FeetCollider)
+		FeetCollider->to_delete = true;
+	if (attack_collider)
+		attack_collider->to_delete = true;
+
 	return true;
 }
 
