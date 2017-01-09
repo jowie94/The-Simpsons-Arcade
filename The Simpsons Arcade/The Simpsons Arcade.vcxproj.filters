@@ -103,7 +103,7 @@
       <Filter>StateMachine\GenericFSM</Filter>
     </ClCompile>
     <ClCompile Include="EnemyDead.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>StateMachine\EnemyFSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +171,7 @@
       <Filter>StateMachine\GenericFSM</Filter>
     </ClInclude>
     <ClInclude Include="EnemyDead.h">
-      <Filter>Header Files</Filter>
+      <Filter>StateMachine\EnemyFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
