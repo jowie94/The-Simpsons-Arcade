@@ -2,6 +2,7 @@
 #include "ModuleTextures.h"
 #include "EnemyIdle.h"
 #include "EnemyWalking.h"
+#include "GenericDamaged.h"
 
 Royd::Royd()
 {
@@ -62,8 +63,54 @@ bool Royd::Start()
 
 	AddAnimation("walk_down", walk_down);
 
+	SpriteAnimation damaged_slight_0;
+	damaged_slight_0.frames.push_back({ { 16, 562, 29, 62 }, iPoint(0, 62) });
+	damaged_slight_0.frames.push_back({ { 64, 561, 29, 63 }, iPoint(9, 63) });
+	damaged_slight_0.frames.push_back({ { 112, 565, 32, 59 }, iPoint(16, 59) });
+	damaged_slight_0.frames.push_back({ { 160, 561, 27, 63 }, iPoint(9, 63) });
+	damaged_slight_0.frames.push_back({ { 208, 562, 26, 62 }, iPoint(0, 62) });
+	damaged_slight_0.speed = 0.2f;
+
+	AddAnimation("damaged_slight_0", damaged_slight_0);
+
+	SpriteAnimation damaged_slight_1;
+	damaged_slight_1.frames.push_back({ { 16, 644, 32, 60 }, iPoint(3, 60) });
+	damaged_slight_1.frames.push_back({ { 64, 646, 35, 58 }, iPoint(2, 58) });
+	damaged_slight_1.frames.push_back({ { 112, 654, 40, 50 }, iPoint(0, 50) });
+	damaged_slight_1.frames.push_back({ { 160, 643, 30, 61 }, iPoint(1, 61) });
+	damaged_slight_1.speed = 0.2f;
+
+	AddAnimation("damaged_slight_1", damaged_slight_1);
+
+	SpriteAnimation damaged_strong_0;
+	damaged_strong_0.frames.push_back({ { 16, 480, 37, 64 }, iPoint(10, 64) });
+	damaged_strong_0.frames.push_back({ { 64, 484, 38, 60 }, iPoint(1, 60) });
+	damaged_strong_0.frames.push_back({ { 112, 485, 40, 59 }, iPoint(0, 59) });
+	damaged_strong_0.frames.push_back({ { 160, 484, 40, 60 }, iPoint(0, 60) });
+	damaged_strong_0.frames.push_back({ { 208, 484, 40, 60 }, iPoint(0, 60) });
+	damaged_strong_0.frames.push_back({ { 256, 484, 36, 60 }, iPoint(0, 60) });
+	damaged_strong_0.frames.push_back({ { 304, 489, 47, 55 }, iPoint(9, 60) });
+	damaged_strong_0.frames.push_back({ { 256, 424, 60, 40 }, iPoint(34, 40) });
+	damaged_strong_0.frames.push_back({ { 336, 420, 61, 44 }, iPoint(42, 37) });
+	damaged_strong_0.speed = 0.2f;
+
+	AddAnimation("damaged_strong_0", damaged_strong_0);
+
+	SpriteAnimation damaged_strong_1;
+	damaged_strong_1.frames.push_back({ { 16, 418, 40, 46 }, iPoint(5, 46) });
+	damaged_strong_1.frames.push_back({ { 64, 424, 46, 40 }, iPoint(20, 40) });
+	damaged_strong_1.frames.push_back({ { 112, 418, 40, 46 }, iPoint(5, 46) });
+	damaged_strong_1.frames.push_back({ { 160, 424, 46, 40 }, iPoint(5, 40) });
+	damaged_strong_1.frames.push_back({ { 208, 418, 40, 46 }, iPoint(5, 46) });
+	damaged_strong_1.frames.push_back({ { 256, 424, 60, 40 }, iPoint(34, 40) });
+	damaged_strong_1.frames.push_back({ { 336, 420, 61, 44 }, iPoint(42, 37) });
+	damaged_strong_1.speed = 0.2f;
+
+	AddAnimation("damaged_strong_1", damaged_strong_1);
+
 	Idle = new EnemyFSM::Idle;
 	Walking = new EnemyFSM::Walking;
+	Damaged = new GenericFSM::Damaged;
 
 	SwitchState(Idle);
 
@@ -98,8 +145,6 @@ void Royd::PostUpdate()
 
 bool Royd::OnCollision(Collider& origin, Collider& other)
 {
-	LOG("Collision!");
-
 	if (other.type == PLAYER_ATTACK)
 		LOG("Player attack");
 	return true;

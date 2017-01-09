@@ -48,7 +48,7 @@ public:
 	State* Damaged = nullptr;
 	State* Dead = nullptr;
 
-	DamageType Damage;
+	DamageType Damage = NONE;
 	int Speed = 1;
 
 protected:

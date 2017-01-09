@@ -145,7 +145,7 @@ void NPC::ReceiveAttack(int damage)
 	if (Damage == NONE)
 	{
 		life -= damage;
-		Damage = damage == 1 ? SLIGHT : STRONG;
+		Damage = damage == 1 && (rand() % 3 <= 2) ? SLIGHT : STRONG;
 
 		if (Damaged)
 			SwitchState(Damaged);
