@@ -29,6 +29,7 @@ State* GenericFSM::Dead::Update(NPC& player, const Input& input)
 
 State* GenericFSM::Dead::AnimationEnd(NPC& player)
 {
+	player.Die();
 	player.Disable();
 	return nullptr;
 }

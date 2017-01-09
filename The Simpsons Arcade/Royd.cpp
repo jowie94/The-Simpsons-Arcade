@@ -200,7 +200,7 @@ void Royd::PreUpdate()
 		}
 		else if (_attacking )
 		{
-			if (abs(vec.x) < 50)
+			if (abs(vec.x) < 60)
 				_prepared_input.x = (direction.x < 0 ? floor(direction.x) : ceil(direction.x)) * -1;
 			else
 			{

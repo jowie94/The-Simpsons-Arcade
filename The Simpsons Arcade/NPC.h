@@ -39,6 +39,7 @@ public:
 	virtual void BeginAttack();
 	virtual void FinishAttack();
 	void ReceiveAttack(int damage);
+	virtual void Die();
 	bool IsAlive() const;
 
 public:

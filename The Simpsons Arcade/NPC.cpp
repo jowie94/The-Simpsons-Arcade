@@ -157,6 +157,12 @@ void NPC::ReceiveAttack(int damage)
 	}
 }
 
+void NPC::Die()
+{
+	if (FeetCollider)
+		FeetCollider->to_delete = true;
+}
+
 bool NPC::IsAlive() const
 {
 	return life > 0;
