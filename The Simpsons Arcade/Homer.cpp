@@ -6,6 +6,7 @@
 #include "HomerJump.h"
 #include "HomerAttack.h"
 #include "HomerDamaged.h"
+#include "HomerDead.h"
 
 
 Homer::Homer()
@@ -142,11 +143,35 @@ bool Homer::Start()
 
 	AddAnimation("damaged_1", damaged_1);
 
+	SpriteAnimation damaged_dead;
+	damaged_dead.frames.push_back({ { 61, 2296, 39, 56 }, iPoint(-3, 56) });
+	damaged_dead.frames.push_back({ { 106, 2237, 60, 34 }, iPoint(38, 44) });
+	damaged_dead.frames.push_back({ { 179, 2237, 62, 30 }, iPoint(38, 28) });
+	damaged_dead.speed = 0.1f;
+	damaged_dead.loop = false;
+
+	AddAnimation("damaged_dead", damaged_dead);
+
+	SpriteAnimation dead;
+	dead.frames.push_back({ { 279, 2406, 56, 39 }, iPoint(26, 39) });
+	dead.frames.push_back({ { 279, 2406, 0, 0 }, iPoint(0, 39) });
+	dead.frames.push_back({ { 353, 2417, 62, 29 }, iPoint(26, 29) });
+	dead.frames.push_back({ { 353, 2417, 0, 0 }, iPoint(0, 29) });
+	dead.frames.push_back({ { 353, 2417, 62, 29 }, iPoint(26, 29) });
+	dead.frames.push_back({ { 279, 2406, 0, 0 }, iPoint(0, 39) });
+	dead.frames.push_back({ { 353, 2417, 62, 29 }, iPoint(26, 29) });
+	dead.frames.push_back({ { 353, 2417, 0, 0 }, iPoint(0, 29) });
+	dead.speed = 0.2f;
+	dead.loop = false;
+	
+	AddAnimation("dead", dead);
+
 	Idle = new HomerFSM::Idle;
 	Walking = new HomerFSM::Walking;
 	Jump = new HomerFSM::Jump;
 	Attack = new HomerFSM::Attack;
 	Damaged = new HomerFSM::Damaged;
+	Dead = new HomerFSM::Dead;
 
 	SwitchState(Idle);
 

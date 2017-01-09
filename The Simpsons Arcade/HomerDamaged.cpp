@@ -14,7 +14,9 @@ void HomerFSM::Damaged::Enter(NPC& player, const Input& input)
 	int anim = rand() % 2;
 	string animation;
 
-	if (anim == 0)
+	if (!player.IsAlive())
+		animation = "damaged_dead";
+	else if (anim == 0)
 		animation = "damaged_0";
 	else if (anim == 1)
 		animation = "damaged_1";

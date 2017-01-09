@@ -114,6 +114,9 @@
     <ClCompile Include="HomerDamaged.cpp">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
+    <ClCompile Include="HomerDead.cpp">
+      <Filter>StateMachine\HomerFSM</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
@@ -189,6 +192,9 @@
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClInclude>
     <ClInclude Include="HomerDamaged.h">
+      <Filter>StateMachine\HomerFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="HomerDead.h">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClInclude>
   </ItemGroup>
