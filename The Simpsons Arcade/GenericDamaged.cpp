@@ -61,6 +61,8 @@ State* GenericFSM::Damaged::Update(NPC& player, const Input& input)
 			return player.Dead;
 		}
 	}
+	else if (player.Damage == NPC::STRONG && !get_up)
+		player.Position.x += player.LooksRight() ? -1 : 1;
 
 	return nullptr;
 }
