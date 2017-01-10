@@ -105,6 +105,20 @@ bool FirstScene::CleanUp()
 {
 	App->textures->Unload(_background);
 
+	while (!_stages.empty())
+	{
+		PILE stage = _stages.front();
+
+		for (Entity* entity : *stage.second)
+		{
+			entity->CleanUp();
+			RELEASE(entity);
+		}
+
+		RELEASE(stage.second);
+		_stages.pop();
+	}
+
 	return Scene::CleanUp();
 }
 
