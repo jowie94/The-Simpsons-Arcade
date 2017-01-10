@@ -5,6 +5,8 @@
 
 struct SDL_Texture;
 
+typedef std::pair<int, std::list<Entity*>*> PILE;
+
 class FirstScene :
 	public Scene
 {
@@ -17,8 +19,11 @@ public:
 	bool CleanUp() override;
 
 private:
+	void initialize_scene();
+
 	SDL_Texture* _background;
 	SDL_Rect _floor, _walls;
+	std::queue<PILE> _stages;
 
 };
 

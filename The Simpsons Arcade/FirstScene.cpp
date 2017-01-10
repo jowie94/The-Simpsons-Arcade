@@ -5,6 +5,7 @@
 #include "EntityFactory.h"
 #include "Player.h"
 #include "ModuleSceneManager.h"
+#include "Royd.h"
 
 FirstScene::FirstScene(bool active) : Scene(active), _background(nullptr)
 {
@@ -35,14 +36,14 @@ bool FirstScene::Start()
 	_walls.w =_floor.w = 1663;
 	_walls.h = _floor.h = 255;
 
-	Player* homer = App->scene_manager->GetEntityFactory()->GetObject<Player>(EntityFactory::HOMER);
+	BaseFactory<Entity>* entityFactory = App->scene_manager->GetEntityFactory();
+
+	Player* homer = entityFactory->GetObject<Player>(EntityFactory::HOMER);
 	homer->Position.x = 70;
 	homer->Position.z = 50;
 	AddPlayer(homer);
 
-	NPC* royd1 = App->scene_manager->GetEntityFactory()->GetObject<NPC>(EntityFactory::ROYD);
-	AddEnemy(royd1);
-	royd1->Position = iPoint3(200, 0, 60);
+	initialize_scene();
 
 	return Scene::Start();
 }
@@ -81,6 +82,22 @@ update_status FirstScene::Update()
 
 	xmin = -camera->x / SCREEN_SIZE + 16;
 	xmax = -camera->x / SCREEN_SIZE + SCREEN_WIDTH - 50;
+
+	if (!_stages.empty())
+	{
+		PILE stage = _stages.front();
+		if (stage.first <= abs(camera->x) / SCREEN_SIZE)
+		{
+			for (Entity* entity : *stage.second)
+			{
+				AddEnemy(entity);
+			}
+
+			RELEASE(stage.second);
+			_stages.pop();
+		}
+	}
+
 	return Scene::Update();
 }
 
@@ -89,4 +106,28 @@ bool FirstScene::CleanUp()
 	App->textures->Unload(_background);
 
 	return Scene::CleanUp();
+}
+
+void FirstScene::initialize_scene()
+{
+	BaseFactory<Entity>* entityFactory = App->scene_manager->GetEntityFactory();
+
+	NPC* royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(300, 0, 60);
+
+	list<Entity*>* entities = new list<Entity*>();
+	entities->push_back(royd1);
+
+	_stages.push(make_pair(0, entities));
+
+	entities = new list<Entity*>();
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(300 + SCREEN_WIDTH, 0, 100);
+	entities->push_back(royd1);
+
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(SCREEN_WIDTH, 0, 100);
+	entities->push_back(royd1);
+
+	_stages.push(make_pair(300, entities));
 }

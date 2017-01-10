@@ -43,6 +43,10 @@ public:
 
 	void AddEnemy(Entity* enemy)
 	{
+		if (enemy->IsEnabled())
+			enemy->Start();
+		else
+			enemy->Enable();
 		_enemies.push_back(enemy);
 	}
 
