@@ -32,7 +32,7 @@ void ModuleSceneManager::SetScene(Scene* scene)
 	_currentScene->Enable();
 }
 
-const Scene* ModuleSceneManager::CurrentScene() const
+Scene* ModuleSceneManager::CurrentScene() const
 {
 	return _currentScene;
 }

@@ -20,6 +20,7 @@ public:
 
 private:
 	void initialize_scene();
+	bool can_advance();
 
 	SDL_Texture* _background;
 	SDL_Rect _floor, _walls;

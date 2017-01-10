@@ -75,7 +75,7 @@ update_status FirstScene::Update()
 	camera->y = CLAMP(camera->y, (-_walls.h + SCREEN_HEIGHT) * SCREEN_SIZE, 0);
 
 	int right_bound = -(camera->x) / SCREEN_SIZE + SCREEN_WIDTH - 150;
-	if (mid.x >= right_bound)
+	if (mid.x >= right_bound && can_advance())
 		camera->x -= 2 * SCREEN_SIZE;
 
 	camera->x = CLAMP(camera->x, (-_walls.w + SCREEN_WIDTH) * SCREEN_SIZE, 0);
@@ -144,4 +144,23 @@ void FirstScene::initialize_scene()
 	entities->push_back(royd1);
 
 	_stages.push(make_pair(300, entities));
+
+	entities = new list<Entity*>();
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(600 + SCREEN_WIDTH, 0, 100);
+	entities->push_back(royd1);
+
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(300 + SCREEN_WIDTH, 0, 100);
+	entities->push_back(royd1);
+
+	_stages.push(make_pair(600, entities));
+}
+
+bool FirstScene::can_advance()
+{
+	SDL_Rect* camera = &App->renderer->camera;
+	int camera_pos = camera->x / SCREEN_SIZE;
+
+	return _stages.empty() || abs(camera_pos) <= _stages.front().first * float(enemies_defeated) / float(_enemies.size());
 }

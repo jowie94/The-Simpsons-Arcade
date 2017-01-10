@@ -143,12 +143,18 @@ public:
 		z = std::make_pair(zmin, zmax);
 	}
 
+	void EnemyDefeated()
+	{
+		++enemies_defeated;
+	}
+
 protected:
 	std::list<Entity*> _entities;
 	std::list<Entity*> _players;
 	std::list<Entity*> _enemies;
 
 	int xmin, xmax, zmin, zmax;
+	int enemies_defeated = 0;
 
 private:
 	bool StartAllEntities() const

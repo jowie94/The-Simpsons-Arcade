@@ -15,7 +15,7 @@ public:
 
 	void SetInitialScene(Scene* initial);
 	void SetScene(Scene* scene);
-	const Scene* CurrentScene() const;
+	Scene* CurrentScene() const;
 	void SetEntityFactory(BaseFactory<Entity>* factory);
 	BaseFactory<Entity>* GetEntityFactory() const;
 

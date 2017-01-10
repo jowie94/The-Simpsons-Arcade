@@ -13,6 +13,8 @@ public:
 	void Update() override;
 
 	void BeginAttack() override;
+	void Die() override;
+
 	Entity* Target = nullptr;
 protected:
 	int damage = 1;

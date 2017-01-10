@@ -39,3 +39,9 @@ void Enemy::BeginAttack()
 
 	attack_collider->type = ENEMY_ATTACK;
 }
+
+void Enemy::Die()
+{
+	NPC::Die();
+	App->scene_manager->CurrentScene()->EnemyDefeated();
+}
