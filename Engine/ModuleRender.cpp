@@ -5,8 +5,6 @@
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
 
-#define DEG2RAD(deg) (deg * M_PI / 180.0)
-
 ModuleRender::ModuleRender()
 {
 	camera.x = camera.y = 0;
@@ -200,7 +198,7 @@ bool ModuleRender::AbsoluteBlit(SDL_Texture* texture, int x, int y, int z, SDL_R
 	bool ret = true;
 	SDL_Rect* rect = new SDL_Rect;
 	rect->x = (int)(camera.x * speed) + x * SCREEN_SIZE;
-	y += cos(DEG2RAD(RenderingAngle)) * z;
+	y += ZTOY(z, RenderingAngle);
 	rect->y = (int)(camera.y * speed) + y * SCREEN_SIZE; // TODO: Add z to y
 
 	if (section != NULL)
@@ -252,7 +250,7 @@ bool ModuleRender::AbsoluteDrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint
 
 bool ModuleRender::AbsoluteDrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
 {
-	int y = rect.Position.y + cos(DEG2RAD(RenderingAngle)) * rect.Position.z;
+	int y = rect.Position.y + ZTOY(rect.Position.z, RenderingAngle);
 	return AbsoluteDrawQuad({ rect.Position.x, y, rect.w, rect.h }, r, g, b, a, use_camera);
 }
 

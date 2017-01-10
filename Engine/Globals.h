@@ -10,6 +10,9 @@ void log(const char file[], int line, const char* format, ...);
 
 #define MIN( a, b ) ( ((a) < (b)) ? (a) : (b) )
 #define MAX( a, b ) ( ((a) > (b)) ? (a) : (b) )
+#define CLAMP( v, min, max ) ( MAX(min, MIN(v, max)) )
+#define DEG2RAD(deg) (deg * M_PI / 180.0)
+#define ZTOY(z, angle) ( cos(DEG2RAD(angle)) * z )
 
 enum update_status
 {
