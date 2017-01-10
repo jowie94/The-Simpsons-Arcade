@@ -105,9 +105,6 @@
     <ClCompile Include="EnemyDead.cpp">
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyAttack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyDamaged.cpp">
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClCompile>
@@ -116,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="HomerDead.cpp">
       <Filter>StateMachine\HomerFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAttack.cpp">
+      <Filter>StateMachine\EnemyFSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,9 +185,6 @@
     <ClInclude Include="EnemyDead.h">
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyAttack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyDamaged.h">
       <Filter>StateMachine\EnemyFSM</Filter>
     </ClInclude>
@@ -196,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="HomerDead.h">
       <Filter>StateMachine\HomerFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAttack.h">
+      <Filter>StateMachine\EnemyFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
