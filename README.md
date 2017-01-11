@@ -14,6 +14,8 @@ Homer is controlled using _T_, _F_, _G_, _H_ for movement, _v_ for attacking, an
 
 You can do air attacks by pressing _v_ while jumping.
 
+Check out my gameplay on youtube 😄: https://youtu.be/r7dJv6fVXPc
+
 ## How to build the game ⚙
 To build the game, you just need to open it in Visual Studio (Linux will be added in the future) and compile it. If you want to play it inside Visual Studio, you will have to modify the __Execution folder__ under the debug settings of the __The Simpsons Arcade__ project, and make it point to $(SolutionDir)External.
 
