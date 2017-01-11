@@ -205,6 +205,44 @@ void FirstScene::initialize_scene()
 	entities->push_back(royd1);
 
 	_stages.push(make_pair(600, entities));
+
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(980 + SCREEN_WIDTH, 0, 100);
+	entities->push_back(royd1);
+
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(980 + SCREEN_WIDTH, 0, 10);
+	entities->push_back(royd1);
+
+	entities = new list<Entity*>();
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(600 + SCREEN_WIDTH, 0, 100);
+	entities->push_back(royd1);
+
+	_stages.push(make_pair(980, entities));
+
+	entities = new list<Entity*>();
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(1000 + SCREEN_WIDTH, 0, 10);
+	entities->push_back(royd1);
+
+	_stages.push(make_pair(1000, entities));
+
+	entities = new list<Entity*>();
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(1300 + SCREEN_WIDTH, 0, 100);
+	entities->push_back(royd1);
+
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(1300 + SCREEN_WIDTH, 0, 10);
+	entities->push_back(royd1);
+
+	entities = new list<Entity*>();
+	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
+	royd1->Position = iPoint3(1000 + SCREEN_WIDTH, 0, 100);
+	entities->push_back(royd1);
+
+	_stages.push(make_pair(1300, entities));
 }
 
 bool FirstScene::can_advance()
