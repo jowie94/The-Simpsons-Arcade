@@ -92,8 +92,8 @@ void Player::prepare_input(Input& input)
 	input.x = App->input->GetAxis(PlayerNumber, X);
 	input.y = App->input->GetAxis(PlayerNumber, Y);
 
-	input.attack = App->input->GetKey(SDL_SCANCODE_Z);
-	input.jump = App->input->GetKey(SDL_SCANCODE_X);
+	input.attack = App->input->GetPlayerKey(PlayerNumber, ATTACK);
+	input.jump = App->input->GetPlayerKey(PlayerNumber, JUMP);
 }
 
 int Player::calculate_damage()

@@ -30,6 +30,12 @@ enum InputAxis
 	Y = 1
 };
 
+enum InputKey
+{
+	ATTACK,
+	JUMP
+};
+
 class ModuleInput : public Module
 {
 
@@ -68,6 +74,11 @@ public:
 		return _axis[player][axis];
 	}
 
+	KeyState GetPlayerKey(int player, InputKey key)
+	{
+		return _keys[player][key];
+	}
+
 	// Check for window events last frame
 	bool GetWindowEvent(EventWindow code) const;
 
@@ -78,7 +89,8 @@ public:
 private:
 	bool		windowEvents[WE_COUNT];
 	KeyState*	keyboard;
-	int		_axis[1][2];
+	int			_axis[4][2];
+	KeyState	_keys[4][2];
 	KeyState	mouse_buttons[NUM_MOUSE_BUTTONS];
 	iPoint mouse_motion;
 	iPoint mouse;

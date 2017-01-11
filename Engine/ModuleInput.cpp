@@ -145,6 +145,72 @@ update_status ModuleInput::PreUpdate()
 		_axis[0][Y] -= 1;
 	}
 
+	if (keys[SDL_SCANCODE_F])
+	{
+		_axis[1][X] -= 1;
+	}
+	if (keys[SDL_SCANCODE_H])
+	{
+		_axis[1][X] += 1;
+	}
+
+	if (keys[SDL_SCANCODE_T])
+	{
+		_axis[1][Y] += 1;
+	}
+	if (keys[SDL_SCANCODE_G])
+	{
+		_axis[1][Y] -= 1;
+	}
+
+	if (keys[SDL_SCANCODE_J])
+	{
+		_axis[2][X] -= 1;
+	}
+	if (keys[SDL_SCANCODE_L])
+	{
+		_axis[2][X] += 1;
+	}
+
+	if (keys[SDL_SCANCODE_I])
+	{
+		_axis[2][Y] += 1;
+	}
+	if (keys[SDL_SCANCODE_K])
+	{
+		_axis[2][Y] -= 1;
+	}
+
+	if (keys[SDL_SCANCODE_LEFT])
+	{
+		_axis[3][X] -= 1;
+	}
+	if (keys[SDL_SCANCODE_RIGHT])
+	{
+		_axis[3][X] += 1;
+	}
+
+	if (keys[SDL_SCANCODE_U])
+	{
+		_axis[3][Y] += 1;
+	}
+	if (keys[SDL_SCANCODE_DOWN])
+	{
+		_axis[3][Y] -= 1;
+	}
+
+	_keys[0][ATTACK] = keyboard[SDL_SCANCODE_Z];
+	_keys[0][JUMP] = keyboard[SDL_SCANCODE_X];
+	
+	_keys[1][ATTACK] = keyboard[SDL_SCANCODE_V];
+	_keys[1][JUMP] = keyboard[SDL_SCANCODE_B];
+
+	_keys[2][ATTACK] = keyboard[SDL_SCANCODE_M];
+	_keys[2][JUMP] = keyboard[SDL_SCANCODE_COMMA];
+
+	_keys[3][ATTACK] = keyboard[SDL_SCANCODE_KP_0];
+	_keys[4][JUMP] = keyboard[SDL_SCANCODE_KP_PERIOD];
+
 	return UPDATE_CONTINUE;
 }
 
