@@ -197,9 +197,9 @@ bool ModuleRender::AbsoluteBlit(SDL_Texture* texture, int x, int y, int z, SDL_R
 {
 	bool ret = true;
 	SDL_Rect* rect = new SDL_Rect;
-	rect->x = (int)(camera.x * speed) + x * SCREEN_SIZE;
-	y += ZTOY(z, RenderingAngle);
-	rect->y = (int)(camera.y * speed) + y * SCREEN_SIZE; // TODO: Add z to y
+	rect->x = int(camera.x * speed) + x * SCREEN_SIZE;
+	y += int(ZTOY(z, RenderingAngle));
+	rect->y = int(camera.y * speed) + y * SCREEN_SIZE; // TODO: Add z to y
 
 	if (section != NULL)
 	{
@@ -237,8 +237,8 @@ bool ModuleRender::AbsoluteDrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint
 	SDL_Rect* rec = new SDL_Rect(rect);
 	if (use_camera)
 	{
-		rec->x = (int)(camera.x + rect.x * SCREEN_SIZE);
-		rec->y = (int)(camera.y + rect.y * SCREEN_SIZE);
+		rec->x = int(camera.x + rect.x * SCREEN_SIZE);
+		rec->y = int(camera.y + rect.y * SCREEN_SIZE);
 		rec->w *= SCREEN_SIZE;
 		rec->h *= SCREEN_SIZE;
 	}
@@ -250,7 +250,7 @@ bool ModuleRender::AbsoluteDrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint
 
 bool ModuleRender::AbsoluteDrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera)
 {
-	int y = rect.Position.y + ZTOY(rect.Position.z, RenderingAngle);
+	int y = rect.Position.y + int(ZTOY(rect.Position.z, RenderingAngle));
 	return AbsoluteDrawQuad({ rect.Position.x, y, rect.w, rect.h }, r, g, b, a, use_camera);
 }
 

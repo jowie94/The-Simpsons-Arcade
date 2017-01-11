@@ -77,7 +77,7 @@ update_status ModuleParticles::Update()
 		else 
 		{
 			// TODO: Draw particles with z index
-			App->renderer->BlitBackground(graphics, p->x, p->y, &p->animation.GetCurrentFrame());
+			App->renderer->BlitBackground(graphics, int(p->x), int(p->y), &p->animation.GetCurrentFrame());
 			++it;
 		}
 	}
@@ -88,8 +88,8 @@ update_status ModuleParticles::Update()
 void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Collider* collider)
 {
 	Particle* clone = new Particle(particle);
-	clone->x = x;
-	clone->y = y;
+	clone->x = float(x);
+	clone->y = float(y);
 	clone->initial_tick = SDL_GetTicks();
 	clone->collider = collider;
 
@@ -129,7 +129,7 @@ bool Particle::Update()
 
 	x += speed;
 	if (collider)
-		collider->rect.Position.x = x;
+		collider->rect.Position.x = int(x);
 	to_delete = life_time >= 0 && SDL_GetTicks() >= life_time + initial_tick;
 	// Return false if the particle must be destroyed
 

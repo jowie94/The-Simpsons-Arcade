@@ -46,7 +46,7 @@ public:
 
 	void SetFrame(float frame)
 	{
-		if (int(frame) < frames.size())
+		if (uint(frame) < frames.size())
 			current_frame = frame;
 	}
 

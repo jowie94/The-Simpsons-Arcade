@@ -184,13 +184,13 @@ void Royd::PreUpdate()
 	if (Target)
 	{
 		iPoint3 vec = Target->Position - Position;
-		fPoint3 direction(vec.x, vec.y, vec.z);
-		float distance = direction.Magnitude();
+		fPoint3 direction(float(vec.x), float(vec.y), float(vec.z));
+		float distance = float(direction.Magnitude());
 		direction = direction / distance;
 		if (abs(vec.x) > 40 || !_touching_player)
-			_prepared_input.x = direction.x < 0 ? floor(direction.x) : ceil(direction.x);
+			_prepared_input.x = int(direction.x < 0 ? floor(direction.x) : ceil(direction.x));
 		if (abs(vec.z) > 5)
-			_prepared_input.y = direction.z < 0 ? floor(direction.z) : ceil(direction.z);
+			_prepared_input.y = int(direction.z < 0 ? floor(direction.z) : ceil(direction.z));
 
 		if (_touching_player && !_attacking)
 		{
@@ -201,7 +201,7 @@ void Royd::PreUpdate()
 		else if (_attacking )
 		{
 			if (abs(vec.x) < 60)
-				_prepared_input.x = (direction.x < 0 ? floor(direction.x) : ceil(direction.x)) * -1;
+				_prepared_input.x = int((direction.x < 0 ? floor(direction.x) : ceil(direction.x)) * -1);
 			else
 			{
 				_touching_player = false;

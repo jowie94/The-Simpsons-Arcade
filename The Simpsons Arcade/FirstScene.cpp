@@ -69,7 +69,7 @@ update_status FirstScene::Update()
 	iPoint3 mid = (min + max) / 2;
 	SDL_Rect* camera = &App->renderer->camera;
 
-	int y = ZTOY(mid.z, App->renderer->RenderingAngle);
+	int y = int(ZTOY(mid.z, App->renderer->RenderingAngle));
 	camera->y = (y - _walls.h + SCREEN_HEIGHT - 20) * SCREEN_SIZE;
 
 	camera->y = CLAMP(camera->y, (-_walls.h + SCREEN_HEIGHT) * SCREEN_SIZE, 0);
