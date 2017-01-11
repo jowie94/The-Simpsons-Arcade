@@ -18,7 +18,8 @@ public:
 		NONE,
 		SLIGHT,
 		STRONG,
-		INVINCIBLE
+		INVINCIBLE,
+		REVIVING
 	};
 
 	NPC();

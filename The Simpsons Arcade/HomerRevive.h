@@ -3,6 +3,7 @@
 
 #include "State.h"
 #include "Point3.h"
+#include <utility>
 
 namespace HomerFSM {
 
@@ -18,7 +19,9 @@ namespace HomerFSM {
 		State* Update(NPC& player, const Input& input) override;
 
 	private:
-		iPoint3 _position;
+		bool _down = false;
+		std::pair<int, int> _limits;
+		int _direction;
 	};
 
 }

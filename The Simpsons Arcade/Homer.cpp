@@ -166,6 +166,20 @@ bool Homer::Start()
 	
 	AddAnimation("dead", dead);
 
+	SpriteAnimation super_homer;
+	super_homer.frames.push_back({ { 22, 2512, 64, 31 }, iPoint(0, 31) });
+	super_homer.frames.push_back({ { 109, 2511, 64, 31 }, iPoint(0, 31) });
+	super_homer.speed = 0.2f;
+
+	AddAnimation("revive", super_homer);
+
+	SpriteAnimation super_homer_down;
+	super_homer_down.frames.push_back({ { 209, 2496, 59, 63 }, iPoint(0, 63) });
+	super_homer_down.frames.push_back({ { 273, 2496, 59, 63 }, iPoint(0, 63) });
+	super_homer_down.speed = 0.2f;
+
+	AddAnimation("revive_down", super_homer_down);
+
 	Idle = new HomerFSM::Idle;
 	Walking = new HomerFSM::Walking;
 	Jump = new HomerFSM::Jump;
