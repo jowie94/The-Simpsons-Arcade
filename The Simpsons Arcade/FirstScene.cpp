@@ -8,6 +8,7 @@
 #include "Royd.h"
 #include "ModuleAudio.h"
 #include "GameOverScene.h"
+#include "WinScene.h"
 
 FirstScene::FirstScene(bool active) : Scene(active), _background(nullptr)
 {
@@ -111,7 +112,8 @@ update_status FirstScene::Update()
 		}
 		else if (_end_timer->finished)
 		{
-			// TODO: Show credits
+			App->scene_manager->SetScene(new WinScene(false));
+			return UPDATE_CONTINUE;
 		}
 	}
 	
