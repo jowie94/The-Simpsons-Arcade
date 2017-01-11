@@ -8,6 +8,7 @@
 #include "HomerDamaged.h"
 #include "HomerDead.h"
 #include "HomerRevive.h"
+#include "HomerWin.h"
 
 Homer::Homer()
 {
@@ -180,6 +181,15 @@ bool Homer::Start()
 
 	AddAnimation("revive_down", super_homer_down);
 
+	SpriteAnimation win;
+	win.frames.push_back({ { 134, 1590, 31, 74 }, iPoint(0, 74) });
+	win.frames.push_back({ { 184, 1592, 30, 72 }, iPoint(4, 72) });
+	win.frames.push_back({ { 233, 1590, 31, 74 }, iPoint(6, 74) });
+	win.frames.push_back({ { 283, 1592, 30, 72 }, iPoint(0, 72) });
+	win.speed = 0.15f;
+
+	AddAnimation("win", win);
+
 	Idle = new HomerFSM::Idle;
 	Walking = new HomerFSM::Walking;
 	Jump = new HomerFSM::Jump;
@@ -187,6 +197,7 @@ bool Homer::Start()
 	Damaged = new HomerFSM::Damaged;
 	Dead = new HomerFSM::Dead;
 	Revive = new HomerFSM::Revive;
+	Win = new HomerFSM::Win;
 
 	SwitchState(Idle);
 

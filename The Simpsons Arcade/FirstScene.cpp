@@ -122,6 +122,11 @@ bool FirstScene::CleanUp()
 	return Scene::CleanUp();
 }
 
+bool FirstScene::Finished() const
+{
+	return _enemies.size() == enemies_defeated && _stages.empty();
+}
+
 void FirstScene::initialize_scene()
 {
 	BaseFactory<Entity>* entityFactory = App->scene_manager->GetEntityFactory();

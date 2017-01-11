@@ -148,6 +148,11 @@ public:
 		++enemies_defeated;
 	}
 
+	virtual bool Finished() const
+	{
+		return false;
+	}
+
 protected:
 	std::list<Entity*> _entities;
 	std::list<Entity*> _players;

@@ -7,19 +7,30 @@
 #include "Scene.h"
 #include "ModuleSceneManager.h"
 
-
 Player::Player()
 {
 }
-
 
 Player::~Player()
 {
 }
 
+void Player::Update()
+{
+	if (App->scene_manager->CurrentScene()->Finished() && !_win)
+	{
+		Position.y = 0;
+		_win = true;
+		SwitchState(Win);
+	}
+
+	NPC::Update();
+}
+
 bool Player::CleanUp()
 {
 	RELEASE(Revive);
+	RELEASE(Win);
 
 	return NPC::CleanUp();
 }

@@ -18,6 +18,7 @@ public:
 	update_status Update() override;
 	bool CleanUp() override;
 
+	bool Finished() const override;
 private:
 	void initialize_scene();
 	bool can_advance();

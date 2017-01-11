@@ -15,6 +15,7 @@ public:
 	virtual ~Player();
 
 	bool Start() override = 0;
+	void Update() override;
 	bool CleanUp() override;
 
 	bool OnCollision(Collider& origin, Collider& other) override;
@@ -23,6 +24,7 @@ public:
 	int Lifes = 0;
 
 	State* Revive = nullptr;
+	State* Win = nullptr;
 
 protected:
 	void correct_position() override;
@@ -30,6 +32,7 @@ protected:
 	static int calculate_damage();
 
 	int player_number = 0;
+	bool _win = false;
 };
 
 #endif // __PLAYER_H__
