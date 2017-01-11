@@ -33,6 +33,9 @@ State* HomerFSM::Revive::HandleInput(NPC& player, const Input& input)
 
 State* HomerFSM::Revive::Update(NPC& player, const Input& input)
 {
+	pair<int, int> ignore;
+	App->scene_manager->CurrentScene()->SceneLimits(_limits, ignore);
+
 	if (!_down)
 	{
 		player.Position.x += 6 * _direction;
