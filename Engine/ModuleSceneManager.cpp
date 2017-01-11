@@ -24,8 +24,8 @@ void ModuleSceneManager::SetScene(Scene* scene)
 
 	if (_currentScene) 
 	{
-		RELEASE(_currentScene);
 		_currentScene->Disable();
+		RELEASE(_currentScene);
 	}
 
 	_currentScene = scene;

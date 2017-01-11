@@ -7,6 +7,7 @@
 #include "ModuleSceneManager.h"
 #include "Royd.h"
 #include "ModuleAudio.h"
+#include "GameOverScene.h"
 
 FirstScene::FirstScene(bool active) : Scene(active), _background(nullptr)
 {
@@ -57,8 +58,6 @@ bool FirstScene::Start()
 update_status FirstScene::Update()
 {
 	// Draw everything --------------------------------------
-	App->renderer->BlitBackground(_background, 0, 0, &_walls);
-	App->renderer->BlitBackground(_background, 0, 0, &_floor);
 
 	iPoint3 min(xmax, 0, zmax), max(0, 0, 0);
 
@@ -118,18 +117,12 @@ update_status FirstScene::Update()
 	
 	if (GameOver())
 	{
-		if (!_end_timer)
-		{
-			App->audio->PlayMusic("Simpsons/audio/43-game-over.ogg", 0.f, 0);
-			_end_timer = App->timer->AddTimer(5 * 1000);
-		}
-		else if (_end_timer->finished)
-		{
-			// TODO: Show game over
-		}
+		App->scene_manager->SetScene(new GameOverScene(false));
 	}
 	else
 	{
+		App->renderer->BlitBackground(_background, 0, 0, &_walls);
+		App->renderer->BlitBackground(_background, 0, 0, &_floor);
 		return Scene::Update();
 	}
 

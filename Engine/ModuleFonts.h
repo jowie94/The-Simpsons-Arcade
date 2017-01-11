@@ -23,7 +23,6 @@ public:
 	bool CleanUp() override;
 
 	Font* Load(const char* path, const char* mask);
-	void Unload(Font* font);
 	void Write(const std::string& str, int x, int y, Font* font) const;
 
 private:

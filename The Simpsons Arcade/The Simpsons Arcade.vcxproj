@@ -27,6 +27,7 @@
     <ClCompile Include="EnemyWalking.cpp" />
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="FirstScene.cpp" />
+    <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GenericAttack.cpp" />
     <ClCompile Include="GenericDamaged.cpp" />
     <ClCompile Include="GenericDead.cpp" />
@@ -57,6 +58,7 @@
     <ClInclude Include="EnemyWalking.h" />
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="FirstScene.h" />
+    <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GenericAttack.h" />
     <ClInclude Include="GenericDamaged.h" />
     <ClInclude Include="GenericDead.h" />

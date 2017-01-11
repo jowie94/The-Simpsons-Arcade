@@ -40,14 +40,6 @@ ModuleFonts::Font* ModuleFonts::Load(const char* path, const char* mask)
 	return font;
 }
 
-void ModuleFonts::Unload(Font* font)
-{
-	_fonts.remove(font);
-	App->textures->Unload(font->FontTexture);
-	RELEASE(font->Mask);
-	RELEASE(font);
-}
-
 void ModuleFonts::Write(const std::string& str, int x, int y, Font* font) const
 {
 	for (char c : str)
