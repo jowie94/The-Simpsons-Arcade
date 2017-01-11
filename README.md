@@ -1,3 +1,4 @@
+![The Simpsons GIF](docs/head.gif)
 # The Simpsons Arcade 👾
 Welcome to my own take of the classic The Simpsons arcade game.
 
