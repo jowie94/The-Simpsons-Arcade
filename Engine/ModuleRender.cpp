@@ -116,6 +116,20 @@ update_status ModuleRender::Update()
 		_quads.pop();
 	}
 
+	while (!_ui.empty() && ret)
+	{
+		RenderData* data = _ui.front();
+		if (SDL_RenderCopy(renderer, data->texture, data->section, data->rect) != 0)
+		{
+			LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
+			ret = false;
+		}
+
+		RELEASE(data->rect);
+		RELEASE(data);
+		_ui.pop();
+	}
+
 	return ret ? UPDATE_CONTINUE : UPDATE_ERROR;
 }
 
@@ -153,6 +167,14 @@ bool ModuleRender::CleanUp()
 		RELEASE(data->color);
 		RELEASE(data);
 		_quads.pop();
+	}
+
+	while (!_ui.empty())
+	{
+		RenderData* data = _ui.front();
+		RELEASE(data->rect);
+		RELEASE(data);
+		_ui.pop();
 	}
 
 	//Destroy window
@@ -262,5 +284,30 @@ bool ModuleRender::DrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, 
 	rec.Position.z *= -1;
 
 	return AbsoluteDrawQuad(rec, r, g, b, a, use_camera);
+}
+
+bool ModuleRender::BlitUI(SDL_Texture* texture, int x, int y, SDL_Rect* section)
+{
+	bool ret = true;
+	SDL_Rect* rect = new SDL_Rect;
+	rect->x = int(x) * SCREEN_SIZE;
+	rect->y = int(y) * SCREEN_SIZE;
+
+	if (section != nullptr)
+	{
+		rect->w = section->w;
+		rect->h = section->h;
+	}
+	else
+	{
+		SDL_QueryTexture(texture, nullptr, nullptr, &rect->w, &rect->h);
+	}
+
+	rect->w *= SCREEN_SIZE;
+	rect->h *= SCREEN_SIZE;
+
+	_background.push(new RenderData({ false, texture, section, rect }));
+
+	return ret;
 }
 

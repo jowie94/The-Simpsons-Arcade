@@ -186,6 +186,11 @@ bool NPC::IsAlive() const
 	return life > 0 && Damage != REVIVING;
 }
 
+int NPC::GetLife() const
+{
+	return life;
+}
+
 void NPC::Revive()
 {
 	_revive_timer = App->timer->AddTimer(2 * 1000);

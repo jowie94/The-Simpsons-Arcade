@@ -46,6 +46,9 @@ bool FirstScene::Start()
 
 	initialize_scene();
 
+	Entity* ui = entityFactory->GetObject(EntityFactory::UI);
+	AddEntity(ui);
+
 	App->audio->PlayMusic("Simpsons/audio/129-Stage 1 - (Downtown Springfield).ogg");
 
 	return Scene::Start();

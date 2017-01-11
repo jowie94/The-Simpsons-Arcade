@@ -22,6 +22,7 @@ public:
 	void Die() override;
 
 	int Lifes = 0;
+	int PlayerNumber = 0;
 
 	State* Revive = nullptr;
 	State* Win = nullptr;
@@ -32,7 +33,6 @@ protected:
 	void prepare_input(Input& input) override;
 	static int calculate_damage();
 
-	int player_number = 0;
 	bool _win = false;
 };
 

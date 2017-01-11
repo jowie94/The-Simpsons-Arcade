@@ -12,6 +12,7 @@ public:
 	{
 		HOMER = 0,
 		ROYD,
+		UI,
 		UNKNOWN
 	};
 

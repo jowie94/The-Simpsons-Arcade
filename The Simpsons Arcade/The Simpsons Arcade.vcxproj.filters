@@ -123,6 +123,9 @@
     <ClCompile Include="HomerWin.cpp">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
+    <ClCompile Include="UIEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FirstScene.h">
@@ -208,6 +211,9 @@
     </ClInclude>
     <ClInclude Include="HomerWin.h">
       <Filter>StateMachine\HomerFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="UIEntity.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

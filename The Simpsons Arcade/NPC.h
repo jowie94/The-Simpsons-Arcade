@@ -43,6 +43,7 @@ public:
 	void ReceiveAttack(int damage);
 	virtual void Die();
 	bool IsAlive() const;
+	int GetLife() const;
 	void Revive();
 
 public:

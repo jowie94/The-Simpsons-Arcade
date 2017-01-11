@@ -89,8 +89,8 @@ void Player::correct_position()
 
 void Player::prepare_input(Input& input)
 {
-	input.x = App->input->GetAxis(player_number, X);
-	input.y = App->input->GetAxis(player_number, Y);
+	input.x = App->input->GetAxis(PlayerNumber, X);
+	input.y = App->input->GetAxis(PlayerNumber, Y);
 
 	input.attack = App->input->GetKey(SDL_SCANCODE_Z);
 	input.jump = App->input->GetKey(SDL_SCANCODE_X);

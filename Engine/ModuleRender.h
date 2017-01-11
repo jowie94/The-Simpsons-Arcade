@@ -43,6 +43,7 @@ public:
 	bool AbsoluteDrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
 	bool AbsoluteDrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
 	bool DrawQuad(const iRectangle3& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera = true);
+	bool BlitUI(SDL_Texture* texture, int x, int y, SDL_Rect* section);
 
 public:
 	SDL_Renderer* renderer = nullptr;
@@ -52,6 +53,7 @@ public:
 	
 private:
 	std::queue<RenderData*> _background;
+	std::queue<RenderData*> _ui;
 	typedef std::pair<int, RenderData*> PIRD;
 	std::priority_queue<PIRD, std::vector<PIRD>, std::greater<PIRD>> _foreground;
 	std::queue<QuadData*> _quads;

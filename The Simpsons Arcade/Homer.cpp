@@ -24,7 +24,7 @@ bool Homer::Start()
 	SDL_Color key = { 89, 253, 66, 0 };
 	graphics = App->textures->Load("Simpsons/homer.png", &key);
 	center = 12; // Homer's center
-	player_number = 0; // TODO: Change this number for the correct one
+	PlayerNumber = 0; // TODO: Change this number for the correct one
 	life = 10;
 	Lifes = 1;
 	Speed = 2;

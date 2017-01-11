@@ -46,6 +46,7 @@
     <ClCompile Include="HomerRevive.cpp" />
     <ClCompile Include="Royd.cpp" />
     <ClCompile Include="HomerWin.cpp" />
+    <ClCompile Include="UIEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
@@ -76,6 +77,7 @@
     <ClInclude Include="Royd.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="HomerWin.h" />
+    <ClInclude Include="UIEntity.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E94B55C4-191C-497F-B613-9A1EB69A5A86}</ProjectGuid>
