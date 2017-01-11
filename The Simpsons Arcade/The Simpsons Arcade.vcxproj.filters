@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="StateMachine">
       <UniqueIdentifier>{3de2553f-951a-4f52-9019-7ccf574e4f1e}</UniqueIdentifier>
     </Filter>
@@ -39,6 +35,10 @@
     </Filter>
     <Filter Include="StateMachine\EnemyFSM">
       <UniqueIdentifier>{ca5f01ce-1884-45f7-b216-5b534251d59b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPC\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="EnemyAttack.cpp">
       <Filter>StateMachine\EnemyFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="HomerRevive.cpp">
+      <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="EnemyAttack.h">
       <Filter>StateMachine\EnemyFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="HomerRevive.h">
+      <Filter>StateMachine\HomerFSM</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

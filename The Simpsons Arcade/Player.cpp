@@ -29,6 +29,22 @@ bool Player::OnCollision(Collider& origin, Collider& other)
 	return true;
 }
 
+void Player::Die()
+{
+	--Lifes;
+
+	if (life < 0)
+	{
+		Disable();
+		NPC::Die();
+	}
+	else
+	{
+		life = 10;
+		SwitchState(Revive);
+	}
+}
+
 void Player::correct_position()
 {
 	pair<int, int> x, z;

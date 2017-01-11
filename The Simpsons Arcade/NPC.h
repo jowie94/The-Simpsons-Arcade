@@ -5,6 +5,7 @@
 #include "Animation.h"
 #include <map>
 #include "Input.h"
+#include "ModuleTimer.h"
 
 class State;
 
@@ -41,6 +42,7 @@ public:
 	void ReceiveAttack(int damage);
 	virtual void Die();
 	bool IsAlive() const;
+	void Revive();
 
 public:
 	State* Idle = nullptr;
@@ -68,6 +70,9 @@ private:
 	map<string, SpriteAnimation> _animations;
 	State* _state = nullptr;
 	Input _last_input;
+
+	ModuleTimer::Timer* _revive_timer = nullptr;
+	int _draw = 0;
 };
 
 #endif // __NPC_H__

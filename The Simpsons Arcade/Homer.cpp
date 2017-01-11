@@ -7,7 +7,7 @@
 #include "HomerAttack.h"
 #include "HomerDamaged.h"
 #include "HomerDead.h"
-
+#include "HomerRevive.h"
 
 Homer::Homer()
 {
@@ -172,11 +172,13 @@ bool Homer::Start()
 	Attack = new HomerFSM::Attack;
 	Damaged = new HomerFSM::Damaged;
 	Dead = new HomerFSM::Dead;
+	Revive = new HomerFSM::Revive;
 
 	SwitchState(Idle);
 
 	FeetCollider = App->collision->AddCollider(iRectangle3(0, 0, 0, 30, 10), this);
 	FeetCollider->type = PLAYER;
+	NPC::Revive();
 
 	return true;
 }

@@ -58,7 +58,19 @@ void NPC::Update()
 	if (attack_collider) // TODO: Correct collider position
 		attack_collider->SetPos(attackX, Position.y + FeetCollider->rect.h, Position.z);
 
-	App->renderer->Blit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
+	if (_revive_timer)
+	{
+		if (_revive_timer->finished)
+		{
+			_draw = 0;
+			RELEASE(_revive_timer);
+		}
+		else
+			_draw = (_draw + 1) % 15;
+	}
+
+	if (_draw < 7)
+		App->renderer->Blit(graphics, positionX, positionY, Position.z, &rect->Rect, 1.f, flip);
 }
 
 void NPC::PostUpdate()
@@ -152,7 +164,7 @@ void NPC::FinishAttack()
 
 void NPC::ReceiveAttack(int damage)
 {
-	if (Damage == NONE && Damage != INVINCIBLE)
+	if (Damage == NONE && Damage != INVINCIBLE && !_revive_timer)
 	{
 		life -= damage;
 		Damage = damage == 1 && (rand() % 3 <= 2) ? SLIGHT : STRONG;
@@ -171,6 +183,12 @@ void NPC::Die()
 bool NPC::IsAlive() const
 {
 	return life > 0;
+}
+
+void NPC::Revive()
+{
+	Damage = NONE;
+	_revive_timer = App->timer->AddTimer(2 * 1000);
 }
 
 void NPC::correct_position()

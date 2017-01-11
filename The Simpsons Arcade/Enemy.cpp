@@ -26,6 +26,8 @@ void Enemy::Update()
 
 	if (target && !target->IsAlive())
 	{
+		if (attack_collider)
+			FinishAttack();
 		Target = nullptr;
 		SwitchState(Idle);
 	}

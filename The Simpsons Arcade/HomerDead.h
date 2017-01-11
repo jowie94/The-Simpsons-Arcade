@@ -11,6 +11,8 @@ namespace HomerFSM {
 	public:
 		Dead();
 		~Dead();
+
+		State* AnimationEnd(NPC& player) override;
 	};
 
 }

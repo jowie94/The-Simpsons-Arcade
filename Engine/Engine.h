@@ -19,6 +19,7 @@ class ModuleFadeToBlack;
 class ModuleCollision;
 class ModuleParticles;
 class ModuleSceneManager;
+class ModuleTimer;
 
 // Game modules ---
 
@@ -53,6 +54,7 @@ public:
 	ModuleFadeToBlack* fade;
 	ModuleCollision* collision;
 	ModuleParticles* particles;
+	ModuleTimer* timer;
 
 	// Game modules ---
 	ModuleSceneManager* scene_manager;

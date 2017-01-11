@@ -43,6 +43,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="HomerRevive.cpp" />
     <ClCompile Include="Royd.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +71,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="HomerRevive.h" />
     <ClInclude Include="Royd.h" />
     <ClInclude Include="State.h" />
   </ItemGroup>
