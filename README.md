@@ -6,7 +6,7 @@ This is a really simplified version of the original [arcade version](https://en.
 The graphics are partly extracted from [Spriters Resource](https://www.spriters-resource.com/arcade/simpsons/) and manually ripped. All the sounds found in the game are also manually ripped.
 
 ## How To Play 🎮
-To play the game, download the .zip from GitHub releases and extract it to any folder. Once extracted, execute __The Simpsons Arcade.exe__.
+To play the game, download the .zip from [GitHub releases](https://github.com/jowie94/The-Simpsons-Arcade/releases) and extract it to any folder. Once extracted, execute __The Simpsons Arcade.exe__.
 
 When the game is loaded press the space bar to begin playing. Currently it only has Homer as a playable character, but more will be added in the future.
 
@@ -17,4 +17,4 @@ You can do air attacks by pressing _v_ while jumping.
 ## How to build the game ⚙
 To build the game, you just need to open it in Visual Studio (Linux will be added in the future) and compile it. If you want to play it inside Visual Studio, you will have to modify the __Execution folder__ under the debug settings of the __The Simpsons Arcade__ project, and make it point to $(SolutionDir)External.
 
-Enjoy! :octocat:
+Enjoy!
