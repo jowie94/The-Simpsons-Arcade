@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "ModuleSceneManager.h"
 #include "Royd.h"
+#include "ModuleAudio.h"
 
 FirstScene::FirstScene(bool active) : Scene(active), _background(nullptr)
 {
@@ -44,6 +45,8 @@ bool FirstScene::Start()
 	AddPlayer(homer);
 
 	initialize_scene();
+
+	App->audio->PlayMusic("Simpsons/audio/129-Stage 1 - (Downtown Springfield).ogg");
 
 	return Scene::Start();
 }
@@ -97,13 +100,44 @@ update_status FirstScene::Update()
 			_stages.pop();
 		}
 	}
+	else if (Finished())
+	{
+		if (!_end_timer)
+		{
+			App->audio->PlayMusic("Simpsons/audio/150-Completed.ogg", 0.f, 0);
+			_end_timer = App->timer->AddTimer(5 * 1000);
+		}
+		else if (_end_timer->finished)
+		{
+			// TODO: Show credits
+		}
+	}
+	
+	if (GameOver())
+	{
+		if (!_end_timer)
+		{
+			App->audio->PlayMusic("Simpsons/audio/43-game-over.ogg", 0.f, 0);
+			_end_timer = App->timer->AddTimer(5 * 1000);
+		}
+		else if (_end_timer->finished)
+		{
+			// TODO: Show game over
+		}
+	}
+	else
+	{
+		return Scene::Update();
+	}
 
-	return Scene::Update();
+	return UPDATE_CONTINUE;
 }
 
 bool FirstScene::CleanUp()
 {
 	App->textures->Unload(_background);
+
+	RELEASE(_end_timer);
 
 	while (!_stages.empty())
 	{
@@ -125,6 +159,19 @@ bool FirstScene::CleanUp()
 bool FirstScene::Finished() const
 {
 	return _enemies.size() == enemies_defeated && _stages.empty();
+}
+
+bool FirstScene::GameOver() const
+{
+	bool over = false;
+
+	for (auto it = _players.begin(); it != _players.end() && !over; ++it)
+	{
+		Player* npc = static_cast<Player*>(*it);
+		over = !npc->IsAlive() && npc->Lifes < 0;
+	}
+
+	return over;
 }
 
 void FirstScene::initialize_scene()

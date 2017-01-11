@@ -6,6 +6,7 @@
 #include "ModuleInput.h"
 #include "Scene.h"
 #include "ModuleSceneManager.h"
+#include "ModuleAudio.h"
 
 Player::Player()
 {
@@ -13,6 +14,12 @@ Player::Player()
 
 Player::~Player()
 {
+}
+
+bool Player::Start()
+{
+	FxDizzy = App->audio->LoadFx("Simpsons/audio/26-player-dead.wav");
+	return FxDizzy != -1;
 }
 
 void Player::Update()
@@ -51,7 +58,7 @@ void Player::Die()
 {
 	--Lifes;
 
-	if (life < 0)
+	if (Lifes < 0)
 	{
 		Disable();
 		NPC::Die();

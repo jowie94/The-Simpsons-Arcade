@@ -14,7 +14,7 @@ public:
 	Player();
 	virtual ~Player();
 
-	bool Start() override = 0;
+	bool Start() override;
 	void Update() override;
 	bool CleanUp() override;
 
@@ -25,6 +25,7 @@ public:
 
 	State* Revive = nullptr;
 	State* Win = nullptr;
+	int FxDizzy = -1;
 
 protected:
 	void correct_position() override;

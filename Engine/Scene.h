@@ -153,6 +153,11 @@ public:
 		return false;
 	}
 
+	virtual bool GameOver() const
+	{
+		return false;
+	}
+
 protected:
 	std::list<Entity*> _entities;
 	std::list<Entity*> _players;

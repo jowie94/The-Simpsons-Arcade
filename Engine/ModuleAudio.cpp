@@ -68,8 +68,23 @@ bool ModuleAudio::CleanUp()
 	return true;
 }
 
-// Play a music file
+bool ModuleAudio::PlayMusic(const char* path)
+{
+	return PlayMusic(path, DEFAULT_MUSIC_FADE_TIME, -1);
+}
+
 bool ModuleAudio::PlayMusic(const char* path, float fade_time)
+{
+	return PlayMusic(path, fade_time, -1);
+}
+
+bool ModuleAudio::PlayMusic(const char* path, int loops)
+{
+	return PlayMusic(path, DEFAULT_MUSIC_FADE_TIME, loops);
+}
+
+// Play a music file
+bool ModuleAudio::PlayMusic(const char* path, float fade_time, int loops)
 {
 	bool ret = true;
 
@@ -107,7 +122,7 @@ bool ModuleAudio::PlayMusic(const char* path, float fade_time)
 		}
 		else
 		{
-			if(Mix_PlayMusic(music, -1) < 0)
+			if(Mix_PlayMusic(music, loops) < 0)
 			{
 				LOG("Cannot play in music %s. Mix_GetError(): %s", path, Mix_GetError());
 				ret = false;

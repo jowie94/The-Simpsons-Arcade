@@ -21,7 +21,11 @@ public:
 	bool CleanUp();
 
 	// Play a music file
-	bool PlayMusic(const char* path, float fade_time = DEFAULT_MUSIC_FADE_TIME);
+	bool PlayMusic(const char* path);
+	bool PlayMusic(const char* path, float fade_time);
+	bool PlayMusic(const char* path, int loops);
+	bool PlayMusic(const char* path, float fade_time, int loops);
+	
 
 	// Load a WAV in memory
 	unsigned int LoadFx(const char* path);

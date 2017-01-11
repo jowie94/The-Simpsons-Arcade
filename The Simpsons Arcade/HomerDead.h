@@ -12,6 +12,7 @@ namespace HomerFSM {
 		Dead();
 		~Dead();
 
+		void Enter(NPC& player, const Input& input) override;
 		State* AnimationEnd(NPC& player) override;
 	};
 

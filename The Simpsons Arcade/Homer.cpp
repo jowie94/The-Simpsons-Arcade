@@ -26,6 +26,7 @@ bool Homer::Start()
 	center = 12; // Homer's center
 	player_number = 0; // TODO: Change this number for the correct one
 	life = 10;
+	Lifes = 1;
 	Speed = 2;
 
 	SpriteAnimation idle;
@@ -205,5 +206,5 @@ bool Homer::Start()
 	FeetCollider->type = PLAYER;
 	NPC::Revive();
 
-	return true;
+	return Player::Start();
 }
