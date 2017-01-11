@@ -17,6 +17,13 @@ Player::~Player()
 {
 }
 
+bool Player::CleanUp()
+{
+	RELEASE(Revive);
+
+	return NPC::CleanUp();
+}
+
 bool Player::OnCollision(Collider& origin, Collider& other)
 {
 	if (origin.type == PLAYER_ATTACK && other.type == ENEMY)

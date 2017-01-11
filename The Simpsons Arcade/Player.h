@@ -15,13 +15,14 @@ public:
 	virtual ~Player();
 
 	bool Start() override = 0;
+	bool CleanUp() override;
 
 	bool OnCollision(Collider& origin, Collider& other) override;
 	void Die() override;
 
 	int Lifes = 0;
 
-	State* Revive;
+	State* Revive = nullptr;
 
 protected:
 	void correct_position() override;
