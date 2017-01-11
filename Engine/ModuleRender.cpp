@@ -306,7 +306,36 @@ bool ModuleRender::BlitUI(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 	rect->w *= SCREEN_SIZE;
 	rect->h *= SCREEN_SIZE;
 
-	_background.push(new RenderData({ false, texture, section, rect }));
+	_ui.push(new RenderData({ false, texture, section, rect }));
+
+	return ret;
+}
+
+bool ModuleRender::DirectBlit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
+{
+	bool ret = true;
+	SDL_Rect rect;
+	rect.x = int(x) * SCREEN_SIZE;
+	rect.y = int(y) * SCREEN_SIZE;
+
+	if (section != nullptr)
+	{
+		rect.w = section->w;
+		rect.h = section->h;
+	}
+	else
+	{
+		SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
+	}
+
+	rect.w *= SCREEN_SIZE;
+	rect.h *= SCREEN_SIZE;
+
+	if (SDL_RenderCopy(renderer, texture, section, &rect) != 0)
+	{
+		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
+		ret = false;
+	}
 
 	return ret;
 }

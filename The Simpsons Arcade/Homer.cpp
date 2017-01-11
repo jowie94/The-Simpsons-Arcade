@@ -26,7 +26,7 @@ bool Homer::Start()
 	center = 12; // Homer's center
 	PlayerNumber = 1; // TODO: Change this number for the correct one
 	life = 10;
-	Lifes = 1;
+	Lifes = 3;
 	Speed = 2;
 
 	SpriteAnimation idle;

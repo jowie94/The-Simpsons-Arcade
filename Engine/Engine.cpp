@@ -9,6 +9,7 @@
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModuleTimer.h"
+#include "ModuleFonts.h"
 
 using namespace std;
 
@@ -33,6 +34,7 @@ Engine::Engine()
 	modules.push_back(collision = new ModuleCollision());
 	modules.push_back(particles = new ModuleParticles());
 	modules.push_back(timer = new ModuleTimer());
+	modules.push_back(fonts = new ModuleFonts());
 	//modules.push_back(fade = new ModuleFadeToBlack());
 
 	App = this;

@@ -23,6 +23,7 @@ bool UIEntity::Start()
 		_lifes.push_back(new SDL_Rect({ 0, 56, 32, 13 }));
 	}
 
+	_font = App->fonts->Load("Simpsons/font.png", "abcdefghijklmnopqrstuvwxyz0123456789.,'''?!@_#$%&()+-/: ");
 	_graphics = App->textures->Load("Simpsons/ui.png");
 	return _graphics != nullptr;
 }
@@ -54,6 +55,8 @@ void UIEntity::Update()
 			App->renderer->BlitUI(_graphics, hSize*i, 0, rect);
 			_lifes[i]->w = float(lifeH) * (float(playerInScene[i]->GetLife()) / 10.f);
 			App->renderer->BlitUI(_graphics, hSize*i + 24, 10, _lifes[i]);
+			char life[1] = { '0' + playerInScene[i]->Lifes };
+			App->fonts->Write(life, hSize*(i+1) - 10, 15, _font);
 		}
 		else
 		{

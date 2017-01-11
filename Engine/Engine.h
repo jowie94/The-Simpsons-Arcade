@@ -20,6 +20,7 @@ class ModuleCollision;
 class ModuleParticles;
 class ModuleSceneManager;
 class ModuleTimer;
+class ModuleFonts;
 
 // Game modules ---
 
@@ -55,6 +56,7 @@ public:
 	ModuleCollision* collision;
 	ModuleParticles* particles;
 	ModuleTimer* timer;
+	ModuleFonts* fonts;
 
 	// Game modules ---
 	ModuleSceneManager* scene_manager;
