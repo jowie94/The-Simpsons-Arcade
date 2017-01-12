@@ -10,7 +10,7 @@ The graphics are partly extracted from [Spriters Resource](https://www.spriters-
 ## How To Play 🎮
 To play the game, download the .zip from [GitHub releases](https://github.com/jowie94/The-Simpsons-Arcade/releases) and extract it to any folder. Once extracted, execute __The Simpsons Arcade.exe__.
 
-When the game is loaded press the space bar to begin playing. Currently it only has Homer as a playable character, but more will be added in the future.
+When the game is loaded press the space bar to begin playing. Currently it only has Homer as a playable character, but more players will be added in the future.
 
 Homer is controlled using _T_, _F_, _G_, _H_ for movement, _v_ for attacking, and _b_ for jumping.
 
