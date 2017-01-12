@@ -46,6 +46,24 @@ bool FirstScene::Start()
 	homer->Position.z = 50;
 	AddPlayer(homer);
 
+	Player* marge = entityFactory->GetObject<Player>(EntityFactory::MARGE);
+	marge->Position.x = 70;
+	marge->Position.z = 0;
+	marge->PlayerNumber = 0;
+	AddPlayer(marge);
+
+	Player* lisa = entityFactory->GetObject<Player>(EntityFactory::LISA);
+	lisa->Position.x = 80;
+	lisa->Position.z = 40;
+	lisa->PlayerNumber = 0;
+	AddPlayer(lisa);
+
+	Player* bart = entityFactory->GetObject<Player>(EntityFactory::BART);
+	bart->Position.x = 60;
+	bart->Position.z = 30;
+	bart->PlayerNumber = 0;
+	AddPlayer(bart);
+
 	initialize_scene();
 
 	Entity* ui = entityFactory->GetObject(EntityFactory::UI);
@@ -53,7 +71,8 @@ bool FirstScene::Start()
 
 	App->audio->PlayMusic("Simpsons/audio/129-Stage 1 - (Downtown Springfield).ogg");
 
-	return Scene::Start();
+	bool ret = Scene::Start();
+	return ret;
 }
 
 update_status FirstScene::Update()
@@ -64,12 +83,15 @@ update_status FirstScene::Update()
 
 	for (Entity* entity : _players)
 	{
-		iPoint3 pos = entity->Position;
+		if (static_cast<Player*>(entity)->IsAlive())
+		{
+			iPoint3 pos = entity->Position;
 
-		max.x = MAX(pos.x, max.x);
-		max.z = MAX(pos.z, max.z);
-		min.x = MIN(pos.x, min.x);
-		min.z = MIN(pos.z, min.z);
+			max.x = MAX(pos.x, max.x);
+			max.z = MAX(pos.z, max.z);
+			min.x = MIN(pos.x, min.x);
+			min.z = MIN(pos.z, min.z);
+		}
 	}
 
 	iPoint3 mid = (min + max) / 2;

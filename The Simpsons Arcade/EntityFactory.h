@@ -12,6 +12,9 @@ public:
 	{
 		HOMER = 0,
 		ROYD,
+		MARGE,
+		BART,
+		LISA,
 		UI,
 		UNKNOWN
 	};

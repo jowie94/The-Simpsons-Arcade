@@ -3,6 +3,9 @@
 #include "Homer.h"
 #include "Royd.h"
 #include "UIEntity.h"
+#include "Marge.h"
+#include "Bart.h"
+#include "Lisa.h"
 
 EntityFactory::EntityFactory()
 {
@@ -22,6 +25,15 @@ Entity* EntityFactory::GetObject(int id) const
 	{
 	case HOMER:
 		ret = new Homer;
+		break;
+	case MARGE:
+		ret = new Marge;
+		break;
+	case BART:
+		ret = new Bart;
+		break;
+	case LISA:
+		ret = new Lisa;
 		break;
 	case ROYD:
 		ret = new Royd;

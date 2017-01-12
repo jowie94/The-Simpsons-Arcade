@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bart.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyAttack.cpp" />
     <ClCompile Include="EnemyDamaged.cpp" />
@@ -41,7 +42,9 @@
     <ClCompile Include="HomerIdle.cpp" />
     <ClCompile Include="HomerJump.cpp" />
     <ClCompile Include="HomerWalking.cpp" />
+    <ClCompile Include="Lisa.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Marge.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="HomerRevive.cpp" />
@@ -52,6 +55,7 @@
     <ClCompile Include="WinScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bart.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyAttack.h" />
     <ClInclude Include="EnemyDamaged.h" />
@@ -75,6 +79,8 @@
     <ClInclude Include="HomerJump.h" />
     <ClInclude Include="HomerWalking.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Lisa.h" />
+    <ClInclude Include="Marge.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="HomerRevive.h" />

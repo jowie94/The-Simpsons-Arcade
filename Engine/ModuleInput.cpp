@@ -190,7 +190,7 @@ update_status ModuleInput::PreUpdate()
 		_axis[3][X] += 1;
 	}
 
-	if (keys[SDL_SCANCODE_U])
+	if (keys[SDL_SCANCODE_UP])
 	{
 		_axis[3][Y] += 1;
 	}
@@ -209,7 +209,7 @@ update_status ModuleInput::PreUpdate()
 	_keys[2][JUMP] = keyboard[SDL_SCANCODE_COMMA];
 
 	_keys[3][ATTACK] = keyboard[SDL_SCANCODE_KP_0];
-	_keys[4][JUMP] = keyboard[SDL_SCANCODE_KP_PERIOD];
+	_keys[4][JUMP] = keyboard[SDL_SCANCODE_KP_2];
 
 	return UPDATE_CONTINUE;
 }

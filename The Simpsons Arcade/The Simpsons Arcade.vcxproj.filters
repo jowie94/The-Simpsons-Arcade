@@ -40,6 +40,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="NPC\Player\Lisa">
+      <UniqueIdentifier>{68800bc3-2d4c-4e4a-9027-d9da8b19edbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPC\Player\Bart">
+      <UniqueIdentifier>{158a442f-864d-478d-8105-895b5e448bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPC\Player\Marge">
+      <UniqueIdentifier>{df1d2ee5-1457-46cb-8e12-45723140937d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -134,6 +143,15 @@
     </ClCompile>
     <ClCompile Include="StartScene.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lisa.cpp">
+      <Filter>NPC\Player\Lisa</Filter>
+    </ClCompile>
+    <ClCompile Include="Bart.cpp">
+      <Filter>NPC\Player\Bart</Filter>
+    </ClCompile>
+    <ClCompile Include="Marge.cpp">
+      <Filter>NPC\Player\Marge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +250,15 @@
     </ClInclude>
     <ClInclude Include="StartScene.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lisa.h">
+      <Filter>NPC\Player\Lisa</Filter>
+    </ClInclude>
+    <ClInclude Include="Bart.h">
+      <Filter>NPC\Player\Bart</Filter>
+    </ClInclude>
+    <ClInclude Include="Marge.h">
+      <Filter>NPC\Player\Marge</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
