@@ -55,7 +55,7 @@ void UIEntity::Update()
 			App->renderer->BlitUI(_graphics, hSize*i, 0, rect);
 			_lifes[i]->w = float(lifeH) * (float(playerInScene[i]->GetLife()) / 10.f);
 			App->renderer->BlitUI(_graphics, hSize*i + 24, 10, _lifes[i]);
-			char life[1] = { '0' + playerInScene[i]->Lifes };
+			char life[2] = { '0' + playerInScene[i]->Lifes, 0 };
 			App->fonts->Write(life, hSize*(i+1) - 10, 15, _font);
 		}
 		else

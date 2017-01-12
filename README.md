@@ -1,6 +1,6 @@
 ![The Simpsons GIF](docs/head.gif)
 
-# The Simpsons Arcade 👾
+# [The Simpsons Arcade](https://jowie94.github.io/The-Simpsons-Arcade/) 👾
 Welcome to my own take of the classic The Simpsons arcade game.
 
 This is a really simplified version of the original [arcade version](https://en.wikipedia.org/wiki/The_Simpsons_(video_game)) of The Simpsons. It is build using SDL and C++.
