@@ -1,4 +1,4 @@
-![The Simpsons GIF](docs/head.gif)
+﻿![The Simpsons GIF](docs/head.gif)
 
 # [The Simpsons Arcade](https://jowie94.github.io/The-Simpsons-Arcade/) 👾
 Welcome to my own take of the classic The Simpsons arcade game.
@@ -12,7 +12,10 @@ To play the game, download the .zip from [GitHub releases](https://github.com/jo
 
 When the game is loaded press the space bar to begin playing. Currently it only has Homer as a playable character, but more players will be added in the future.
 
+Marge (Red Homer) is controlled using _W_, _A_, _S_, _D_ for movement, _Z_ for attacking, and _X_ for jumping.
 Homer is controlled using _T_, _F_, _G_, _H_ for movement, _v_ for attacking, and _b_ for jumping.
+Bart (Inverse Homer) is controlled using _U_, _H_, _J_, _K_ for movement, _N_ for attacking, and _M_ for jumping.
+Lisa (Brown Homer) is controlled using _Up_, _Left_, _Down_, _Right_ for movement, _0_ for attacking, and _1_ for jumping.
 
 You can do air attacks by pressing _v_ while jumping.
 
