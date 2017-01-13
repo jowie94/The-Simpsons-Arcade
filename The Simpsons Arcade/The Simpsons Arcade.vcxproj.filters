@@ -49,12 +49,12 @@
     <Filter Include="NPC\Player\Marge">
       <UniqueIdentifier>{df1d2ee5-1457-46cb-8e12-45723140937d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{a43b167f-397d-414b-b8d5-8ff108b63ff9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FirstScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EntityFactory.cpp">
@@ -135,15 +135,6 @@
     <ClCompile Include="UIEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameOverScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WinScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StartScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Lisa.cpp">
       <Filter>NPC\Player\Lisa</Filter>
     </ClCompile>
@@ -153,11 +144,23 @@
     <ClCompile Include="Marge.cpp">
       <Filter>NPC\Player\Marge</Filter>
     </ClCompile>
+    <ClCompile Include="WinScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterSelectScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FirstScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EntityFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -239,18 +242,6 @@
     <ClInclude Include="HomerWin.h">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClInclude>
-    <ClInclude Include="UIEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameOverScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WinScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StartScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Lisa.h">
       <Filter>NPC\Player\Lisa</Filter>
     </ClInclude>
@@ -259,6 +250,24 @@
     </ClInclude>
     <ClInclude Include="Marge.h">
       <Filter>NPC\Player\Marge</Filter>
+    </ClInclude>
+    <ClInclude Include="UIEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="WinScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterSelectScene.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
