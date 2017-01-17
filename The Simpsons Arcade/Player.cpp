@@ -7,6 +7,14 @@
 #include "Scene.h"
 #include "ModuleSceneManager.h"
 #include "ModuleAudio.h"
+#include "HomerWin.h"
+#include "HomerRevive.h"
+#include "HomerDead.h"
+#include "HomerDamaged.h"
+#include "HomerAttack.h"
+#include "HomerJump.h"
+#include "HomerWalking.h"
+#include "HomerIdle.h"
 
 Player::Player()
 {
@@ -18,6 +26,21 @@ Player::~Player()
 
 bool Player::Start()
 {
+	Idle = new HomerFSM::Idle;
+	Walking = new HomerFSM::Walking;
+	Jump = new HomerFSM::Jump;
+	Attack = new HomerFSM::Attack;
+	Damaged = new HomerFSM::Damaged;
+	Dead = new HomerFSM::Dead;
+	Revive = new HomerFSM::Revive;
+	Win = new HomerFSM::Win;
+
+	SwitchState(Idle);
+
+	FeetCollider = App->collision->AddCollider(iRectangle3(0, 0, 0, 30, 10), this);
+	FeetCollider->type = PLAYER;
+	NPC::Revive();
+
 	FxDizzy = App->audio->LoadFx("Simpsons/audio/26-player-dead.wav");
 	return FxDizzy != -1;
 }

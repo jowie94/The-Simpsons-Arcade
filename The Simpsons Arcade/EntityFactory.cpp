@@ -20,20 +20,25 @@ Entity* EntityFactory::GetObject(int id) const
 	assert(id < UNKNOWN);
 
 	Entity* ret = nullptr;
+	NPC* player = nullptr;
 
 	switch (id)
 	{
 	case HOMER:
-		ret = new Homer;
+		player = new Player;
+		player->LoadFromJson("Simpsons/homer.json");
 		break;
 	case MARGE:
-		ret = new Marge;
+		player = new Player;
+		player->LoadFromJson("Simpsons/marge.json");
 		break;
 	case BART:
-		ret = new Bart;
+		player = new Player;
+		player->LoadFromJson("Simpsons/bart.json");
 		break;
 	case LISA:
-		ret = new Lisa;
+		player = new Player;
+		player->LoadFromJson("Simpsons/lisa.json");
 		break;
 	case ROYD:
 		ret = new Royd;
@@ -45,5 +50,5 @@ Entity* EntityFactory::GetObject(int id) const
 		break;
 	}
 
-	return ret;
+	return player ? player : ret;
 }

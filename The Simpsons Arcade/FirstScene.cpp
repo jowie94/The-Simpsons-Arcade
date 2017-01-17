@@ -41,28 +41,33 @@ bool FirstScene::Start()
 
 	BaseFactory<Entity>* entityFactory = App->scene_manager->GetEntityFactory();
 
-	Player* homer = entityFactory->GetObject<Player>(EntityFactory::HOMER);
-	homer->Position.x = 70;
-	homer->Position.z = 50;
-	AddPlayer(homer);
-
 	Player* marge = entityFactory->GetObject<Player>(EntityFactory::MARGE);
 	marge->Position.x = 70;
 	marge->Position.z = 0;
 	marge->PlayerNumber = 0;
+	marge->Lifes = 3;
 	AddPlayer(marge);
 
-	Player* lisa = entityFactory->GetObject<Player>(EntityFactory::LISA);
-	lisa->Position.x = 80;
-	lisa->Position.z = 40;
-	lisa->PlayerNumber = 0;
-	AddPlayer(lisa);
+	Player* homer = entityFactory->GetObject<Player>(EntityFactory::HOMER);
+	homer->Position.x = 70;
+	homer->Position.z = 50;
+	homer->PlayerNumber = 1;
+	homer->Lifes = 3;
+	AddPlayer(homer);
 
 	Player* bart = entityFactory->GetObject<Player>(EntityFactory::BART);
 	bart->Position.x = 60;
 	bart->Position.z = 30;
-	bart->PlayerNumber = 0;
+	bart->PlayerNumber = 2;
+	bart->Lifes = 3;
 	AddPlayer(bart);
+
+	Player* lisa = entityFactory->GetObject<Player>(EntityFactory::LISA);
+	lisa->Position.x = 80;
+	lisa->Position.z = 40;
+	lisa->PlayerNumber = 3;
+	lisa->Lifes = 3;
+	AddPlayer(lisa);
 
 	initialize_scene();
 

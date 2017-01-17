@@ -3,6 +3,11 @@
 #include "ModuleSceneManager.h"
 #include "Scene.h"
 #include "State.h"
+#include "json.hpp"
+#include <fstream>
+#include "ModuleTextures.h"
+
+using json = nlohmann::json;
 
 NPC::NPC()
 {
@@ -100,6 +105,44 @@ bool NPC::CleanUp()
 bool NPC::OnCollision(Collider& origin, Collider& other)
 {
 	return true;
+}
+
+void NPC::LoadFromJson(const char* file)
+{
+	ifstream in(file);
+	json js;
+	in >> js;
+
+	json color_key = js["color_key"];
+	SDL_Color key = { color_key[0], color_key[1], color_key[2], color_key[3] };
+
+	string sheet = js["sheet"];
+	graphics = App->textures->Load((string("Simpsons/") + sheet).c_str(), &key);
+
+	life = js["life"];
+	center = js["center"];
+	Speed = js["speed"];
+
+	json animations = js["animations"];
+	for (json::iterator it = animations.begin(); it != animations.end(); ++it)
+	{
+		json animation = (*it);
+		SpriteAnimation anim;
+
+		for (auto frame : animation["frames"])
+		{
+			auto jrect = frame["rect"];
+			SDL_Rect rect = { jrect[0], jrect[1], jrect[2], jrect[3] };
+			auto jpivot = frame["pivot"];
+			iPoint pivot(jpivot[0], jpivot[1]);
+			anim.frames.push_back({ rect, pivot });
+		}
+
+		anim.speed = animation["speed"];
+		anim.loop = animation["loop"];
+
+		AddAnimation(it.key(), anim);
+	}
 }
 
 void NPC::AddAnimation(const string& name, const SpriteAnimation& animation)

@@ -32,6 +32,7 @@ public:
 	bool CleanUp() override;
 	bool OnCollision(Collider& origin, Collider& other) override;
 
+	void LoadFromJson(const char* file);
 	void AddAnimation(const string& name, const SpriteAnimation& animation);
 	bool SetAnimation(const string& name);
 	SpriteAnimation* CurrentAnimation();

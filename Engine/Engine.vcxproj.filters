@@ -88,6 +88,9 @@
     <ClInclude Include="ModuleFonts.h">
       <Filter>Core Modules</Filter>
     </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleRender.cpp">
