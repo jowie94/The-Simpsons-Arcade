@@ -264,7 +264,6 @@ void FirstScene::initialize_scene()
 	royd1->Position = iPoint3(1300 + SCREEN_WIDTH, 0, 10);
 	entities->push_back(royd1);
 
-	entities = new list<Entity*>();
 	royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
 	royd1->Position = iPoint3(1000 + SCREEN_WIDTH, 0, 100);
 	entities->push_back(royd1);
