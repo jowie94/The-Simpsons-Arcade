@@ -24,13 +24,13 @@ Entity* EntityFactory::GetObject(int id) const
 
 	switch (id)
 	{
-	case HOMER:
-		player = new Player;
-		player->LoadFromJson("Simpsons/homer.json");
-		break;
 	case MARGE:
 		player = new Player;
 		player->LoadFromJson("Simpsons/marge.json");
+		break;
+	case HOMER:
+		player = new Player;
+		player->LoadFromJson("Simpsons/homer.json");
 		break;
 	case BART:
 		player = new Player;

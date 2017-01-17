@@ -10,11 +10,11 @@ class EntityFactory :
 public:
 	enum Entities
 	{
-		HOMER = 0,
-		ROYD,
 		MARGE,
+		HOMER,
 		BART,
 		LISA,
+		ROYD,
 		UI,
 		UNKNOWN
 	};
