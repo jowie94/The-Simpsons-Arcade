@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "ModuleSceneManager.h"
 #include "StartScene.h"
+#include "CharacterSelectScene.h"
 
 int main(int argc, char ** argv)
 {
@@ -12,7 +13,7 @@ int main(int argc, char ** argv)
 	LOG("Engine Creation --------------");
 	Engine* App = new Engine();
 
-	App->scene_manager->SetInitialScene(new StartScene(false));
+	App->scene_manager->SetInitialScene(new CharacterSelectScene(false));
 	EntityFactory* factory = new EntityFactory();
 	App->scene_manager->SetEntityFactory(factory);
 	App->renderer->RenderingAngle = 20;
