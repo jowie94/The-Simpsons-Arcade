@@ -12,15 +12,21 @@ public:
 	bool CleanUp() override;
 
 private:
+	int firstFreePosition(int pos = 0, int direction = 1) const;
+
 	SDL_Texture* _graphics;
 
 	std::vector<SDL_Rect*> _rects;
 	std::vector<SDL_Rect*> _labels;
-	
-	int rectHSize = 72;
-	int rectVSize = 160;
+	std::vector<SDL_Rect*> _bubbles;
 
-	int labelHSize = 72;
-	int labelVSize = 28;
+	int _positions[4] = { -1, -1, -1, -1 };
+	bool _selected[4] = { false, false, false, false };
+	
+	int _rectHSize = 72;
+	int _rectVSize = 160;
+
+	int _labelHSize = 72;
+	int _labelVSize = 28;
 };
 

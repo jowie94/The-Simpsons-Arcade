@@ -6,6 +6,7 @@
 #include <map>
 #include "Input.h"
 #include "ModuleTimer.h"
+#include "json.hpp"
 
 class State;
 
@@ -32,7 +33,8 @@ public:
 	bool CleanUp() override;
 	bool OnCollision(Collider& origin, Collider& other) override;
 
-	void LoadFromJson(const char* file);
+	virtual void LoadFromJson(const char* file);
+	virtual void LoadFromJson(nlohmann::json& js);
 	void AddAnimation(const string& name, const SpriteAnimation& animation);
 	bool SetAnimation(const string& name);
 	SpriteAnimation* CurrentAnimation();

@@ -33,7 +33,10 @@ enum InputAxis
 enum InputKey
 {
 	ATTACK,
-	JUMP
+	JUMP,
+	LEFT,
+	RIGHT,
+	INPUTKEY
 };
 
 class ModuleInput : public Module
@@ -90,7 +93,7 @@ private:
 	bool		windowEvents[WE_COUNT];
 	KeyState*	keyboard;
 	int			_axis[4][2];
-	KeyState	_keys[4][2];
+	KeyState	_keys[4][INPUTKEY];
 	KeyState	mouse_buttons[NUM_MOUSE_BUTTONS];
 	iPoint mouse_motion;
 	iPoint mouse;

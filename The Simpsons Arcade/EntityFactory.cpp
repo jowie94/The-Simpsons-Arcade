@@ -45,6 +45,7 @@ Entity* EntityFactory::GetObject(int id) const
 		break;
 	case UI:
 		ret = new UIEntity;
+		break;
 	default:
 		LOG("Entity %i unknown", id);
 		break;

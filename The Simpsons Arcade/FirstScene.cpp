@@ -41,7 +41,7 @@ bool FirstScene::Start()
 
 	BaseFactory<Entity>* entityFactory = App->scene_manager->GetEntityFactory();
 
-	Player* marge = entityFactory->GetObject<Player>(EntityFactory::MARGE);
+	/*Player* marge = entityFactory->GetObject<Player>(EntityFactory::MARGE);
 	marge->Position.x = 70;
 	marge->Position.z = 0;
 	marge->PlayerNumber = 0;
@@ -67,7 +67,7 @@ bool FirstScene::Start()
 	lisa->Position.z = 40;
 	lisa->PlayerNumber = 3;
 	lisa->Lifes = 3;
-	AddPlayer(lisa);
+	AddPlayer(lisa);*/
 
 	initialize_scene();
 
@@ -202,6 +202,11 @@ bool FirstScene::GameOver() const
 void FirstScene::initialize_scene()
 {
 	BaseFactory<Entity>* entityFactory = App->scene_manager->GetEntityFactory();
+
+	for (Entity* player : _players)
+	{
+		static_cast<Player*>(player)->Lifes = 3;
+	}
 
 	NPC* royd1 = entityFactory->GetObject<NPC>(EntityFactory::ROYD);
 	royd1->Position = iPoint3(300, 0, 60);

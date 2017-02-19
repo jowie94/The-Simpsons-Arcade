@@ -5,6 +5,7 @@
   "life": 10,
   "lifes": 3,
   "speed": 2,
+  "playerNumber": 0,
   "animations": {
     "idle": {
       "frames": [

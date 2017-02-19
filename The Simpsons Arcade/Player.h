@@ -19,10 +19,13 @@ public:
 	bool CleanUp() override;
 
 	bool OnCollision(Collider& origin, Collider& other) override;
+
+	void LoadFromJson(nlohmann::json& js) override;
 	void Die() override;
 
 	int Lifes = 0;
 	int PlayerNumber = 0;
+	int ControllerNumber = 0;
 
 	State* Revive = nullptr;
 	State* Win = nullptr;

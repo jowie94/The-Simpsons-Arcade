@@ -3,7 +3,6 @@
 #include "ModuleSceneManager.h"
 #include "Scene.h"
 #include "State.h"
-#include "json.hpp"
 #include <fstream>
 #include "ModuleTextures.h"
 
@@ -113,6 +112,11 @@ void NPC::LoadFromJson(const char* file)
 	json js;
 	in >> js;
 
+	LoadFromJson(js);
+}
+
+void NPC::LoadFromJson(nlohmann::json& js)
+{
 	json color_key = js["color_key"];
 	SDL_Color key = { color_key[0], color_key[1], color_key[2], color_key[3] };
 

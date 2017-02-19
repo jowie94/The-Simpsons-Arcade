@@ -77,6 +77,13 @@ bool Player::OnCollision(Collider& origin, Collider& other)
 	return true;
 }
 
+void Player::LoadFromJson(nlohmann::json& js)
+{
+	PlayerNumber = js["playerNumber"];
+
+	NPC::LoadFromJson(js);
+}
+
 void Player::Die()
 {
 	--Lifes;
@@ -112,11 +119,11 @@ void Player::correct_position()
 
 void Player::prepare_input(Input& input)
 {
-	input.x = App->input->GetAxis(PlayerNumber, X);
-	input.y = App->input->GetAxis(PlayerNumber, Y);
+	input.x = App->input->GetAxis(ControllerNumber, X);
+	input.y = App->input->GetAxis(ControllerNumber, Y);
 
-	input.attack = App->input->GetPlayerKey(PlayerNumber, ATTACK);
-	input.jump = App->input->GetPlayerKey(PlayerNumber, JUMP);
+	input.attack = App->input->GetPlayerKey(ControllerNumber, ATTACK);
+	input.jump = App->input->GetPlayerKey(ControllerNumber, JUMP);
 }
 
 int Player::calculate_damage()

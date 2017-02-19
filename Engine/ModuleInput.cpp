@@ -201,15 +201,23 @@ update_status ModuleInput::PreUpdate()
 
 	_keys[0][ATTACK] = keyboard[SDL_SCANCODE_Z];
 	_keys[0][JUMP] = keyboard[SDL_SCANCODE_X];
+	_keys[0][LEFT] = keyboard[SDL_SCANCODE_A];
+	_keys[0][RIGHT] = keyboard[SDL_SCANCODE_D];
 	
 	_keys[1][ATTACK] = keyboard[SDL_SCANCODE_V];
 	_keys[1][JUMP] = keyboard[SDL_SCANCODE_B];
+	_keys[1][LEFT] = keyboard[SDL_SCANCODE_F];
+	_keys[1][RIGHT] = keyboard[SDL_SCANCODE_H];
 
 	_keys[2][ATTACK] = keyboard[SDL_SCANCODE_M];
 	_keys[2][JUMP] = keyboard[SDL_SCANCODE_COMMA];
+	_keys[2][LEFT] = keyboard[SDL_SCANCODE_J];
+	_keys[2][RIGHT] = keyboard[SDL_SCANCODE_L];
 
 	_keys[3][ATTACK] = keyboard[SDL_SCANCODE_KP_0];
-	_keys[4][JUMP] = keyboard[SDL_SCANCODE_KP_2];
+	_keys[3][JUMP] = keyboard[SDL_SCANCODE_KP_2];
+	_keys[3][LEFT] = keyboard[SDL_SCANCODE_LEFT];
+	_keys[3][RIGHT] = keyboard[SDL_SCANCODE_RIGHT];
 
 	return UPDATE_CONTINUE;
 }
