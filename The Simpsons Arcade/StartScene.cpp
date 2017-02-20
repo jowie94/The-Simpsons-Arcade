@@ -1,9 +1,9 @@
 #include "StartScene.h"
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
-#include "FirstScene.h"
 #include "ModuleInput.h"
 #include "ModuleSceneManager.h"
+#include "CharacterSelectScene.h"
 
 StartScene::StartScene(bool active) : Scene(active)
 {
@@ -25,7 +25,7 @@ update_status StartScene::Update()
 	App->renderer->DirectBlit(_graphics, 0, 0, nullptr);
 
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
-		App->scene_manager->SetScene(new FirstScene(false));
+		App->scene_manager->SetScene(new CharacterSelectScene(false));
 
 	return UPDATE_CONTINUE;
 }
