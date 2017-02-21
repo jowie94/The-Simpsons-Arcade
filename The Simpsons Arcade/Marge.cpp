@@ -22,7 +22,7 @@ bool Marge::Start()
 	SDL_Color key = { 89, 253, 66, 0 };
 	graphics = App->textures->Load("Simpsons/marge.png", &key);
 	center = 12; // Marge's center
-	PlayerNumber = 0;
+	PlayerNumber = MARGE;
 	life = 10;
 	Lifes = 3;
 	Speed = 2;

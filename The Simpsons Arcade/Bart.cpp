@@ -23,7 +23,6 @@ bool Bart::Start()
 	SDL_Color key = { 173, 40, 40, 0 };
 	graphics = App->textures->Load("Simpsons/bart.png", &key);
 	center = 12; // Bart's center
-	PlayerNumber = 2;
 	life = 10;
 	Lifes = 3;
 	Speed = 2;

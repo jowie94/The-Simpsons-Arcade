@@ -11,6 +11,15 @@ class Player :
 	public NPC
 {
 public:
+	enum PlayerName
+	{
+		MARGE,
+		HOMER,
+		BART,
+		LISA,
+		UNKNOWN
+	};
+
 	Player();
 	virtual ~Player();
 
@@ -24,7 +33,7 @@ public:
 	void Die() override;
 
 	int Lifes = 0;
-	int PlayerNumber = 0;
+	PlayerName PlayerNumber = UNKNOWN;
 	int ControllerNumber = 0;
 
 	State* Revive = nullptr;

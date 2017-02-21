@@ -24,7 +24,7 @@ bool Lisa::Start()
 	SDL_Color key = { 89, 253, 66, 0 };
 	graphics = App->textures->Load("Simpsons/lisa.png", &key);
 	center = 12; // Lisa's center
-	PlayerNumber = 3;
+	PlayerNumber = LISA;
 	life = 10;
 	Lifes = 3;
 	Speed = 2;

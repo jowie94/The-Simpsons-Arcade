@@ -79,7 +79,7 @@ bool Player::OnCollision(Collider& origin, Collider& other)
 
 void Player::LoadFromJson(nlohmann::json& js)
 {
-	PlayerNumber = js["playerNumber"];
+	PlayerNumber = static_cast<PlayerName>(js.value("playerNumber", 0));
 
 	NPC::LoadFromJson(js);
 }
