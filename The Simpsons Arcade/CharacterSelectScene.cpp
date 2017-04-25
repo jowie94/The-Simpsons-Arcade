@@ -4,6 +4,7 @@
 #include "FirstScene.h"
 #include "ModuleSceneManager.h"
 #include "Player.h"
+#include "PlayerSelectorBox.h"
 
 CharacterSelectScene::CharacterSelectScene(bool active) : Scene(active)
 {
@@ -19,9 +20,22 @@ bool CharacterSelectScene::Start()
 
 	for (int i = 0; i < 4; ++i)
 	{
-		_rects.push_back(new SDL_Rect({ i*_rectHSize, 0, _rectHSize, _rectVSize }));
-		_labels.push_back(new SDL_Rect({ i*_labelHSize, 356, _labelHSize, _labelVSize }));
 		_bubbles.push_back(new SDL_Rect({ i * 32, 672, 32, 28 }));
+	}
+
+	static iPoint headCoords[4] = {};
+	static iPoint headSizes[4] = {};
+	static iPoint eyeCoords[4] = {};
+	static iPoint eyeOpenCoords[4] = {};
+
+	// TODO: Use factory
+	for (int i = 0; i < 4; ++i)
+	{
+		PlayerSelectorBox* box = new PlayerSelectorBox;
+		AddEntity(box);
+		box->SetGraphics(_graphics);
+		box->SetCoords(i, headCoords[i], headSizes[i], eyeCoords[i], eyeOpenCoords[i]);
+		_boxes.push_back(box);
 	}
 
 	return true;
@@ -29,11 +43,7 @@ bool CharacterSelectScene::Start()
 
 update_status CharacterSelectScene::Update()
 {
-	for (int i = 0; i < 4; ++i)
-	{
-		App->renderer->DirectBlit(_graphics, _rectHSize*i, 0, _rects[i]);
-		App->renderer->DirectBlit(_graphics, _rectHSize*i, _rectVSize - _labelVSize - 4, _labels[i]);
-	}
+	Scene::Update();
 
 	int positioned = 0, selected = 0;
 	
@@ -58,6 +68,7 @@ update_status CharacterSelectScene::Update()
 				}
 				else if (App->input->GetPlayerKey(i, ATTACK) == KEY_DOWN)
 				{
+					_boxes[i]->Activate();
 					_selected[i] = true;
 				}
 			}
@@ -99,12 +110,12 @@ update_status CharacterSelectScene::Update()
 
 bool CharacterSelectScene::CleanUp()
 {
+	Scene::CleanUp();
+
 	App->textures->Unload(_graphics);
 
 	for (int i = 0; i < 4; ++i)
 	{
-		RELEASE(_rects[i]);
-		RELEASE(_labels[i]);
 		RELEASE(_bubbles[i]);
 	}
 

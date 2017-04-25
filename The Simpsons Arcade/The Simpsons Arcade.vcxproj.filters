@@ -52,6 +52,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{a43b167f-397d-414b-b8d5-8ff108b63ff9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{3ece3991-6728-4073-8a03-2c0b0fca601a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -132,9 +135,6 @@
     <ClCompile Include="HomerWin.cpp">
       <Filter>StateMachine\HomerFSM</Filter>
     </ClCompile>
-    <ClCompile Include="UIEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Lisa.cpp">
       <Filter>NPC\Player\Lisa</Filter>
     </ClCompile>
@@ -158,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="CharacterSelectScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="UIEntity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSelectorBox.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,9 +257,6 @@
     <ClInclude Include="Marge.h">
       <Filter>NPC\Player\Marge</Filter>
     </ClInclude>
-    <ClInclude Include="UIEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FirstScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -268,6 +271,12 @@
     </ClInclude>
     <ClInclude Include="CharacterSelectScene.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="UIEntity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSelectorBox.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

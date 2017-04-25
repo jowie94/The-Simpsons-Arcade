@@ -49,6 +49,7 @@
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="HomerRevive.cpp" />
+    <ClCompile Include="PlayerSelectorBox.cpp" />
     <ClCompile Include="Royd.cpp" />
     <ClCompile Include="HomerWin.cpp" />
     <ClCompile Include="StartScene.cpp" />
@@ -86,6 +87,7 @@
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="HomerRevive.h" />
+    <ClInclude Include="PlayerSelectorBox.h" />
     <ClInclude Include="Royd.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="State.h" />

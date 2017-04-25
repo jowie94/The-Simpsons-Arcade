@@ -1,5 +1,8 @@
 #pragma once
 #include "Scene.h"
+
+class PlayerSelectorBox;
+
 class CharacterSelectScene :
 	public Scene
 {
@@ -16,8 +19,7 @@ private:
 
 	SDL_Texture* _graphics;
 
-	std::vector<SDL_Rect*> _rects;
-	std::vector<SDL_Rect*> _labels;
+	std::vector<PlayerSelectorBox*> _boxes;
 	std::vector<SDL_Rect*> _bubbles;
 
 	int _positions[4] = { -1, -1, -1, -1 };
